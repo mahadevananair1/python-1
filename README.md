@@ -1,2 +1,2 @@
 # Python
-This is all Python code that I have practice
+All Python code and pratices 
