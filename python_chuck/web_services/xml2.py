@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-input = '''
+data = '''
 <stuff>
     <users>
         <user x="2">
@@ -14,7 +14,7 @@ input = '''
     </users>
 </stuff>'''
 
-stuff = ET.fromstring(input)
+stuff = ET.fromstring(data)
 lst = stuff.findall('users/user')
 print('User count:', len(lst))
 
