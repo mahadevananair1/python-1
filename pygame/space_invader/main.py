@@ -56,6 +56,13 @@ font = pygame.font.Font('arcadeclassic.regular.ttf', 32)
 text_x = 10
 text_y = 10
 
+# Game over
+over_font = pygame.font.Font('arcadeclassic.regular.ttf', 70)
+
+def game_over_text():
+    over_text = over_font.render("GAME OVER!", True, (255, 255, 255))
+    screen.blit(over_text, (250, 250))
+
 
 def show_score(x, y):
     score_value = font.render("Score " + str(score), True, (255, 255, 255))
@@ -121,6 +128,12 @@ while running:
 
     # Enemy movement
     for i in range(num_of_enemies):
+        # Game over
+        if enemy_y[i] > 440:
+            for j in range(num_of_enemies):
+                enemy_y[j] = 2000
+            game_over_text()
+            break
         enemy_x[i] += enemy_x_change[i]
         if enemy_x[i] <= 0:
             enemy_x_change[i] = 3.5
