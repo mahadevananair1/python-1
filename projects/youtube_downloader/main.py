@@ -1,11 +1,17 @@
 import pytube
 
-save_path = '/home/jan/Downloads'
 link = input('Enter a link: ')
+yt = pytube.YouTube(link)
 
-while True:
-    youtube = pytube.YouTube(link)
-    video = youtube.streams.first()
-    video.download(save_path)
+videos = yt.streams.all()
+i = 1
+for stream in videos:
+    print(str(i) +''+ str(stream))
+    i += i
 
-print("Task Completed!")
+stream_number = int(input('Enter nuumber: '))
+video = videos[stream_number - 1]
+video.download("/home/jan/Downloads")
+
+print("Downloaded")
+
