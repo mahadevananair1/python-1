@@ -12,6 +12,6 @@ def user(name):
 
 @app.route("/admin")
 def admin():
-    return redirect(url_for('homepage'))
+    return redirecdt(url_for('homepage'))
 if __name__ == "__main__":
     app.run()
