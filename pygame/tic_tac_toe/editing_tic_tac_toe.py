@@ -64,7 +64,6 @@ def check_for_winner():
 
     if row_winner:
         winner = row_winner
-        game_still_going = False
     elif column_winner:
         winner = column_winner
     elif diagonal_winner:
@@ -87,11 +86,11 @@ def check_rows():
 
     # or
 
-    for row_index in range(3):
-        i = row_index * 3
-        if board[i+0] == board[i+1] == board[i+2] != "-":
-            return board[i]
-    return None
+    #for row_index in range(3):
+        #i = row_index * 3
+        #if board[i+0] == board[i+1] == board[i+2] != "-":
+            #return board[i]
+    #return None
 
 
 
