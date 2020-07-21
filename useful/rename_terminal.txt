@@ -1,0 +1,4 @@
+title () {
+	printf '\x1b]1;%s\x07' "${1}"
+	printf '\x1b]2;%s\x07' "${1}"
+}
