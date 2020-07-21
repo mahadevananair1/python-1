@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}User Page{% blocktitle %}
+{% block title %}Login Page{% endblock %}
 
 {% block content %}
   {% with messages = get_flashed_messages() %}
@@ -9,5 +9,5 @@
       {% endfor %}
     {% endif %}
   {% endwith %}
-  <p>Welcome, {{user}}</p>
+<p>Welcome, {{user}}!</p>
 {% endblock %}

@@ -29,6 +29,7 @@ def user():
         user = session["user"]
         return render_template(url_for("user.html", user=user))
     else:
+        flash("You are not login in!")
         return redirect(url_for("login"))
 
 @app.route("/logout")
