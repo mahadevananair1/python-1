@@ -5,5 +5,18 @@ click to check
     So you need to map (x,y) coordinates to the range of points (0,0)->(2,2), because you have a 3x3 grid.
 
 coordinates
-    start: (200, 0)
-    end:    (400, 150)
+    cell two
+        start: (200, 0)
+        end:    (400, 150)
+    
+    cell three
+        start: (400, 0)
+        end:    (600, 150)
+    
+    cell five:
+        start:  (200, 150)
+        end:    (400, 335)
+    
+    cell six:
+        start: (400, 155)
+        end:    (600, 335)

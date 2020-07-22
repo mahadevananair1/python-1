@@ -23,15 +23,24 @@ def click_to_cell():
     if pos[0] < 200 and pos[1] < 150:
         cell_one = pos
         print("Cell one")
-    elif pos[0] >= 200 and pos[1] < 150:
+    elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
         cell_two = pos
         print("Cell two")
-    elif pos[0] < 200 and pos[1] < 335:
-        cell_three = pos
+    elif pos[0] >= 400 and pos[0] < 600 and pos[1] < 150:
+        cell_three = pos 
         print("Cell three")
-    elif pos[0] < 200 and pos[1] < 500:
+    elif pos[0] < 200 and pos[1] < 335:
+        cell_four = pos
+        print("Cell four")
+    elif pos[0] >= 200 and pos[0] < 400 and pos[1] >= 150 and pos[1] < 335:
+        cell_five = pos
+        print("Cell five")
+    elif pos[0] >= 400 and pos[0] < 600 and pos[1] >= 155 and pos[1] < 355:
         cell_six = pos 
         print("Cell six")
+    elif pos[0] < 200 and pos[1] < 500:
+        cell_seven = pos 
+        print("Cell seven")
 
 
 clock = pygame.time.Clock()
