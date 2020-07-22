@@ -18,12 +18,17 @@ def draw_o():
     screen.blit(o_img, (250, 200))
 
 def click_to_cell():
+    if pos:
+        print(pos)
     if pos[0] < 200 and pos[1] < 150:
         column_one = pos
         print("Column one")
     elif pos[0] < 200 and pos[1] < 335:
-        column_two = pos
-        print("Column two")
+        column_three = pos
+        print("Column three")
+    elif pos[0] < 200 and pos[1] < 500:
+        column_six = pos 
+        print("Column six")
 
 
 clock = pygame.time.Clock()
