@@ -23,18 +23,13 @@ def draw_x():
 def draw_o():
     screen.blit(o_img, (250, 200))
 
-def draw_XO():
-    if pos == cell_one:
-        screen.blit(x_img)
-
 def click_to_cell():
     if pos[0] < 200 and pos[1] < 150:
         cell_one = pos
         print("Cell one")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
         cell_two = pos
-        if pos == cell_two:
-            screen.blit(x_img, (100,200))
+        screen.blit(x_img, (100,200))
         print("Cell two")
     elif pos[0] >= 400 and pos[0] < 600 and pos[1] < 150:
         cell_three = pos 
@@ -72,7 +67,6 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             click_to_cell()
-            draw_XO()
 
     screen.fill((white))
     # draw vertical line on screen
