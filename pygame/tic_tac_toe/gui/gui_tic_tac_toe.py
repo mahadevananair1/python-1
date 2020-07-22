@@ -17,6 +17,15 @@ def draw_x():
 def draw_o():
     screen.blit(o_img, (250, 200))
 
+def click_to_cell():
+    if pos[0] < 200 and pos[1] < 150:
+        column_one = pos
+        print("Column one")
+    elif pos[0] < 200 and pos[1] < 335:
+        column_two = pos
+        print("Column two")
+
+
 clock = pygame.time.Clock()
 fps = 60
 
@@ -28,8 +37,7 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
-            if pos < (200, 150):
-                print(pos)
+            click_to_cell()
 
     screen.fill((white))
     # draw vertical line on screen
