@@ -26,6 +26,10 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+            if pos < (200, 150):
+                print(pos)
 
     screen.fill((white))
     # draw vertical line on screen

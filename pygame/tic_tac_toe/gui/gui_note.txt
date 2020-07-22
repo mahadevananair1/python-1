@@ -1,0 +1,4 @@
+Just integer-divide the x and y coordinates of the click by the dimensions of a cell.
+If the cells are 50x50 and I click (120,70): 120//50==2 and 70//50==1, so you know I clicked column 2 and row 1 (zero-based).
+Your current problem is this: when the user clicks, figure out which cell they clicked.
+So you need to map (x,y) coordinates to the range of points (0,0)->(2,2), because you have a 3x3 grid.
