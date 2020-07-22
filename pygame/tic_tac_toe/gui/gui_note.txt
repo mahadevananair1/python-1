@@ -7,16 +7,24 @@ click to check
 coordinates
     cell two
         start: (200, 0)
-        end:    (400, 150)
+        end:   (400, 150)
     
     cell three
         start: (400, 0)
-        end:    (600, 150)
+        end:   (600, 150)
     
-    cell five:
+    cell five
         start:  (200, 150)
         end:    (400, 335)
     
-    cell six:
-        start: (400, 155)
-        end:    (600, 335)
+    cell six
+        start: (400, 150)
+        end:   (595, 330)
+
+    cell eight:
+        start: (200, 335)
+        end:   (400, 500)
+
+    cell nine:
+        start: (400, 335)
+        end:   (600, 500)
