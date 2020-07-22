@@ -32,7 +32,7 @@ def click_to_cell():
         screen.blit(x_img, (100,200))
         print("Cell two")
     elif pos[0] >= 400 and pos[0] < 600 and pos[1] < 150:
-        cell_three = pos 
+        cell_three = pos
         print("Cell three")
     elif pos[0] < 200 and pos[1] < 335:
         cell_four = pos
