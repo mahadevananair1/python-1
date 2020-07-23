@@ -4,13 +4,6 @@ pygame.init()
 white = (255, 255, 255)
 line_color = (0, 0, 0)
 
-xo = 'X'
-
-def draw_xo(x, y):
-    global xo
-    xo = 'X'
-    screen.blit(x_img, (x, y))
-
 width, height = 600, 500
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
@@ -24,11 +17,16 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
+def draw_xo():
+    global cell_one
+    if cell_one is True:
+        screen.blit(x_img, (100,100))
+
+
 def click_to_cell():
     global cell_one
     if pos[0] < 200 and pos[1] < 150:
         cell_one = True
-        cell_one = pos
         print("Cell one")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
         cell_two = True
@@ -82,7 +80,6 @@ while running:
     # screen.blit(x_img, (25,20))
     # screen.blit(x_img, (250,20))
 
-    if cell_one is True:
-        screen.blit(x_img, (100,100))
+    draw_xo()
 
     pygame.display.update()
