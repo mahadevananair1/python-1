@@ -4,6 +4,8 @@ pygame.init()
 white = (255, 255, 255)
 line_color = (0, 0, 0)
 
+xo = 'x'
+
 width, height = 600, 500
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
@@ -18,18 +20,17 @@ x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
 def draw_x():
-    screen.blit(x_img, (25, 15))
-
-def draw_o():
-    screen.blit(o_img, (250, 200))
+    if xo == 'x':
+        screen.blit(x_img, (100,100))
 
 def click_to_cell():
     if pos[0] < 200 and pos[1] < 150:
+        # screen.blit(x_img, (25,20))
         cell_one = pos
         print("Cell one")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
+        # screen.blit(x_img, (250,20))
         cell_two = pos
-        screen.blit(x_img, (100,200))
         print("Cell two")
     elif pos[0] >= 400 and pos[0] < 600 and pos[1] < 150:
         cell_three = pos
@@ -60,6 +61,7 @@ fps = 60
 
 running = True 
 while running:
+    screen.fill((white))
     clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -68,7 +70,6 @@ while running:
             pos = pygame.mouse.get_pos()
             click_to_cell()
 
-    screen.fill((white))
     # draw vertical line on screen
     pygame.draw.line(screen, (line_color), (200, 0), (200, 500), 5)
     pygame.draw.line(screen, (line_color), (400, 0), (400, 500), 5)
@@ -78,6 +79,5 @@ while running:
     pygame.draw.line(screen, (line_color), (0, 335), (600, 335), 5)
 
     draw_x()
-    draw_o()
 
     pygame.display.update()
