@@ -25,11 +25,10 @@ x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
 def click_to_cell():
+    global cell_one
     if pos[0] < 200 and pos[1] < 150:
         cell_one = True
         cell_one = pos
-        if cell_one is True:
-            screen.blit(x_img)
         print("Cell one")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
         cell_two = True
@@ -83,9 +82,7 @@ while running:
     # screen.blit(x_img, (25,20))
     # screen.blit(x_img, (250,20))
 
-    # if cell_one:
-        # screen.blit(x_img, (100,100))
-
-    draw_xo(100, 100)
+    if cell_one is True:
+        screen.blit(x_img, (100,100))
 
     pygame.display.update()
