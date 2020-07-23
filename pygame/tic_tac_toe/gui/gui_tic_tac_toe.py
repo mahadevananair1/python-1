@@ -19,17 +19,13 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
-def draw_x():
-    if xo == 'x':
-        screen.blit(x_img, (100,100))
-
 def click_to_cell():
     if pos[0] < 200 and pos[1] < 150:
-        # screen.blit(x_img, (25,20))
+        screen.blit(x_img, (25,20))
         cell_one = pos
         print("Cell one")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
-        # screen.blit(x_img, (250,20))
+        screen.blit(x_img, (250,20))
         cell_two = pos
         print("Cell two")
     elif pos[0] >= 400 and pos[0] < 600 and pos[1] < 150:
@@ -54,8 +50,6 @@ def click_to_cell():
         cell_nine = pos 
         print("Cell nine")
     
-
-
 clock = pygame.time.Clock()
 fps = 60
 
@@ -77,7 +71,5 @@ while running:
     # draw horizontal line
     pygame.draw.line(screen, (line_color), (0, 150), (600, 150), 5)
     pygame.draw.line(screen, (line_color), (0, 335), (600, 335), 5)
-
-    draw_x()
 
     pygame.display.update()
