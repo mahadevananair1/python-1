@@ -119,6 +119,6 @@ while running:
     pygame.draw.line(screen, (line_color), (0, 335), (600, 335), 5)
     
     draw_xo()
-    handle_turn(current_player)
+    flip_player(current_player)
 
     pygame.display.update()
