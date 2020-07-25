@@ -12,12 +12,9 @@ pygame.display.set_caption("Tic Tac Toe")
 current_player = "X"
 
 project_directory = os.path.dirname(__file__)
-
 # loading images
 x_img = pygame.image.load(os.path.join(project_directory, "x.png"))
 o_img = pygame.image.load(os.path.join(project_directory, "o.png"))
-x_img = pygame.image.load("/home/jan/code/python/pygame/tic_tac_toe/gui/x.png")
-o_img = pygame.image.load("/home/jan/code/python/pygame/tic_tac_toe/gui/o.png")
 
 # resizing images
 width_resize, height_resize = 110, 110
@@ -38,7 +35,6 @@ def draw_xo():
     global current_player
     if cell_one is True:
         screen.blit(x_img, (25,15))
-        current_player = "O"
     if cell_two is True:
         screen.blit(x_img, (250, 15))
     if cell_three is True:
@@ -56,7 +52,19 @@ def draw_xo():
     if cell_nine is True:
         screen.blit(x_img, (450, 370))
 
+def flip_player(current_player):
+    if current_player == "X":
+        current_player = "O"
+    elif current_player == "O":
+        current_player = "X"
 
+def handle_turn(player):
+    valid = False
+    while not valid:
+        if x_img == cell_one:
+            valid = False
+        else:
+            print("You can't go there. Go again")
 def click_to_cell():
     global cell_one, cell_two, cell_three, cell_four, cell_five, cell_six, cell_seven, cell_eight, cell_nine
     if pos[0] < 200 and pos[1] < 150:
@@ -109,7 +117,8 @@ while running:
     # draw horizontal line
     pygame.draw.line(screen, (line_color), (0, 150), (600, 150), 5)
     pygame.draw.line(screen, (line_color), (0, 335), (600, 335), 5)
-
+    
     draw_xo()
+    handle_turn(current_player)
 
     pygame.display.update()
