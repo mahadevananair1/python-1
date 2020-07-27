@@ -1,4 +1,4 @@
-Python 3 Study Drills
+Study Drills
 
 1. Go back through and write a comment on what each line does.
 2. Read each one backward or out loud to find your errors.
