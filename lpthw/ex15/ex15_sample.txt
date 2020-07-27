@@ -1,0 +1,4 @@
+1) Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming
+2) Python Cookbook: Recipes for Mastering Python 3
+3) Learn Python the Hard Way
+4) Automate the Boring Stuff with Python, 2nd Edition: Practical Programming for Total Beginners
