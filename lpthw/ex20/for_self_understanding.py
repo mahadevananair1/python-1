@@ -27,3 +27,9 @@ print_a_line(current_line, current_file)
 
 current_line = current_line + 1
 print_a_line(current_line, current_file)
+
+# or
+
+#for i in range(3):
+    #i = i + 1
+    #print_a_line(i, current_file)
