@@ -41,7 +41,7 @@ print("Let's print three lines:\n")
 
 # set a variable = 1
 current_line = 1
-# call a function and pass argument
+# call a function and pass a variable and a argument
 print_a_line(current_line, current_file)
 
 # set a new variable and get the old variable and + 1 to it, and stored to new variable
@@ -53,4 +53,3 @@ print_a_line(current_line, current_file)
 current_line = current_line + 1
 # call a function and pass argument with new variable
 print_a_line(current_line, current_file)
-
