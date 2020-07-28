@@ -1,3 +1,4 @@
 .*.swp
 geckodriver.log
+__pycache__
 
