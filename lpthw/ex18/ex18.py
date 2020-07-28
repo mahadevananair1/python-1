@@ -11,9 +11,6 @@ def print_one(arg1):
 def print_none():
     print("I got nothin'.")
 
-def main():
-   pass 
-
 print_two("Jan", "Stager")
 print_two_again("Jan", "Stager")
 print_one("First!")
