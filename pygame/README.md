@@ -1,2 +1,2 @@
 # Pygame
-This is all my Games in Python(Pygames)
+This is all my games in Python(Pygame)
