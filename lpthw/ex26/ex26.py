@@ -1,3 +1,4 @@
+from sys import argv
 age = input("How old are you? ")
 height = input("How tall are you? ")
 weight = input("How much do you weigh? ")
@@ -7,7 +8,7 @@ print(f"So, you're {age} old, {height} tall and {weight} heavy.")
 
 script, filename = argv
 
-txt = open(filenme)
+txt = open(filename)
 
 print("Here's your file {filename}:")
 print(txt.read())
@@ -17,7 +18,7 @@ file_again = input("> ")
 
 txt_again = open(file_again)
 
-print(txt_again_read())
+print(txt_again.read())
 
 
 print('Let\'s practice everything.')
@@ -58,7 +59,7 @@ print(f"We'd have {beans} beans, {jars} jars, and {crates} crates.")
 start_point = start_point / 10
 
 print("We can also do that this way:")
-formula = secret_formula(startpoint)
+formula = secret_formula(start_point)
 # this is an easy way to apply a list to a format string
 print("We'd have {} beans, {} jars, and {} crates.".format(*formula))
 
