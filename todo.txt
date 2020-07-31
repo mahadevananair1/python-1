@@ -1,0 +1,3 @@
+Learn Python 3 The Hard Ward
+    * Learn page 110, String, Bytes, and Character Encodings
+    * let someone help you, is hard
