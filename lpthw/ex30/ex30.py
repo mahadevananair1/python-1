@@ -1,11 +1,14 @@
 people = 30
-cars = 40
+cars = 20
 trucks = 15
 
-if cars > people:
+# check if is True or False
+if cars > people or trucks < cars:
     print("We should take the cars")
+# if False goes to elif
 elif cars < people:
     print("We should not take the cars")
+# elif False goes to else and print
 else:
     print("We can't decide")
 
