@@ -1,5 +1,5 @@
 numbers = []
-final_num = 100
+final_num = 10
 
 def main():
     i = 0
