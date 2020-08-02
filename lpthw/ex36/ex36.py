@@ -12,7 +12,4 @@ for elem in in_data:
     n += 1
     print(n, elem)
 
-for i, l in enumerate(in_data):
-    print(i, l)
-
 in_file.close()
