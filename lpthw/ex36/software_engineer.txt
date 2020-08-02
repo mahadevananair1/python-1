@@ -1,6 +1,4 @@
 What does a software engineer do?
-
 Software engineers are responsible:
-    * building, developing, launching, and maintaining software products and systems, according to Indeed's career guide.
-
+building, developing, launching, and maintaining software products and systems, according to Indeed's career guide.
 Software systems include operating systems, business applications, connected hardware, networking systems, and mobile and web applications.
