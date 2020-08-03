@@ -9,19 +9,19 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 # Background
-back_image = pygame.image.load('background.png')
+back_image = pygame.image.load('/home/jan/code/python/pygame/space_invader/background.png')
 
 # Background sound
-pygame.mixer.music.load('back.wav')
+pygame.mixer.music.load('/home/jan/code/python/pygame/space_invader/back.wav')
 pygame.mixer.music.play(-1)
 
 # Caption and Icon
 pygame.display.set_caption('Pygame')
-icon = pygame.image.load('vr-gaming.png')
+icon = pygame.image.load('/home/jan/code/python/pygame/space_invader/vr-gaming.png')
 pygame.display.set_icon(icon)
 
 # Player
-player_img = pygame.image.load('space-invaders.png')
+player_img = pygame.image.load('/home/jan/code/python/pygame/space_invader/space-invaders.png')
 player_x = 370
 player_y = 480
 player_x_change = 0
@@ -35,14 +35,14 @@ enemy_y_change = []
 num_of_enemies = 6
 
 for i in range(num_of_enemies):
-    enemy_img.append(pygame.image.load('enemy.png'))
+    enemy_img.append(pygame.image.load('/home/jan/code/python/pygame/space_invader/enemy.png'))
     enemy_x.append(random.randint(0, 735))
     enemy_y.append(random.randint(50, 150))
     enemy_x_change.append(3.5)
     enemy_y_change.append(40)
 
 # Bullet
-bullet_img = pygame.image.load('bullet.png')
+bullet_img = pygame.image.load('/home/jan/code/python/pygame/space_invader/bullet.png')
 bullet_x = 0
 bullet_y = 480
 bullet_x_change = 0
@@ -51,12 +51,12 @@ bullet_state = 'Ready'
 
 # Score
 score = 0
-font = pygame.font.Font('arcadeclassic.regular.ttf', 32)
+font = pygame.font.Font('/home/jan/code/python/pygame/space_invader/arcadeclassic.regular.ttf', 32)
 text_x = 10
 text_y = 10
 
 # Game over
-over_font = pygame.font.Font('arcadeclassic.regular.ttf', 70)
+over_font = pygame.font.Font('/home/jan/code/python/pygame/space_invader/arcadeclassic.regular.ttf', 70)
 
 def game_over_text():
     over_text = over_font.render("GAME OVER!", True, (255, 255, 255))
@@ -105,7 +105,7 @@ while running:
                 player_x_change = 4
             if event.key == pygame.K_SPACE:
                 if bullet_state == 'Ready':
-                    bullet_sound = mixer.Sound('laser.wav')
+                    bullet_sound = mixer.Sound('/home/jan/code/python/pygame/space_invader/laser.wav')
                     bullet_sound.play()
                     bullet_x = player_x
                     fire_bullet(bullet_x, bullet_y)
@@ -139,7 +139,7 @@ while running:
         # Collision
         collision = is_collision(enemy_x[i], enemy_y[i], bullet_x, bullet_y)
         if collision:
-            bullet_sound = mixer.Sound('explosion.wav')
+            bullet_sound = mixer.Sound('/home/jan/code/python/pygame/space_invader/explosion.wav')
             bullet_sound.play()
             bullet_y = 480
             bullet_state = 'Ready'
