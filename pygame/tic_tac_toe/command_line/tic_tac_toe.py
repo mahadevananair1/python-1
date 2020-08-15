@@ -72,8 +72,6 @@ def check_for_winner():
         winner = None
     return
 
-
-
 def check_rows():
 
     if board[0] == board[1] == board[2] != "-":
@@ -92,8 +90,6 @@ def check_rows():
             #return board[i]
     #return None
 
-
-
 def check_columns():
 
     global game_still_going
@@ -110,9 +106,6 @@ def check_columns():
         return board[2]
     return
 
-
-
-
 def check_diagonals():
     global game_still_going
     diagonal_1 = board[0] == board[4] == board[8] != "-"
@@ -125,15 +118,11 @@ def check_diagonals():
         return board[2]
     return
 
-
-
 def check_if_tie():
     global game_still_going
     if "-" not in board:
         game_still_going = False
     return
-
-
 
 def flip_player():
     global current_player
@@ -143,8 +132,5 @@ def flip_player():
     elif current_player == "O":
         current_player = "X"
     return
-
-
-
 
 play_game()
