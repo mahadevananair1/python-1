@@ -34,31 +34,31 @@ cell_nine = False
 def draw_xo():
     global current_player
 
-    if current_player == "X" and cell_one is True:
+    if cell_one is True:
         screen.blit(x_img, (25,15))
         flip_player()
-    if current_player == "O" and cell_two is True:
+    if cell_two is True:
         screen.blit(o_img, (250, 15))
         flip_player()
-    if current_player == "X" and cell_three is True:
+    if cell_three is True:
         screen.blit(x_img, (450, 15))
         flip_player()
-    if current_player == "O" and cell_four is True:
+    if cell_four is True:
         screen.blit(o_img, (25, 190))
         flip_player()
-    if current_player == "X" and cell_five is True:
+    if cell_five is True:
         screen.blit(x_img, (250, 190))
         flip_player()
-    if current_player == "O" and cell_six is True:
+    if cell_six is True:
         screen.blit(o_img, (450, 190))
         flip_player()
-    if current_player == "X" and cell_seven is True:
+    if cell_seven is True:
         screen.blit(x_img, (25, 370))
         flip_player()
-    if current_player == "O" and cell_eight is True:
+    if cell_eight is True:
         screen.blit(o_img, (250, 370))
         flip_player()
-    if current_player == "X" and cell_nine is True:
+    if cell_nine is True:
         screen.blit(x_img, (450, 370))
         flip_player()
 
