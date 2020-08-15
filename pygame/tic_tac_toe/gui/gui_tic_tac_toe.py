@@ -1,4 +1,4 @@
-import pygame 
+import pygame
 import os.path
 pygame.init()
 
@@ -33,72 +33,72 @@ cell_nine = False
 
 def draw_xo():
     global current_player
-    if cell_one is True:
-        screen.blit(x_img, (25,15))
-    if cell_two is True:
-        screen.blit(x_img, (250, 15))
-    if cell_three is True:
-        screen.blit(x_img, (450, 15))
-    if cell_four is True:
-        screen.blit(x_img, (25, 190))
-    if cell_five is True:
-        screen.blit(x_img, (250, 190))
-    if cell_six is True:
-        screen.blit(x_img, (450, 190))
-    if cell_seven is True:
-        screen.blit(x_img, (25, 370))
-    if cell_eight is True:
-        screen.blit(x_img, (250, 370))
-    if cell_nine is True:
-        screen.blit(x_img, (450, 370))
 
-def flip_player(current_player):
+    if current_player == "X" and cell_one is True:
+        screen.blit(x_img, (25,15))
+        flip_player()
+    if current_player == "O" and cell_two is True:
+        screen.blit(o_img, (250, 15))
+        flip_player()
+    if current_player == "X" and cell_three is True:
+        screen.blit(x_img, (450, 15))
+        flip_player()
+    if current_player == "O" and cell_four is True:
+        screen.blit(o_img, (25, 190))
+        flip_player()
+    if current_player == "X" and cell_five is True:
+        screen.blit(x_img, (250, 190))
+        flip_player()
+    if current_player == "O" and cell_six is True:
+        screen.blit(o_img, (450, 190))
+        flip_player()
+    if current_player == "X" and cell_seven is True:
+        screen.blit(x_img, (25, 370))
+        flip_player()
+    if current_player == "O" and cell_eight is True:
+        screen.blit(o_img, (250, 370))
+        flip_player()
+    if current_player == "X" and cell_nine is True:
+        screen.blit(x_img, (450, 370))
+        flip_player()
+
+def flip_player():
+    global current_player
+
     if current_player == "X":
         current_player = "O"
     elif current_player == "O":
         current_player = "X"
 
-def handle_turn(player):
-    valid = False
-    while not valid:
-        if x_img == cell_one:
-            valid = False
-        else:
-            print("You can't go there. Go again")
 def click_to_cell():
     global cell_one, cell_two, cell_three, cell_four, cell_five, cell_six, cell_seven, cell_eight, cell_nine
+
     if pos[0] < 200 and pos[1] < 150:
         cell_one = True
         print("Cell one")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] < 150:
-        cell_two = True 
+        cell_two = True
         print("Cell two")
     elif pos[0] >= 400 and pos[0] < 600 and pos[1] < 150:
         cell_three = True
         print("Cell three")
     elif pos[0] < 200 and pos[1] < 335:
-        cell_four = True
         print("Cell four")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] >= 150 and pos[1] < 335:
-        cell_five = True
         print("Cell five")
     elif pos[0] >= 400 and pos[0] < 595 and pos[1] >= 150 and pos[1] < 330:
-        cell_six = True 
         print("Cell six")
     elif pos[0] < 200 and pos[1] < 500:
-        cell_seven = True 
         print("Cell seven")
     elif pos[0] >= 200 and pos[0] < 400 and pos[1] >= 335 and pos[1] < 500:
-        cell_eight = True 
         print("Cell eight")
     elif pos[0] >= 400 and pos[0] < 600 and pos[1] >= 335 and pos[1] < 500:
-        cell_nine = True 
         print("Cell nine")
-    
+
 clock = pygame.time.Clock()
 fps = 60
 
-running = True 
+running = True
 while running:
     clock.tick(60)
     screen.fill((white))
@@ -109,7 +109,7 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             click_to_cell()
-            
+
     # draw vertical line on screen
     pygame.draw.line(screen, (line_color), (200, 0), (200, 500), 5)
     pygame.draw.line(screen, (line_color), (400, 0), (400, 500), 5)
@@ -117,8 +117,7 @@ while running:
     # draw horizontal line
     pygame.draw.line(screen, (line_color), (0, 150), (600, 150), 5)
     pygame.draw.line(screen, (line_color), (0, 335), (600, 335), 5)
-    
+
     draw_xo()
-    flip_player(current_player)
 
     pygame.display.update()
