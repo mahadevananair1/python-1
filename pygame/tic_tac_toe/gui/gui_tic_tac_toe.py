@@ -31,9 +31,9 @@ fourth = pygame.draw.rect(screen, (line_color), (25, 200, 150, 150))
 fifth = pygame.draw.rect(screen, (line_color), (200, 200, 150, 150))
 sixth = pygame.draw.rect(screen, (line_color), (375, 200, 150, 150))
 
-seven = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
-eight = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
-nine = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
+seventh = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
+eighth = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
+ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
 
 clock = pygame.time.Clock()
 fps = 60
@@ -49,4 +49,23 @@ while running:
             pos = pygame.mouse.get_pos()
             print(pos)
 
+            if first.collidepoint(pos):
+                screen.blit(x_img, (50, 50))
+            if second.collidepoint(pos):
+                screen.blit(x_img, (225, 50))
+            if third.collidepoint(pos):
+                screen.blit(x_img, (400, 50))
+            if fourth.collidepoint(pos):
+                pygame.draw.rect(screen, (255, 0, 0), (50, 225, 100, 100))
+            if fifth.collidepoint(pos):
+                pygame.draw.rect(screen, (255, 0, 0), (225, 225, 100, 100))
+            if sixth.collidepoint(pos):
+                pygame.draw.rect(screen, (255, 0, 0), (400, 225, 100, 100))
+
+            if seventh.collidepoint(pos):
+                pygame.draw.rect(screen, (255, 0, 0), (50, 400, 100, 100))
+            if eighth.collidepoint(pos):
+                pygame.draw.rect(screen, (255, 0, 0), (225, 400, 100, 100))
+            if ninth.collidepoint(pos):
+                pygame.draw.rect(screen, (255, 0, 0), (400, 400, 100, 100))
     pygame.display.update()
