@@ -1,16 +1,13 @@
 import pygame
 import os.path
 
+# Screen
 pygame.init()
-
 black = (0, 0, 0)
 line_color = (255, 255, 255)
-
 width, height = 550, 550
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
-
-current_player = "X"
 
 project_directory = os.path.dirname(__file__)
 # loading images
@@ -37,6 +34,8 @@ ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
 
 clock = pygame.time.Clock()
 fps = 60
+current_player = "X"
+print(current_player)
 
 running = True
 while running:
@@ -47,20 +46,38 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
-            print(pos)
+            
 
             if first.collidepoint(pos):
-                screen.blit(x_img, (50, 50))
+                if current_player == "X":
+                    screen.blit(x_img, (50, 50))
+                    current_player == "O"
+                else:
+                    screen.blit(o_img, (50, 50))
+                    current_player == "X"
             if second.collidepoint(pos):
-                screen.blit(x_img, (225, 50))
+                if current_player == "X":
+                    screen.blit(x_img, (225, 50))
+                    current_player == "O"
+                else:
+                    screen.blit(o_img, (225, 50))
+                    current_player == "X"
             if third.collidepoint(pos):
-                screen.blit(x_img, (400, 50))
+                if current_player == "X":
+                    screen.blit(x_img, (400, 50))
+                    current_player == "O"
+                else:
+                    screen.blit(o_img, (400, 50))
+                    current_player == "X"
+
+
             if fourth.collidepoint(pos):
                 pygame.draw.rect(screen, (255, 0, 0), (50, 225, 100, 100))
             if fifth.collidepoint(pos):
                 pygame.draw.rect(screen, (255, 0, 0), (225, 225, 100, 100))
             if sixth.collidepoint(pos):
                 pygame.draw.rect(screen, (255, 0, 0), (400, 225, 100, 100))
+
 
             if seventh.collidepoint(pos):
                 pygame.draw.rect(screen, (255, 0, 0), (50, 400, 100, 100))
