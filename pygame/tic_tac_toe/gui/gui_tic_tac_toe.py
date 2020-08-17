@@ -38,15 +38,17 @@ clock = pygame.time.Clock()
 fps = 60
 current_player = "X"
 
-first_open = True
-second_open = True
-third_open = True
-fourth_open = True
-fifth_open = True
-sixth_open = True
-seventh_open = True
-eighth_open = True
-ninth_open = True
+def check_if_open():
+    global first_open, second_open, third_open, fourth_open, fifth_open, sixth_open, seventh_open, eighth_open, ninth_open
+    first_open = True
+    second_open = True
+    third_open = True
+    fourth_open = True
+    fifth_open = True
+    sixth_open = True
+    seventh_open = True
+    eighth_open = True
+    ninth_open = True
 
 running = True
 while running:
@@ -58,6 +60,7 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
+                check_if_open()
                 draw_rectangle()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
