@@ -34,10 +34,6 @@ def draw_rectangle():
     ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
 draw_rectangle()
 
-clock = pygame.time.Clock()
-fps = 60
-current_player = "X"
-
 def check_if_open():
     global first_open, second_open, third_open, fourth_open, fifth_open, sixth_open, seventh_open, eighth_open, ninth_open
     first_open = True
@@ -50,6 +46,13 @@ def check_if_open():
     eighth_open = True
     ninth_open = True
 check_if_open()
+
+current_player = "X"
+board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+clock = pygame.time.Clock()
+fps = 60
+
 running = True
 while running:
     clock.tick(60)
@@ -69,72 +72,91 @@ while running:
                 if current_player == "X":
                     screen.blit(x_img, (50, 50))
                     current_player = "O"
+                    board[0][0] = 1
                 else:
                     screen.blit(o_img, (50, 50))
                     current_player = "X"
+                    board[0][0] = 2
                 first_open = False
             if second.collidepoint(pos) and second_open:
                 if current_player == "X":
                     screen.blit(x_img, (225, 50))
                     current_player = "O"
+                    board[0][1] = 1
                 else:
                     screen.blit(o_img, (225, 50))
                     current_player = "X"
+                    board[0][1] = 2
                 second_open = False
             if third.collidepoint(pos) and third_open:
                 if current_player == "X":
                     screen.blit(x_img, (400, 50))
                     current_player = "O"
+                    board[0][2] = 1
                 else:
                     screen.blit(o_img, (400, 50))
                     current_player = "X"
+                    board[0][2] = 2
                 third_open = False
             if fourth.collidepoint(pos) and fourth_open:
                 if current_player == "X":
                     screen.blit(x_img, (50, 225))
                     current_player = "O"
+                    board[1][0] = 1
                 else:
                     screen.blit(o_img, (50, 225))
                     current_player = "X"
+                    board[1][0] = 2
                 fourth_open = False
             if fifth.collidepoint(pos) and fifth_open:
                 if current_player == "X":
                     screen.blit(x_img, (225, 225))
                     current_player = "O"
+                    board[1][1] = 1
                 else:
                     screen.blit(o_img, (225, 225))
                     current_player = "X"
+                    board[1][1] = 2
                 fifth_open = False
             if sixth.collidepoint(pos) and sixth_open:
                 if current_player == "X":
                     screen.blit(x_img, (400, 225))
                     current_player = "O"
+                    board[1][2] = 1
                 else:
                     screen.blit(o_img, (400, 225))
                     current_player = "X"
+                    board[1][2] = 2
                 sixth_open = False
             if seventh.collidepoint(pos) and seventh_open:
                 if current_player == "X":
                     screen.blit(x_img, (50, 400))
                     current_player = "O"
+                    board[2][0] = 1
                 else:
                     screen.blit(o_img, (50, 400))
                     current_player = "X"
+                    board[2][0] = 2
                 seventh_open = False
             if eighth.collidepoint(pos) and eighth_open:
                 if current_player == "X":
                     screen.blit(x_img, (225, 400))
                     current_player = "O"
+                    board[2][1] = 1
                 else:
                     screen.blit(o_img, (225, 400))
                     current_player = "X"
+                    board[2][1] = 2
                 eighth_open = False
             if ninth.collidepoint(pos) and ninth_open:
                 if current_player == "X":
                     screen.blit(x_img, (400, 400))
                     current_player = "O"
+                    board[2][2] = 1
                 else:
                     screen.blit(o_img, (400, 400))
                     current_player = "X"
+                    board[2][2] = 2
                 ninth_open = False
     pygame.display.update()
+print(board)
