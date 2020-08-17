@@ -1,5 +1,5 @@
-import pygame
 import os.path
+import pygame
 
 # Screen
 pygame.init()
@@ -19,6 +19,7 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
+
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
     first = pygame.draw.rect(screen, (line_color), (25, 25, 150, 150))
@@ -32,7 +33,10 @@ def draw_rectangle():
     seventh = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
+
+
 draw_rectangle()
+
 
 def check_if_open():
     global first_open, second_open, third_open, fourth_open, fifth_open, sixth_open, seventh_open, eighth_open, ninth_open
@@ -45,6 +49,8 @@ def check_if_open():
     seventh_open = True
     eighth_open = True
     ninth_open = True
+
+
 check_if_open()
 
 # def check_win(num):

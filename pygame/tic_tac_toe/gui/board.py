@@ -1,11 +1,18 @@
-board = [[1, 0, 2], [1, 1, 2], [1, 2, 0]]
+board = [[1, 1, 1], [0, 2, 2], [2, 2, 0]]
+
 
 def check(num):
-    for column in range(3):
-        for row in board:
-            print(row[column] == num)
+    for row in board:
+        for tile in row:
+            if tile == num:
+                continue
+            else:
+                break
+        else:
+            print("X won")
+
 
 if check(1):
-    print("x won")
+    won = True
 if check(2):
-    print("O won")
+    won = True
