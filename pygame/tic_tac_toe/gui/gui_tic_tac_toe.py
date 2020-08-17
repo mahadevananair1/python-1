@@ -37,6 +37,14 @@ fps = 60
 current_player = "X"
 
 first_open = True
+second_open = True
+third_open = True
+fourth_open = True
+fifth_open = True
+sixth_open = True
+seventh_open = True
+eighth_open = True
+ninth_open = True
 
 running = True
 while running:
@@ -56,62 +64,68 @@ while running:
                     screen.blit(o_img, (50, 50))
                     current_player = "X"
                 first_open = False
-
-            if second.collidepoint(pos):
+            if second.collidepoint(pos) and second_open:
                 if current_player == "X":
                     screen.blit(x_img, (225, 50))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (225, 50))
                     current_player = "X"
-            if third.collidepoint(pos):
+                second_open = False
+            if third.collidepoint(pos) and third_open:
                 if current_player == "X":
                     screen.blit(x_img, (400, 50))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (400, 50))
                     current_player = "X"
-
-            if fourth.collidepoint(pos):
+                third_open = False
+            if fourth.collidepoint(pos) and fourth_open:
                 if current_player == "X":
                     screen.blit(x_img, (50, 225))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (50, 225))
                     current_player = "X"
-            if fifth.collidepoint(pos):
+                fourth_open = False
+            if fifth.collidepoint(pos) and fifth_open:
                 if current_player == "X":
                     screen.blit(x_img, (225, 225))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (225, 225))
                     current_player = "X"
-            if sixth.collidepoint(pos):
+                fifth_open = False
+            if sixth.collidepoint(pos) and sixth_open:
                 if current_player == "X":
                     screen.blit(x_img, (400, 225))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (400, 225))
                     current_player = "X"
-            if seventh.collidepoint(pos):
+                sixth_open = False
+            if seventh.collidepoint(pos) and seventh_open:
                 if current_player == "X":
                     screen.blit(x_img, (50, 400))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (50, 400))
                     current_player = "X"
-            if eighth.collidepoint(pos):
+                seventh_open = False
+            if eighth.collidepoint(pos) and eighth_open:
                 if current_player == "X":
                     screen.blit(x_img, (225, 400))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (225, 400))
                     current_player = "X"
-            if ninth.collidepoint(pos):
+                eighth_open = False
+            if ninth.collidepoint(pos) and ninth_open:
                 if current_player == "X":
                     screen.blit(x_img, (400, 400))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (400, 400))
                     current_player = "X"
+                ninth_open = False
     pygame.display.update()
