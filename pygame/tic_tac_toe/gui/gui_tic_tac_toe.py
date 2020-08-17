@@ -19,7 +19,6 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
-# Draw rectangle
 first = pygame.draw.rect(screen, (line_color), (25, 25, 150, 150))
 second = pygame.draw.rect(screen, (line_color), (200, 25, 150, 150))
 third = pygame.draw.rect(screen, (line_color), (375, 25, 150, 150))
@@ -53,6 +52,20 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                first = pygame.draw.rect(screen, (line_color), (25, 25, 150, 150))
+                second = pygame.draw.rect(screen, (line_color), (200, 25, 150, 150))
+                third = pygame.draw.rect(screen, (line_color), (375, 25, 150, 150))
+
+                fourth = pygame.draw.rect(screen, (line_color), (25, 200, 150, 150))
+                fifth = pygame.draw.rect(screen, (line_color), (200, 200, 150, 150))
+                sixth = pygame.draw.rect(screen, (line_color), (375, 200, 150, 150))
+
+                seventh = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
+                eighth = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
+                ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
 
