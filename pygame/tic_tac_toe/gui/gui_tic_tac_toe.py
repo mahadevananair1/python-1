@@ -46,43 +46,69 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
-            
 
             if first.collidepoint(pos):
                 if current_player == "X":
                     screen.blit(x_img, (50, 50))
-                    current_player == "O"
+                    current_player = "O"
                 else:
                     screen.blit(o_img, (50, 50))
-                    current_player == "X"
+                    current_player = "X"
             if second.collidepoint(pos):
                 if current_player == "X":
                     screen.blit(x_img, (225, 50))
-                    current_player == "O"
+                    current_player = "O"
                 else:
                     screen.blit(o_img, (225, 50))
-                    current_player == "X"
+                    current_player = "X"
             if third.collidepoint(pos):
                 if current_player == "X":
                     screen.blit(x_img, (400, 50))
-                    current_player == "O"
+                    current_player = "O"
                 else:
                     screen.blit(o_img, (400, 50))
-                    current_player == "X"
-
+                    current_player = "X"
 
             if fourth.collidepoint(pos):
-                pygame.draw.rect(screen, (255, 0, 0), (50, 225, 100, 100))
+                if current_player == "X":
+                    screen.blit(x_img, (50, 225))
+                    current_player = "O"
+                else:
+                    screen.blit(o_img, (50, 225))
+                    current_player = "X"
             if fifth.collidepoint(pos):
-                pygame.draw.rect(screen, (255, 0, 0), (225, 225, 100, 100))
+                if current_player == "X":
+                    screen.blit(x_img, (225, 225))
+                    current_player = "O"
+                else:
+                    screen.blit(o_img, (225, 225))
+                    current_player = "X"
             if sixth.collidepoint(pos):
-                pygame.draw.rect(screen, (255, 0, 0), (400, 225, 100, 100))
-
-
+                if current_player == "X":
+                    screen.blit(x_img, (400, 225))
+                    current_player = "O"
+                else:
+                    screen.blit(o_img, (400, 225))
+                    current_player = "X"
             if seventh.collidepoint(pos):
-                pygame.draw.rect(screen, (255, 0, 0), (50, 400, 100, 100))
+                if current_player == "X":
+                    screen.blit(x_img, (50, 400))
+                    current_player = "O"
+                else:
+                    screen.blit(o_img, (50, 400))
+                    current_player = "X"
             if eighth.collidepoint(pos):
-                pygame.draw.rect(screen, (255, 0, 0), (225, 400, 100, 100))
+                if current_player == "X":
+                    screen.blit(x_img, (225, 400))
+                    current_player = "O"
+                else:
+                    screen.blit(o_img, (225, 400))
+                    current_player = "X"
             if ninth.collidepoint(pos):
-                pygame.draw.rect(screen, (255, 0, 0), (400, 400, 100, 100))
+                if current_player == "X":
+                    screen.blit(x_img, (400, 400))
+                    current_player = "O"
+                else:
+                    screen.blit(o_img, (400, 400))
+                    current_player = "X"
     pygame.display.update()
