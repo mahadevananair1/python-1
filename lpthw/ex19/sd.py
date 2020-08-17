@@ -4,11 +4,13 @@ def main(name, language, country, game):
     print(f"You're in {country}")
     print(f"Favorite game is {game}")
 
+
 def number(age, earn_money, spend):
     print(f"He is {age} year old")
     print(f"After five years, he will be {age + 5}")
     print(f"He earn {earn_money}")
     print(f"He spends {spend} per month\n")
+
 
 print("Jan's:")
 main('jan', 'python', 'thailand', 'arcade games')

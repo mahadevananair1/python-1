@@ -1,6 +1,7 @@
-from tkinter import *
-import pyperclip
 import random
+
+import pyperclip
+from tkinter import *
 
 # Set screen
 root = Tk()
@@ -26,9 +27,11 @@ def generate():
         password += random.choice(pass1)
     passstr.set(password)
 
+
 def copytoclipboard():
     random_password = passstr.get()
     pyperclip.copy(random_password)
+
 
 # Draw
 Label(root, text="PASSWORD GENERATOR", width="300", height="2", font=("Times", 20)).pack()

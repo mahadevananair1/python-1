@@ -1,4 +1,5 @@
 from sys import argv
+
 script, name, age, gender = argv
 
 height = input("What is your height? ")

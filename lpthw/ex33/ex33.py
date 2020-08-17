@@ -1,6 +1,7 @@
 numbers = []
 final_num = 10
 
+
 def main():
     i = 0
     while i < final_num:
@@ -11,6 +12,7 @@ def main():
 
         print("Numbers now: ", numbers)
         print(f"At the bottom i is {i}")
+
 
 main()
 print("The numbers: ")

@@ -1,6 +1,7 @@
 final_num = 5
 element = []
 
+
 def main():
     i = 0
     while i < final_num:
@@ -10,4 +11,6 @@ def main():
         i = i + 2
         print(f"The number in the list is {element}")
     print(element)
+
+
 main()

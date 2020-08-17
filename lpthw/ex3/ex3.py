@@ -2,7 +2,7 @@
 print("I will now count my chickens:")
 
 # print out a string and number that return a float number
-print("Hens",float(25 + 30 / 6))
+print("Hens", float(25 + 30 / 6))
 print("Roosters", float(100 - 25 * 3 % 4))
 
 # print out a string
@@ -16,7 +16,7 @@ print("Is it true that 3 + 2 < 5 - 7?")
 
 # return false because it compare and return float, so it
 # return 0.0 -> false
-print(float(3 + 2 < 5 -7))
+print(float(3 + 2 < 5 - 7))
 
 # print out a string and float number
 print("What is 3 + 2?", float(3 + 2))

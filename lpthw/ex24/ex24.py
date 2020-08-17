@@ -17,11 +17,13 @@ print("-------------------")
 five = 10 - 2 + 3 - 6
 print(f"This should be five: {five}")
 
+
 def secret_formula(started):
     jelly_beans = started * 500
     jars = jelly_beans / 1000
     crates = jars / 100
     return jelly_beans, jars, crates
+
 
 start_point = 10000
 # create three variable and assgined to called function which is pass with start_point

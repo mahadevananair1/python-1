@@ -1,5 +1,6 @@
 import math
 import random
+
 import pygame
 from pygame import mixer
 
@@ -58,24 +59,30 @@ text_y = 10
 # Game over
 over_font = pygame.font.Font('/home/jan/code/python/pygame/space_invader/arcadeclassic.regular.ttf', 70)
 
+
 def game_over_text():
     over_text = over_font.render("GAME OVER!", True, (255, 255, 255))
     screen.blit(over_text, (250, 250))
+
 
 def show_score(x, y):
     score_value = font.render("Score " + str(score), True, (255, 255, 255))
     screen.blit(score_value, (x, y))
 
+
 def player(x, y):
     screen.blit(player_img, (x, y))
 
+
 def enemy(x, y, i):
     screen.blit(enemy_img[i], (x, y))
+
 
 def fire_bullet(x, y):
     global bullet_state
     bullet_state = 'Fire'
     screen.blit(bullet_img, (x + 16, y + 10))
+
 
 def is_collision(enemy_x, enemy_y, bullet_x, bullet_y):
     distance = math.sqrt((math.pow(enemy_x - bullet_x, 2)) + (math.pow(enemy_y - bullet_y, 2)))
@@ -83,6 +90,7 @@ def is_collision(enemy_x, enemy_y, bullet_x, bullet_y):
         return True
     else:
         return False
+
 
 clock = pygame.time.Clock()
 fps = 60

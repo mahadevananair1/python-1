@@ -1,7 +1,7 @@
 the_count = [1, 2, 3, 4, 5]
 fruits = ['apples', 'oranges', 'pears', 'apricots']
 change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
-bank_account = [1, 2, 3, 4, 5, 6, 7, 8,]
+bank_account = [1, 2, 3, 4, 5, 6, 7, 8, ]
 
 for number in the_count:
     print(f"This is count {number}")

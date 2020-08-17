@@ -12,6 +12,7 @@ def elon_room():
     else:
         bad_luck("You greedy bastard!")
 
+
 def tesla():
     print("You're in Tesla company")
     print("In here you may find Elon")
@@ -28,6 +29,7 @@ def tesla():
             meet_elon = True
         elif choice == "meet elon" and meet_elon:
             elon_room()
+
 
 def spacex():
     print("You're in Spacex company")
@@ -49,6 +51,7 @@ def bad_luck(why):
     print(why, "try again next time")
     exit(0)
 
+
 def start():
     print("We got two doors for you")
     print("We wanted you to choose anyone and play the game")
@@ -66,5 +69,6 @@ def start():
             break
         else:
             print("I don't know what you want")
+
 
 start()

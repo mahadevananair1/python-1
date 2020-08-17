@@ -1,14 +1,15 @@
 #!/usr/bin/python
 
-import tkinter as tk
-from tkinter import filedialog, Text
-import os
 import subprocess
+
+import tkinter as tk
+from tkinter import filedialog
 
 root = tk.Tk()
 root.title("Run files in one click")
 apps = []
 filename = []
+
 
 def addApp():
     for widget in frame.winfo_children():
@@ -21,9 +22,11 @@ def addApp():
     for app in apps:
         label = tk.Label(frame, text=app, bg="gray").pack()
 
+
 def runApps():
     for app in apps:
         subprocess.call(["xdg-open", app])
+
 
 canvas = tk.Canvas(root, height=800, width=800, bg="#263D42").pack()
 

@@ -1,7 +1,7 @@
 name = 'Jan Poonthong'
-age = 16 # not a lie
-height = 70 # inches
-weight = 150 # lbs
+age = 16  # not a lie
+height = 70  # inches
+weight = 150  # lbs
 eyes = 'Black'
 teeth = 'White'
 hair = 'Black'
@@ -25,4 +25,3 @@ centimeters = inches * 2.54
 kilogram = pounds * 0.4535924
 print(f"This is 80 inches to centimeters {round(centimeters)}.")
 print(f"This is 160 pounds to kilogram {round(kilogram)}.")
-
