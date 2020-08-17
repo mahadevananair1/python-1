@@ -35,7 +35,8 @@ ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
 clock = pygame.time.Clock()
 fps = 60
 current_player = "X"
-print(current_player)
+
+first_open = True
 
 running = True
 while running:
@@ -47,13 +48,15 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
 
-            if first.collidepoint(pos):
+            if first.collidepoint(pos) and first_open:
                 if current_player == "X":
                     screen.blit(x_img, (50, 50))
                     current_player = "O"
                 else:
                     screen.blit(o_img, (50, 50))
                     current_player = "X"
+                first_open = False
+
             if second.collidepoint(pos):
                 if current_player == "X":
                     screen.blit(x_img, (225, 50))
