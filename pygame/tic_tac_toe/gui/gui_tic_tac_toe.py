@@ -47,6 +47,27 @@ def check_if_open():
     ninth_open = True
 check_if_open()
 
+# def check_win(num):
+#     for row in board:
+#         for tile in row:
+#             if tile == num:
+#                 continue
+#             else:
+#                 break
+#         return True
+#
+#     for column in range(3):
+#         for row in board:
+#             if row[column] == num:
+#                 continue
+#             else:
+#                 break
+#         return True
+#
+# if check_win(1):
+#     won = True
+
+
 current_player = "X"
 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
