@@ -49,7 +49,7 @@ def check_if_open():
     seventh_open = True
     eighth_open = True
     ninth_open = True
-
+check_if_open()
 running = True
 while running:
     clock.tick(60)
