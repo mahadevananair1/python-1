@@ -110,7 +110,8 @@ def num():
 
 # X won or O won, in text form
 over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcadeclassic.regular.ttf', 50)
-
+won_x = False
+won_o = False
 
 def draw_text_won():
     if won_x == True:

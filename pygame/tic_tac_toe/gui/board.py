@@ -1,5 +1,6 @@
 board = [[1, 2, 0], [1, 1, 1], [1, 2, 0]]
 
+# 4:08:00 strager explain def for me
 
 # def check(num):
 #     for row in board:
