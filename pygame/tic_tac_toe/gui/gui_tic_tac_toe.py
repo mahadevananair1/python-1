@@ -121,7 +121,6 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
-
     if won_o == True:
         over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
