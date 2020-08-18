@@ -113,14 +113,17 @@ over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcad
 won_x = False
 won_o = False
 
+
 def draw_text_won():
     if won_x == True:
-        over_text = over_font.render("X won", True, (255,0,255))
+        over_text = over_font.render("X won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
+
+
     if won_o == True:
-        over_text = over_font.render("O won", True, (255,0,255))
+        over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
@@ -241,5 +244,6 @@ while running:
             check_win(num)
             num()
             draw_text_won()
+            break
     pygame.display.update()
 print(board)
