@@ -20,6 +20,9 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
+current_player = "X"
+board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -54,29 +57,51 @@ def check_if_open():
 
 check_if_open()
 
-# def check_win(num):
-#     for row in board:
-#         for tile in row:
-#             if tile == num:
-#                 continue
-#             else:
-#                 break
-#         return True
-#
-#     for column in range(3):
-#         for row in board:
-#             if row[column] == num:
-#                 continue
-#             else:
-#                 break
-#         return True
-#
-# if check_win(1):
-#     won = True
+
+def check_win(num):
+    for row in board:
+        for tile in row:
+            if tile == num:
+                continue
+            else:
+                break
+        else:
+            return True
+
+    for column in range(3):
+        for row in board:
+            if row[column] == num:
+                continue
+            else:
+                break
+        else:
+            return True
+
+    # 0,0              1,1                  2,2
+    #  ^                ^                    ^
+    # [1, 2, 0]     [1, 1, 1]         [1, 2, 0]
+    #
+    for tile in range(3):
+        if board[tile][tile] == num:
+            continue
+        else:
+            break
+    else:
+        return True
+
+    for tile in range(3):
+        if board[tile][2 - tile] == num:
+            continue
+        else:
+            break
+    else:
+        return True
 
 
-current_player = "X"
-board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+if check_win(1):
+    won = True
+if check_win(2):
+    won = True
 
 clock = pygame.time.Clock()
 fps = 60
