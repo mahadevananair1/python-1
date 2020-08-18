@@ -115,11 +115,15 @@ won_o = False
 
 def draw_text_won():
     if won_x == True:
-        over_text = over_font.render("X won", True, (255, 255, 255))
-        screen.blit(over_text, (250, 250))
+        over_text = over_font.render("X won", True, (255,0,255))
+        space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
+        screen.blit(over_text, (220, 200))
+        screen.blit(space_text, (50, 300))
     if won_o == True:
-        over_text = over_font.render("O won", True, (255, 255, 255))
-        screen.blit(over_text, (250, 250))
+        over_text = over_font.render("O won", True, (255,0,255))
+        space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
+        screen.blit(over_text, (220, 200))
+        screen.blit(space_text, (50, 300))
 
 
 clock = pygame.time.Clock()
@@ -138,6 +142,9 @@ while running:
             if event.key == pygame.K_SPACE:
                 check_if_open()
                 draw_rectangle()
+                check_win(num)
+                num()
+                draw_text_won()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
 
