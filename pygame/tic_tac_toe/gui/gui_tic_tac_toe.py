@@ -98,15 +98,34 @@ def check_win(num):
         return True
 
 
-if check_win(1):
-    won = True
-if check_win(2):
-    won = True
+def num():
+    global won_x, won_o
+    if check_win(1):
+        print("X won")
+        won_x = True
+    if check_win(2):
+        print("O won")
+        won_o = True
+
+
+# X won or O won, in text form
+over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcadeclassic.regular.ttf', 50)
+
+
+def draw_text_won():
+    if won_x == True:
+        over_text = over_font.render("X won", True, (255, 255, 255))
+        screen.blit(over_text, (250, 250))
+    if won_o == True:
+        over_text = over_font.render("O won", True, (255, 255, 255))
+        screen.blit(over_text, (250, 250))
+
 
 clock = pygame.time.Clock()
 fps = 60
 
 running = True
+
 while running:
     clock.tick(60)
 
@@ -211,5 +230,8 @@ while running:
                     current_player = "X"
                     board[2][2] = 2
                 ninth_open = False
+            check_win(num)
+            num()
+            draw_text_won()
     pygame.display.update()
 print(board)
