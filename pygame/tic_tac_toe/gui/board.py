@@ -49,9 +49,12 @@ board = [board_first, board_second, board_third]
 for column in range(3):
     for row in board:
         print(row)
+
         print(row[column])
 
 # column = 0
 # for row in board:
 #     print(row)
 #     print(row[column])
+
+ just check the game state on every move, once it ends(shows winner), then you can reset it?

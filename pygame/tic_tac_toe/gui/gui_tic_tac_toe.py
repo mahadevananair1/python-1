@@ -121,6 +121,8 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
+
+
     if won_o == True:
         over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
@@ -142,10 +144,15 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
+                board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
                 check_if_open()
                 draw_rectangle()
                 check_win(num)
                 num()
+                over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcadeclassic.regular.ttf',
+                                           50)
+                won_x = False
+                won_o = False
                 draw_text_won()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
@@ -243,6 +250,5 @@ while running:
             check_win(num)
             num()
             draw_text_won()
-            break
     pygame.display.update()
 print(board)
