@@ -1,6 +1,7 @@
 # Modeules that insert image
-from PIL import ImageTk, Image
 from tkinter import *
+
+from PIL import ImageTk
 
 root = Tk()
 root.title('Learning Tkinter')

@@ -1,7 +1,7 @@
 import random
+from tkinter import *
 
 import pyperclip
-from tkinter import *
 
 # Set screen
 root = Tk()
