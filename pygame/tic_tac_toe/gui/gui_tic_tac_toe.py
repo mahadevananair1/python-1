@@ -5,7 +5,7 @@ import pygame
 pygame.init()
 black = (0, 0, 0)
 line_color = (255, 255, 255)
-width, height = 550, 550
+width, height = 550, 650
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
 
@@ -27,6 +27,7 @@ won_x = False
 won_o = False
 x_score = 0
 o_score = 0
+font = pygame.font.Font('arcadeclassic.regular.ttf', 32)
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -107,10 +108,12 @@ def score():
     global x_score, o_score
     if won_x == True:
         x_score += 1
-        print("X won", str(x_score))
+        score_value = font.render("X " + str(x_score), True, (255, 255, 255))
+        screen.blit(score_value, (50, 600))
     if won_o == True:
         o_score += 1
-        print("O own", str(o_score))
+        score_value = font.render("O " + str(o_score), True, (255, 255, 255))
+        screen.blit(score_value, (50, 600))
 
 def draw_text_won():
     over_font = pygame.font.Font('arcadeclassic.regular.ttf', 50)
