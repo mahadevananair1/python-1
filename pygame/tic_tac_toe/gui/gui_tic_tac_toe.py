@@ -11,18 +11,18 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
 
 project_directory = os.path.dirname(__file__)
-# loading images
+# Loading images
 x_img = pygame.image.load(os.path.join(project_directory, "x.png"))
 o_img = pygame.image.load(os.path.join(project_directory, "o.png"))
 
-# resizing images
+# Resizing images
 width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
 current_player = "X"
 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-
+won = False
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -37,10 +37,7 @@ def draw_rectangle():
     seventh = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
-
-
 draw_rectangle()
-
 
 def check_if_open():
     global first_open, second_open, third_open, fourth_open, fifth_open, sixth_open, seventh_open, eighth_open, ninth_open
@@ -53,10 +50,7 @@ def check_if_open():
     seventh_open = True
     eighth_open = True
     ninth_open = True
-
-
 check_if_open()
-
 
 def check_win(num):
     for row in board:
@@ -80,7 +74,6 @@ def check_win(num):
     # 0,0              1,1                  2,2
     #  ^                ^                    ^
     # [1, 2, 0]     [1, 1, 1]         [1, 2, 0]
-    #
     for tile in range(3):
         if board[tile][tile] == num:
             continue
@@ -97,7 +90,6 @@ def check_win(num):
     else:
         return True
 
-
 def num():
     global won_x, won_o
     if check_win(1):
@@ -107,10 +99,8 @@ def num():
         print("O won")
         won_o = True
 
-
 won_x = False
 won_o = False
-
 
 def draw_text_won():
     over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcadeclassic.regular.ttf', 50)
@@ -126,12 +116,10 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
-
 clock = pygame.time.Clock()
 fps = 60
 
 running = True
-won = False
 while running:
     clock.tick(60)
 
@@ -240,12 +228,11 @@ while running:
                         current_player = "X"
                         board[2][2] = 2
                     ninth_open = False
-            check_win(num)
-            num()
-            draw_text_won()
             if check_win(1):
                 won = True
             if check_win(2):
                 won = True
+            check_win(num)
+            num()
+            draw_text_won()
     pygame.display.update()
-print(board)
