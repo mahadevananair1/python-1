@@ -147,11 +147,6 @@ while running:
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
                 check_if_open()
                 draw_rectangle()
-                check_win(num)
-                num()
-                over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcadeclassic.regular.ttf',
-                                             50)
-                draw_text_won()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             if won != True:
