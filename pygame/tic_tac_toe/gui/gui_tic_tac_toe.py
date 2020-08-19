@@ -145,6 +145,7 @@ while running:
                 won = False
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
                 check_if_open()
+                screen.fill((0, 0, 0))
                 draw_rectangle()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
@@ -239,12 +240,13 @@ while running:
                         current_player = "X"
                         board[2][2] = 2
                     ninth_open = False
+
+            check_win(num)
+            num()
             if check_win(1):
                 won = True
             if check_win(2):
                 won = True
-            check_win(num)
-            num()
             draw_text_won()
             score()
     pygame.display.update()
