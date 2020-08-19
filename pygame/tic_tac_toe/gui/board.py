@@ -57,4 +57,4 @@ for column in range(3):
 #     print(row)
 #     print(row[column])
 
- just check the game state on every move, once it ends(shows winner), then you can reset it?
+# just check the game state on every move, once it ends(shows winner), then you can reset it?
