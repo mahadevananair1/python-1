@@ -20,9 +20,14 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
+# Global values
 current_player = "X"
 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 won = False
+won_x = False
+won_o = False
+x_score = 0
+o_score = 0
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -99,11 +104,17 @@ def num():
         print("O won")
         won_o = True
 
-won_x = False
-won_o = False
+def score():
+    global x_score, o_score
+    if won_x == True:
+        x_score += 1
+        print("X won", str(x_score))
+    if won_o == True:
+        o_score += 1
+        print("O own", str(o_score))
 
 def draw_text_won():
-    over_font = pygame.font.Font('/home/jan/code/python/pygame/tic_tac_toe/gui/arcadeclassic.regular.ttf', 50)
+    over_font = pygame.font.Font('arcadeclassic.regular.ttf', 50)
     if won_x == True:
         over_text = over_font.render("X won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
@@ -235,4 +246,5 @@ while running:
             check_win(num)
             num()
             draw_text_won()
+            score()
     pygame.display.update()
