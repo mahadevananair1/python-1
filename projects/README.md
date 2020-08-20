@@ -1,2 +1,2 @@
 # Python
-This all my personal projects written in Python
+This all my personal projects written in Python and tkinter for GUI
