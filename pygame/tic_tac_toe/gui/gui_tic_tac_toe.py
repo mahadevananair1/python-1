@@ -45,7 +45,8 @@ def draw_rectangle():
 draw_rectangle()
 
 def check_if_open():
-    global first_open, second_open, third_open, fourth_open, fifth_open, sixth_open, seventh_open, eighth_open, ninth_open
+    global first_open, second_open, third_open, fourth_open, fifth_open
+    global sixth_open, seventh_open, eighth_open, ninth_open
     first_open = True
     second_open = True
     third_open = True
@@ -106,24 +107,24 @@ def num():
 
 def score():
     global x_score, o_score
-    if won_x == True:
+    if won_x:
         x_score += 1
         score_value = font.render("X " + str(x_score), True, (255, 255, 255))
         screen.blit(score_value, (50, 600))
-    if won_o == True:
+    if won_o:
         o_score += 1
         score_value = font.render("O " + str(o_score), True, (255, 255, 255))
         screen.blit(score_value, (50, 600))
 
 def draw_text_won():
     over_font = pygame.font.Font('arcadeclassic.regular.ttf', 50)
-    if won_x == True:
+    if won_x:
         over_text = over_font.render("X won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
-    if won_o == True:
+    if won_o:
         over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
@@ -151,7 +152,7 @@ while running:
                 draw_rectangle()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
-            if won != True:
+            if won is not True:
                 if first.collidepoint(pos) and first_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
