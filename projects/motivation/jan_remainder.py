@@ -1,4 +1,3 @@
-# I wrote this in VIM, I'm new to VIM, so the format might not be correct
 import time
 
 jan_answer = input("""Hi Jan, How are you today?
