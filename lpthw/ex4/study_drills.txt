@@ -1,2 +1,0 @@
-1. 4.0 is just a floating number, it's just a number with a decimal point. It wasn't nescessary in this case.
-2. 
