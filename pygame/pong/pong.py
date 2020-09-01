@@ -18,6 +18,7 @@ paddle_a.speed(0)
 paddle_a.shape("square")
 paddle_a.color("white")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
+
 # Does't draw a line (Because turtle normally draw a line)
 paddle_a.penup()
 paddle_a.goto(-350, 0)
@@ -28,6 +29,7 @@ paddle_b.speed(0)
 paddle_b.shape("square")
 paddle_b.color("white")
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
+
 # Does't draw a line (Because turtle normally draw a line)
 paddle_b.penup()
 paddle_b.goto(350, 0)
@@ -37,9 +39,11 @@ ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("square")
 ball.color("white")
+
 # Does't draw a line (Because turtle normally draw a line)
 ball.penup()
 ball.goto(0, 0)
+
 # Ball moving every one pixels, since X is positive it will move to right and since Y is positive it will move up
 ball.dx = 2
 ball.dy = 2
@@ -53,8 +57,6 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A: 0 Player B: 0", align="Center", font=("Courier", 24, "normal"))
 
-
-# Function
 def paddle_a_up():
     # Return a Y coordinate to Y
     y = paddle_a.ycor()
@@ -63,24 +65,20 @@ def paddle_a_up():
     # Set Y
     paddle_a.sety(y)
 
-
 def paddle_a_down():
     y = paddle_a.ycor()
     y -= 20
     paddle_a.sety(y)
-
 
 def paddle_b_up():
     y = paddle_b.ycor()
     y += 20
     paddle_b.sety(y)
 
-
 def paddle_b_down():
     y = paddle_b.ycor()
     y -= 20
     paddle_b.sety(y)
-
 
 # Keyboard binding
 wn.listen()
@@ -88,7 +86,6 @@ wn.onkeypress(paddle_a_up, "w")
 wn.onkeypress(paddle_a_down, "s")
 wn.onkeypress(paddle_b_up, "Up")
 wn.onkeypress(paddle_b_down, "Down")
-
 
 def tick():
     global score_a
@@ -103,12 +100,12 @@ def tick():
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        os.system("aplay /home/jan/code/python/pygame/pong/bounce.wav&")
+        os.system("aplay bounce.wav&")
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        os.system("aplay /home/jan/code/python/pygame/pong/bounce.wav&")
+        os.system("aplay bounce.wav&")
 
     # Go off the screen and reserve direction (Left and Right)
     if ball.xcor() > 390:
@@ -130,17 +127,15 @@ def tick():
             ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
-        os.system("aplay /home/jan/code/python/pygame/pong/bounce.wav")
+        os.system("aplay bounce.wav")
 
     if (ball.xcor() < -340 and ball.xcor() > -350) and (
             ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1
-        os.system("aplay /home/jan/code/python/pygame/pong/bounce.wav")
+        os.system("aplay bounce.wav")
 
     wn.update()
-
-
 tick()
 
 # Main game loop
