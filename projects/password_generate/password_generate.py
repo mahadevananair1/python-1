@@ -1,7 +1,6 @@
 import secrets
 import string
 
-
 def generate():
     website = input("What is the website name: ")
 
@@ -21,6 +20,5 @@ def generate():
         f.write(f"Password: {password}\n")
 
     return (website, password)
-
 
 print(generate())
