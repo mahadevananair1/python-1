@@ -1,7 +1,5 @@
 import os
-
 from tkinter import *
-
 
 def register_user():
     username_info = username.get()
@@ -16,7 +14,6 @@ def register_user():
     password_entry.delete(0, END)
 
     Label(screen1, text="Registration Sucess", fg="green", font=("calibri", 11)).pack()
-
 
 def login_verify():
     username1 = username_verify.get()
@@ -34,7 +31,6 @@ def login_verify():
             print("Password has not been recognised")
     else:
         print('User not found!')
-
 
 def register():
     global screen1
@@ -60,7 +56,6 @@ def register():
     password_entry.pack()
     Label(screen1, text="").pack()
     Button(screen1, text="Register", width=10, height=1, command=register_user).pack()
-
 
 def login():
     global screen2
@@ -88,7 +83,6 @@ def login():
     Label(screen2, text="").pack()
     Button(screen2, text="Login", width=10, height=1, command=login_verify).pack()
 
-
 def main_screen():
     global screen
     screen = Tk()
@@ -101,6 +95,4 @@ def main_screen():
     Button(text="Register", height="2", width="30", command=register).pack()
 
     screen.mainloop()
-
-
 main_screen()
