@@ -27,6 +27,10 @@ won_x = False
 won_o = False
 x_score = 0
 o_score = 0
+show_x_on_x = 50
+show_y_on_x = 550
+show_o_on_x = 50
+show_o_on_y = 600
 font = pygame.font.Font('arcadeclassic.regular.ttf', 32)
 
 def draw_rectangle():
@@ -100,13 +104,13 @@ def num():
         print("O won")
         won_o = True
 
-def score_x():
+def score_x(show_x_on_x, show_y_on_x):
     score_value = font.render("X " + str(x_score), True, (255, 255, 255))
-    screen.blit(score_value, (50, 550))
+    screen.blit(score_value, (show_x_on_x, show_y_on_x))
 
-def score_o():
+def score_o(show_o_on_x, show_o_on_y):
     score_value = font.render("O " + str(o_score), True, (255, 255, 255))
-    screen.blit(score_value, (50, 600))
+    screen.blit(score_value, (show_o_on_x, show_o_on_y))
 
 def draw_text_won():
     over_font = pygame.font.Font('arcadeclassic.regular.ttf', 50)
@@ -241,6 +245,6 @@ while running:
                 won = True
                 o_score += 1
             draw_text_won()
-        score_x()
-        score_o()
+        score_x(show_x_on_x, show_y_on_x)
+        score_o(show_o_on_x, show_o_on_y)
     pygame.display.update()
