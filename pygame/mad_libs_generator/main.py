@@ -1,6 +1,13 @@
 adjective = input("Adjective: ")
 noun = input("Noun: ")
 plural_noun = input("Plural Noun: ")
-female_name = input("Female Name: ")
+place = input("Place: ")
+noun_two = input("Noun: ")
 
-print(f"""There are many "{adjective}" ways to choose a/an "{noun}" to read. First, you could ask for recommendations from your friends and "{plural_noun}".Just don't ask Aunt "{female_name}" she only reads "{adjective}" books.""")
+print(f"""Be kind to your {noun}-footed {plural_noun}
+For a duck may be somebody`s {noun},
+Be kind to your {plural_noun} in {place}
+Where the weather is always {adjective}.
+
+You may think that this is the {noun_two},
+Well it is.""")
