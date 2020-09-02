@@ -34,11 +34,9 @@ def draw_rectangle():
     first = pygame.draw.rect(screen, (line_color), (25, 25, 150, 150))
     second = pygame.draw.rect(screen, (line_color), (200, 25, 150, 150))
     third = pygame.draw.rect(screen, (line_color), (375, 25, 150, 150))
-
     fourth = pygame.draw.rect(screen, (line_color), (25, 200, 150, 150))
     fifth = pygame.draw.rect(screen, (line_color), (200, 200, 150, 150))
     sixth = pygame.draw.rect(screen, (line_color), (375, 200, 150, 150))
-
     seventh = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
@@ -77,9 +75,6 @@ def check_win(num):
         else:
             return True
 
-    # 0,0              1,1                  2,2
-    #  ^                ^                    ^
-    # [1, 2, 0]     [1, 1, 1]         [1, 2, 0]
     for tile in range(3):
         if board[tile][tile] == num:
             continue
@@ -105,16 +100,13 @@ def num():
         print("O won")
         won_o = True
 
-def score():
-    global x_score, o_score
-    if won_x:
-        x_score += 1
-        score_value = font.render("X " + str(x_score), True, (255, 255, 255))
-        screen.blit(score_value, (50, 600))
-    if won_o:
-        o_score += 1
-        score_value = font.render("O " + str(o_score), True, (255, 255, 255))
-        screen.blit(score_value, (50, 600))
+def score_x():
+    score_value = font.render("X " + str(x_score), True, (255, 255, 255))
+    screen.blit(score_value, (50, 550))
+
+def score_o():
+    score_value = font.render("O " + str(o_score), True, (255, 255, 255))
+    screen.blit(score_value, (50, 600))
 
 def draw_text_won():
     over_font = pygame.font.Font('arcadeclassic.regular.ttf', 50)
@@ -123,7 +115,6 @@ def draw_text_won():
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
-
     if won_o:
         over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
@@ -132,15 +123,12 @@ def draw_text_won():
 
 clock = pygame.time.Clock()
 fps = 60
-
 running = True
 while running:
     clock.tick(60)
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 won_x = False
@@ -248,8 +236,11 @@ while running:
             num()
             if check_win(1):
                 won = True
+                x_score += 1
             if check_win(2):
                 won = True
+                o_score += 1
             draw_text_won()
-            score()
+        score_x()
+        score_o()
     pygame.display.update()
