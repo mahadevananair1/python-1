@@ -11,8 +11,8 @@ pygame.display.set_caption("Tic Tac Toe")
 
 project_directory = os.path.dirname(__file__)
 # Loading images
-x_img = pygame.image.load(os.path.join(project_directory, "x.png"))
-o_img = pygame.image.load(os.path.join(project_directory, "o.png"))
+x_img = pygame.image.load(os.path.join(project_directory, "img/x.png"))
+o_img = pygame.image.load(os.path.join(project_directory, "img/o.png"))
 
 # Resizing images
 width_resize, height_resize = 110, 110
@@ -31,7 +31,7 @@ show_x_on_x = 50
 show_y_on_x = 550
 show_o_on_x = 50
 show_o_on_y = 600
-font = pygame.font.Font('arcadeclassic.regular.ttf', 32)
+font = pygame.font.Font('font/arcadeclassic.regular.ttf', 32)
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -123,7 +123,7 @@ def score_o(show_o_on_x, show_o_on_y):
     screen.blit(score_value, (show_o_on_x, show_o_on_y))
 
 def draw_text_won():
-    over_font = pygame.font.Font('arcadeclassic.regular.ttf', 50)
+    over_font = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
     if won_x:
         over_text = over_font.render("X won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
