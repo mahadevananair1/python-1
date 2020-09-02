@@ -13,19 +13,19 @@ screen = pygame.display.set_mode((800, 600))
 project_directory = os.path.dirname(__file__)
 
 # Background
-back_image = pygame.image.load(os.path.join(project_directory, "background.png"))
+back_image = pygame.image.load(os.path.join(project_directory, "img/background.png"))
 
 # Background sound
-pygame.mixer.music.load(os.path.join(project_directory, "back.wav"))
+pygame.mixer.music.load(os.path.join(project_directory, "sound/back.wav"))
 pygame.mixer.music.play(-1)
 
 # Caption and Icon
 pygame.display.set_caption('Pygame')
-icon = pygame.image.load(os.path.join(project_directory, "vr-gaming.png"))
+icon = pygame.image.load(os.path.join(project_directory, "img/vr-gaming.png"))
 pygame.display.set_icon(icon)
 
 # Player
-player_img = pygame.image.load(os.path.join(project_directory, "space-invaders.png"))
+player_img = pygame.image.load(os.path.join(project_directory, "img/space-invaders.png"))
 player_x = 370
 player_y = 480
 player_x_change = 0
@@ -39,14 +39,14 @@ enemy_y_change = []
 num_of_enemies = 6
 
 for i in range(num_of_enemies):
-    enemy_img.append(pygame.image.load(os.path.join(project_directory, "enemy.png")))
+    enemy_img.append(pygame.image.load(os.path.join(project_directory, "img/enemy.png")))
     enemy_x.append(random.randint(0, 735))
     enemy_y.append(random.randint(50, 150))
     enemy_x_change.append(3.5)
     enemy_y_change.append(40)
 
 # Bullet
-bullet_img = pygame.image.load(os.path.join(project_directory, "bullet.png"))
+bullet_img = pygame.image.load(os.path.join(project_directory, "img/bullet.png"))
 bullet_x = 0
 bullet_y = 480
 bullet_x_change = 0
@@ -55,12 +55,12 @@ bullet_state = 'Ready'
 
 # Score
 score = 0
-font = pygame.font.Font("arcadeclassic.regular.ttf", 32)
+font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
 text_x = 10
 text_y = 10
 
 # Game over
-over_font = pygame.font.Font("arcadeclassic.regular.ttf", 70)
+over_font = pygame.font.Font("font/arcadeclassic.regular.ttf", 70)
 
 
 def game_over_text():
@@ -116,7 +116,7 @@ while running:
                 player_x_change = 4
             if event.key == pygame.K_SPACE:
                 if bullet_state == 'Ready':
-                    bullet_sound = mixer.Sound("laser.wav")
+                    bullet_sound = mixer.Sound("sound/laser.wav")
                     bullet_sound.play()
                     bullet_x = player_x
                     fire_bullet(bullet_x, bullet_y)
@@ -150,7 +150,7 @@ while running:
         # Collision
         collision = is_collision(enemy_x[i], enemy_y[i], bullet_x, bullet_y)
         if collision:
-            bullet_sound = mixer.Sound(os.path.join(project_directory, "explosion.wav"))
+            bullet_sound = mixer.Sound(os.path.join(project_directory, "sound/explosion.wav"))
             bullet_sound.play()
             bullet_y = 480
             bullet_state = 'Ready'

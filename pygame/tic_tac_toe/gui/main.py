@@ -31,7 +31,7 @@ show_x_on_x = 50
 show_y_on_x = 550
 show_o_on_x = 50
 show_o_on_y = 600
-font = pygame.font.Font('font/arcadeclassic.regular.ttf', 32)
+font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
