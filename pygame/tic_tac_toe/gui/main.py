@@ -104,6 +104,16 @@ def num():
         print("O won")
         won_o = True
 
+def x_turn():
+    if current_player == 'X':
+        x_turn = font.render("X turn", True, (255, 255, 255))
+        screen.blit(x_turn, (130, 550))
+
+def o_turn():
+    if current_player == 'O':
+        o_turn = font.render("O turn", True, (255, 255, 255))
+        screen.blit(o_turn, (130, 600))
+
 def score_x(show_x_on_x, show_y_on_x):
     score_value = font.render("X " + str(x_score), True, (255, 255, 255))
     screen.blit(score_value, (show_x_on_x, show_y_on_x))
@@ -236,15 +246,17 @@ while running:
                         board[2][2] = 2
                     ninth_open = False
 
-            check_win(num)
-            num()
-            if check_win(1):
-                won = True
-                x_score += 1
-            if check_win(2):
-                won = True
-                o_score += 1
-            draw_text_won()
+                check_win(num)
+                num()
+                if check_win(1):
+                    won = True
+                    x_score += 1
+                if check_win(2):
+                    won = True
+                    o_score += 1
+                draw_text_won()
+        x_turn()
+        o_turn()
         score_x(show_x_on_x, show_y_on_x)
         score_o(show_o_on_x, show_o_on_y)
     pygame.display.update()
