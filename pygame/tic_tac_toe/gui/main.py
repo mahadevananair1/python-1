@@ -98,21 +98,21 @@ def check_win(num):
 def num():
     global won_x, won_o
     if check_win(1):
-        print("X won")
         won_x = True
     if check_win(2):
-        print("O won")
         won_o = True
 
 def x_turn():
     if current_player == 'X':
         x_turn = font.render("X turn", True, (255, 255, 255))
         screen.blit(x_turn, (130, 550))
+        pygame.draw.rect(screen, (0, 0, 0), (120, 600, 110, 30))
 
 def o_turn():
     if current_player == 'O':
         o_turn = font.render("O turn", True, (255, 255, 255))
         screen.blit(o_turn, (130, 600))
+        pygame.draw.rect(screen, (0, 0, 0), (130, 550, 110, 30))
 
 def score_x(show_x_on_x, show_y_on_x):
     score_value = font.render("X " + str(x_score), True, (255, 255, 255))
