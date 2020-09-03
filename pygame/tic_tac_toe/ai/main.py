@@ -140,6 +140,3 @@ while play_again:
                 sys.exit(0)
             elif play_again == "Y":
                 valid = True
-            else:
-                while play_again not in ["Y", "n"]:
-                    play_again = input("Type again, [Y/n]: ")
