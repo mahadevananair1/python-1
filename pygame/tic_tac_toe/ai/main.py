@@ -1,7 +1,7 @@
 import sys
 import random
 
-# Global variables
+# Global variables(2 Players)
 game_still_going = True
 current_player = "X"
 winner = None
@@ -9,6 +9,9 @@ winner = None
 board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
+
+# Global variables(Computer AI)
+current_player_turn = "X"
 
 def display_board():
     print("\n")
@@ -39,9 +42,9 @@ def play_game():
         display_board()
 
         while game_still_going:
-            ai(current_player)
+            ai(current_player_turn)
             check_if_game_over()
-            flip_ai_player()
+            flip_ai_player_turn()
 
 def handle_turn(player):
     print(player + "'s turn")
@@ -160,13 +163,19 @@ def ai(player_ai):
     if board[move] == "-":
         board[position] = player_ai
 
-
 def flip_ai_player():
     global current_player
     if current_player == "X":
         current_player = "O"
     elif current_player == "O":
         current_player = "X"
+
+def flip_ai_player_turn():
+    global current_player_turn
+    if current_player_turn == "X":
+        current_player_turn = "Computer"
+    elif current_player_turn == "Computer":
+        current_player_turn = "X"
 
 def ai_pick():
     pass
