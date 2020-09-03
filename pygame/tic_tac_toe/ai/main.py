@@ -40,6 +40,8 @@ def play_game():
 
         while game_still_going:
             ai(current_player)
+            check_if_game_over()
+            flip_player()
 
 def handle_turn(player):
     print(player + "'s turn")
@@ -157,9 +159,7 @@ def ai(player_ai):
 def flip_ai_player():
     global current_player
     if current_player == "X":
-        current_player = "O"
-    elif current_player == "O":
-        current_player = "X"
+        current_player = "Computer"
 
 play_again = True
 while play_again:
