@@ -156,12 +156,20 @@ def ai(player_ai):
     board[position] = player_ai
     display_board()
 
+    move = random.randint(1, 8)
+    if board[move] == "-":
+        board[position] = player_ai
+
+
 def flip_ai_player():
     global current_player
     if current_player == "X":
         current_player = "O"
     elif current_player == "O":
         current_player = "X"
+
+def ai_pick():
+    pass
 
 play_again = True
 while play_again:
