@@ -123,7 +123,7 @@ def flip_player():
 
 play = True
 while play:
-    # Global variables
+    # Reset global variables
     board = ["-", "-", "-",
              "-", "-", "-",
              "-", "-", "-"]
