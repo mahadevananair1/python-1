@@ -49,10 +49,11 @@ def handle_turn(player):
 def check_if_game_over():
     check_for_winner()
     check_if_tie()
-    pass
 
 def check_if_tie():
-    pass
+    global game_still_going
+    if "-" not in board:
+        game_still_going = False
 
 def check_for_winner():
     global winner
@@ -115,6 +116,8 @@ def check_diagonals():
         return board[6]
 
 def flip_player():
-    pass
-
-play_game()
+    global current_player
+    if current_player == "X":
+        current_player = "O"
+    elif current_player == "O":
+        current_player = "X"
