@@ -19,7 +19,7 @@ width_resize, height_resize = 110, 110
 x_img = pygame.transform.scale(x_img, (width_resize, height_resize))
 o_img = pygame.transform.scale(o_img, (width_resize, height_resize))
 
-# Global values
+# Global variables
 current_player = "X"
 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 won = False
