@@ -123,7 +123,20 @@ def flip_player():
 
 play = True
 while play:
+    # Global variables
+    board = ["-", "-", "-",
+             "-", "-", "-",
+             "-", "-", "-"]
+    game_still_going = True
+    current_player = "X"
+    winner = None
+
     play_game()
+
     again = str(input("Play again, [Y/n]: "))
-    if again == "n":
+    if again == "Y" or "Y":
+        continue
+    if again == "n" or "N":
         play = False
+    else:
+        again = str(input("Type again, [Y/n]: "))
