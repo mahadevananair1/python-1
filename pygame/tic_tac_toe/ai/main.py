@@ -7,7 +7,6 @@ board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
 
-
 def display_board():
     print("\n")
     print(board[0] + " | " + board[1] + " | " + board[2])
@@ -121,3 +120,10 @@ def flip_player():
         current_player = "O"
     elif current_player == "O":
         current_player = "X"
+
+play = True
+while play:
+    play_game()
+    again = str(input("Play again, [Y/n]: "))
+    if again == "n":
+        play = False
