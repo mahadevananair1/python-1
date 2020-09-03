@@ -1,3 +1,5 @@
+import sys
+
 # Global variables
 game_still_going = True
 current_player = "X"
@@ -130,9 +132,14 @@ while play_again:
              "-", "-", "-",
              "-", "-", "-"]
     play_game()
-    if game_still_going is False:
-        play_again = input("Play again. [Y/n]: ")
-        if play_again == "n":
-            play_again = False
-        elif play_again == "Y":
-            continue
+    valid = False
+    while not valid:
+        if game_still_going is False:
+            play_again = input("Play again. [Y/n]: ")
+            if play_again == "n":
+                sys.exit(0)
+            elif play_again == "Y":
+                valid = True
+            else:
+                while play_again not in ["Y", "n"]:
+                    play_again = input("Type again, [Y/n]: ")
