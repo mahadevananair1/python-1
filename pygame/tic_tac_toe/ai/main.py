@@ -1,4 +1,5 @@
 import sys
+import random
 
 # Global variables
 game_still_going = True
@@ -17,17 +18,28 @@ def display_board():
     print("\n")
 
 def play_game():
-    display_board()
+    which_mode = input("""1. 2 Players
+2. Computer(AI)
+: """)
 
-    while game_still_going:
-        handle_turn(current_player)
-        check_if_game_over()
-        flip_player()
+    if which_mode == "1":
+        display_board()
 
-    if winner == "X" or winner == "O":
-        print(winner + " won")
-    elif winner is None:
-        print("Tie")
+        while game_still_going:
+            handle_turn(current_player)
+            check_if_game_over()
+            flip_player()
+
+        if winner == "X" or winner == "O":
+            print(winner + " won")
+        elif winner is None:
+            print("Tie")
+
+    elif which_mode == "2":
+        display_board()
+
+        while game_still_going:
+            ai(current_player)
 
 def handle_turn(player):
     print(player + "'s turn")
@@ -117,6 +129,32 @@ def check_diagonals():
         return board[6]
 
 def flip_player():
+    global current_player
+    if current_player == "X":
+        current_player = "O"
+    elif current_player == "O":
+        current_player = "X"
+
+# Computer(AI)
+def ai(player_ai):
+    print(player_ai + "'s turn")
+    position = input("Choose a position from 1-9: ")
+
+    valid = False
+    while not valid:
+        while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            position = input("Invalid input, Choose a position from 1-9: ")
+
+        position = int(position) - 1
+        if board[position] == "-":
+            valid = True
+        else:
+            print("You can't go here, Go again")
+
+    board[position] = player_ai
+    display_board()
+
+def flip_ai_player():
     global current_player
     if current_player == "X":
         current_player = "O"
