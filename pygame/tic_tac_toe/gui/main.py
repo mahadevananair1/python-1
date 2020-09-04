@@ -35,15 +35,15 @@ font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-    first = pygame.draw.rect(screen, (line_color), (25, 25, 150, 150))
-    second = pygame.draw.rect(screen, (line_color), (200, 25, 150, 150))
-    third = pygame.draw.rect(screen, (line_color), (375, 25, 150, 150))
-    fourth = pygame.draw.rect(screen, (line_color), (25, 200, 150, 150))
-    fifth = pygame.draw.rect(screen, (line_color), (200, 200, 150, 150))
-    sixth = pygame.draw.rect(screen, (line_color), (375, 200, 150, 150))
-    seventh = pygame.draw.rect(screen, (line_color), (25, 375, 150, 150))
-    eighth = pygame.draw.rect(screen, (line_color), (200, 375, 150, 150))
-    ninth = pygame.draw.rect(screen, (line_color), (375, 375, 150, 150))
+    first = pygame.draw.rect(screen, line_color, (25, 25, 150, 150))
+    second = pygame.draw.rect(screen, line_color, (200, 25, 150, 150))
+    third = pygame.draw.rect(screen, line_color, (375, 25, 150, 150))
+    fourth = pygame.draw.rect(screen, line_color, (25, 200, 150, 150))
+    fifth = pygame.draw.rect(screen, line_color, (200, 200, 150, 150))
+    sixth = pygame.draw.rect(screen, line_color, (375, 200, 150, 150))
+    seventh = pygame.draw.rect(screen, line_color, (25, 375, 150, 150))
+    eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
+    ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
 draw_rectangle()
 
 def check_if_open():
@@ -155,6 +155,9 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             if won is not True:
+                global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+                global first_open, second_open, third_open, fourth_open, fifth_open
+                global sixth_open, seventh_open, eighth_open, ninth_open
                 if first.collidepoint(pos) and first_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))

@@ -55,14 +55,14 @@ def handle_turn(player):
     print(player + "'s turn")
     position = input("Choose a position from 1-9: ")
 
-    valid = False
-    while not valid:
+    valid_human = False
+    while not valid_human:
         while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
             position = input("Invalid input, Choose a position from 1-9: ")
 
         position = int(position) - 1
         if board[position] == "-":
-            valid = True
+            valid_human = True
         else:
             print("You can't go here, Go again")
 
@@ -151,14 +151,14 @@ def ai(player_ai):
         print(player_ai + "'s turn")
         position = input("Choose a position from 1-9: ")
 
-        valid = False
-        while not valid:
+        valid_ai = False
+        while not valid_ai:
             while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
                 position = input("Invalid input, Choose a position from 1-9: ")
 
             position = int(position) - 1
             if board[position] == "-":
-                valid = True
+                valid_ai = True
             else:
                 print("You can't go here, Go again")
 
@@ -179,6 +179,7 @@ def flip_ai_player():
         current_player_turn = "Computer"
     elif current_player_turn == "Computer":
         current_player_turn = "X"
+
 
 play_again = True
 while play_again:
