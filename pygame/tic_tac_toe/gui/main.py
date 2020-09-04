@@ -1,13 +1,16 @@
 import os.path
 import pygame
 
-# Screen
+# Screen for 2 players
 pygame.init()
 black = (0, 0, 0)
 line_color = (255, 255, 255)
 width, height = 550, 650
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Tic Tac Toe")
+pygame.display.set_caption("Tic Tac Toe 2 Player")
+
+# Screen for computer(AI)
+screen_ai = pygame.display.set_mode((width, height))
 
 project_directory = os.path.dirname(__file__)
 # Loading images
@@ -27,10 +30,6 @@ won_x = False
 won_o = False
 x_score = 0
 o_score = 0
-show_x_on_x = 50
-show_y_on_x = 550
-show_o_on_x = 50
-show_o_on_y = 600
 font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
 
 def draw_rectangle():
@@ -114,13 +113,13 @@ def o_turn():
         screen.blit(o_turn, (130, 600))
         pygame.draw.rect(screen, (0, 0, 0), (130, 550, 110, 30))
 
-def score_x(show_x_on_x, show_y_on_x):
+def score_x():
     score_value = font.render("X " + str(x_score), True, (255, 255, 255))
-    screen.blit(score_value, (show_x_on_x, show_y_on_x))
+    screen.blit(score_value, (50, 550))
 
-def score_o(show_o_on_x, show_o_on_y):
+def score_o():
     score_value = font.render("O " + str(o_score), True, (255, 255, 255))
-    screen.blit(score_value, (show_o_on_x, show_o_on_y))
+    screen.blit(score_value, (50, 600))
 
 def draw_text_won():
     over_font = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
@@ -134,6 +133,12 @@ def draw_text_won():
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
+
+def modes():
+    human = font.render("2 Players", True, (255, 255, 255))
+    computer = font.render("Computer", True, (255, 255, 255))
+    screen_ai.blit(human, (250, 250))
+    screen_ai.blit(computer, (270, 270))
 
 clock = pygame.time.Clock()
 fps = 60
@@ -260,6 +265,6 @@ while running:
                 draw_text_won()
         x_turn()
         o_turn()
-        score_x(show_x_on_x, show_y_on_x)
-        score_o(show_o_on_x, show_o_on_y)
+        score_x()
+        score_o()
     pygame.display.update()
