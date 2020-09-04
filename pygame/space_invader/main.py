@@ -17,6 +17,7 @@ back_image = pygame.image.load(os.path.join(project_directory, "img/background.p
 
 # Background sound
 pygame.mixer.music.load(os.path.join(project_directory, "sound/back.wav"))
+pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
 
 # Caption and Icon
@@ -117,6 +118,7 @@ while running:
             if event.key == pygame.K_SPACE:
                 if bullet_state == 'Ready':
                     bullet_sound = mixer.Sound("sound/laser.wav")
+                    bullet_sound.set_volume(0.05)
                     bullet_sound.play()
                     bullet_x = player_x
                     fire_bullet(bullet_x, bullet_y)
@@ -151,6 +153,7 @@ while running:
         collision = is_collision(enemy_x[i], enemy_y[i], bullet_x, bullet_y)
         if collision:
             bullet_sound = mixer.Sound(os.path.join(project_directory, "sound/explosion.wav"))
+            bullet_sound.set_volume(0.05)
             bullet_sound.play()
             bullet_y = 480
             bullet_state = 'Ready'
