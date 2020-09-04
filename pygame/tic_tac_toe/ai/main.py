@@ -44,7 +44,7 @@ def play_game():
         while game_still_going:
             ai(current_player_turn)
             check_if_game_over()
-            flip_ai_player_turn()
+            flip_ai_player()
 
 def handle_turn(player):
     print(player + "'s turn")
@@ -156,21 +156,17 @@ def ai(player_ai):
         else:
             print("You can't go here, Go again")
 
+    if current_player_turn == "Computer":
+        while True:
+            move = random.randint(1, 8)
+            if board[move] == "-":
+                board[move] = "O"
+                break
+
     board[position] = player_ai
     display_board()
 
-    move = random.randint(1, 8)
-    if board[move] == "-":
-        board[position] = player_ai
-
 def flip_ai_player():
-    global current_player
-    if current_player == "X":
-        current_player = "O"
-    elif current_player == "O":
-        current_player = "X"
-
-def flip_ai_player_turn():
     global current_player_turn
     if current_player_turn == "X":
         current_player_turn = "Computer"
