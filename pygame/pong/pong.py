@@ -1,5 +1,3 @@
-import os
-from pygame import mixer
 import pygame
 import turtle
 
