@@ -142,19 +142,22 @@ def flip_player():
 
 # Computer(AI)
 def ai(player_ai):
-    print(player_ai + "'s turn")
-    position = input("Choose a position from 1-9: ")
+    if current_player_turn == "X":
+        print(player_ai + "'s turn")
+        position = input("Choose a position from 1-9: ")
 
-    valid = False
-    while not valid:
-        while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-            position = input("Invalid input, Choose a position from 1-9: ")
+        valid = False
+        while not valid:
+            while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+                position = input("Invalid input, Choose a position from 1-9: ")
 
-        position = int(position) - 1
-        if board[position] == "-":
-            valid = True
-        else:
-            print("You can't go here, Go again")
+            position = int(position) - 1
+            if board[position] == "-":
+                valid = True
+            else:
+                print("You can't go here, Go again")
+
+        board[position] = player_ai
 
     if current_player_turn == "Computer":
         while True:
@@ -163,7 +166,6 @@ def ai(player_ai):
                 board[move] = "O"
                 break
 
-    board[position] = player_ai
     display_board()
 
 def flip_ai_player():
@@ -172,9 +174,6 @@ def flip_ai_player():
         current_player_turn = "Computer"
     elif current_player_turn == "Computer":
         current_player_turn = "X"
-
-def ai_pick():
-    pass
 
 play_again = True
 while play_again:
