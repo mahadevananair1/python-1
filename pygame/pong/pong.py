@@ -1,5 +1,10 @@
 import os
+from pygame import mixer
+import pygame
 import turtle
+
+# Pygame
+pygame.mixer.init()
 
 # Create a screen position and color
 wn = turtle.Screen()
@@ -100,12 +105,14 @@ def tick():
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        os.system("aplay bounce.wav&")
+        pygame.mixer.music.load("bounce.wav")
+        pygame.mixer.music.play()
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        os.system("aplay bounce.wav&")
+        pygame.mixer.music.load("bounce.wav")
+        pygame.mixer.music.play()
 
     # Go off the screen and reserve direction (Left and Right)
     if ball.xcor() > 390:
@@ -127,13 +134,15 @@ def tick():
             ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
-        os.system("aplay bounce.wav")
+        pygame.mixer.music.load("bounce.wav")
+        pygame.mixer.music.play()
 
     if (ball.xcor() < -340 and ball.xcor() > -350) and (
             ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1
-        os.system("aplay bounce.wav")
+        pygame.mixer.music.load("bounce.wav")
+        pygame.mixer.music.play()
 
     wn.update()
 tick()
