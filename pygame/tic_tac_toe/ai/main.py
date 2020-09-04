@@ -46,6 +46,11 @@ def play_game():
             check_if_game_over()
             flip_ai_player()
 
+        if winner == "X" or winner == "O":
+            print(winner + " won")
+        elif winner is None:
+            print("Tie")
+
 def handle_turn(player):
     print(player + "'s turn")
     position = input("Choose a position from 1-9: ")
