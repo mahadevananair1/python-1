@@ -35,6 +35,7 @@ font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
 
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+
     first = pygame.draw.rect(screen, line_color, (25, 25, 150, 150))
     second = pygame.draw.rect(screen, line_color, (200, 25, 150, 150))
     third = pygame.draw.rect(screen, line_color, (375, 25, 150, 150))
@@ -49,6 +50,7 @@ def draw_rectangle():
 def check_if_open():
     global first_open, second_open, third_open, fourth_open, fifth_open
     global sixth_open, seventh_open, eighth_open, ninth_open
+
     first_open = True
     second_open = True
     third_open = True
@@ -97,6 +99,7 @@ def check_win(num):
 
 def num():
     global won_x, won_o
+
     if check_win(1):
         won_x = True
     if check_win(2):
@@ -124,11 +127,13 @@ def score_o():
 
 def draw_text_won():
     over_font = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
+
     if won_x:
         over_text = over_font.render("X won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
+
     if won_o:
         over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
@@ -138,26 +143,28 @@ def draw_text_won():
 def game_intro():
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
-    print(click)
-    mode_human = pygame.draw.rect(screen, grey, (50, 400, 160, 50))
-    mode_computer = pygame.draw.rect(screen, grey, (350, 400, 160, 50))
+    mode_human = pygame.draw.rect(screen, grey, (250, 530, 160, 50))
+    mode_computer = pygame.draw.rect(screen, grey, (250, 600, 160, 50))
 
     if mode_human.collidepoint(mouse):
-        pygame.draw.rect(screen, bright_grey, (50, 400, 160, 50))
+        pygame.draw.rect(screen, bright_grey, (250, 530, 160, 50))
         if click[0] == 1:
+            screen.fill((0, 0, 0))
             draw_rectangle()
             check_if_open()
-            print("2 Players")
+
     if mode_computer.collidepoint(mouse):
-        pygame.draw.rect(screen, bright_grey, (350, 400, 160, 50))
+        pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
         if click[0] == 1:
-            print("Computer")
+            screen.fill((0, 0, 0))
+            draw_rectangle()
+            check_if_open()
 
     human = font.render("2 Players", True, (255, 255, 255))
-    screen.blit(human, (60, 410))
+    screen.blit(human, (260, 540))
 
     computer = font.render("Computer", True, (255, 255, 255))
-    screen.blit(computer, (360, 410))
+    screen.blit(computer, (260, 610))
 
 clock = pygame.time.Clock()
 fps = 60
@@ -178,10 +185,13 @@ while running:
                 draw_rectangle()
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
+            game_intro()
+            x_score = 0
+            o_score = 0
             if won is not True:
-                # global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-                # global first_open, second_open, third_open, fourth_open, fifth_open
-                # global sixth_open, seventh_open, eighth_open, ninth_open
+                global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+                global first_open, second_open, third_open, fourth_open, fifth_open
+                global sixth_open, seventh_open, eighth_open, ninth_open
                 if first.collidepoint(pos) and first_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
