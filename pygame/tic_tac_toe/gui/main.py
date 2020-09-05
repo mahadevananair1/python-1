@@ -9,8 +9,9 @@ width, height = 550, 650
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe 2 Player")
 
-# Screen for computer(AI)
-screen_ai = pygame.display.set_mode((width, height))
+# Button
+grey = (72, 72, 72)
+bright_grey = (62, 62, 72)
 
 project_directory = os.path.dirname(__file__)
 # Loading images
@@ -43,7 +44,7 @@ def draw_rectangle():
     seventh = pygame.draw.rect(screen, line_color, (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
-draw_rectangle()
+# draw_rectangle()
 
 def check_if_open():
     global first_open, second_open, third_open, fourth_open, fifth_open
@@ -134,11 +135,18 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
-def modes():
+def game_intro():
+    mouse = pygame.mouse.get_pos()
+    mode_human = pygame.draw.rect(screen, grey, (100, 400, 100, 50))
+    mode_computer = pygame.draw.rect(screen, grey, (350, 400, 100, 50))
+
+    if mode_human.collidepoint(mouse):
+        pygame.draw.rect(screen, bright_grey, (100, 400, 100, 50))
+    if mode_computer.collidepoint(mouse):
+        pygame.draw.rect(screen, bright_grey, (350, 400, 100, 50))
+
     human = font.render("2 Players", True, (255, 255, 255))
     computer = font.render("Computer", True, (255, 255, 255))
-    screen_ai.blit(human, (250, 250))
-    screen_ai.blit(computer, (270, 270))
 
 clock = pygame.time.Clock()
 fps = 60
@@ -267,4 +275,5 @@ while running:
         o_turn()
         score_x()
         score_o()
+        game_intro()
     pygame.display.update()
