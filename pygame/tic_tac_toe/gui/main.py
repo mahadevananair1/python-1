@@ -137,16 +137,27 @@ def draw_text_won():
 
 def game_intro():
     mouse = pygame.mouse.get_pos()
-    mode_human = pygame.draw.rect(screen, grey, (100, 400, 100, 50))
-    mode_computer = pygame.draw.rect(screen, grey, (350, 400, 100, 50))
+    click = pygame.mouse.get_pressed()
+    print(click)
+    mode_human = pygame.draw.rect(screen, grey, (50, 400, 160, 50))
+    mode_computer = pygame.draw.rect(screen, grey, (350, 400, 160, 50))
 
     if mode_human.collidepoint(mouse):
-        pygame.draw.rect(screen, bright_grey, (100, 400, 100, 50))
+        pygame.draw.rect(screen, bright_grey, (50, 400, 160, 50))
+        if click[0] == 1:
+            draw_rectangle()
+            check_if_open()
+            print("2 Players")
     if mode_computer.collidepoint(mouse):
-        pygame.draw.rect(screen, bright_grey, (350, 400, 100, 50))
+        pygame.draw.rect(screen, bright_grey, (350, 400, 160, 50))
+        if click[0] == 1:
+            print("Computer")
 
     human = font.render("2 Players", True, (255, 255, 255))
+    screen.blit(human, (60, 410))
+
     computer = font.render("Computer", True, (255, 255, 255))
+    screen.blit(computer, (360, 410))
 
 clock = pygame.time.Clock()
 fps = 60
@@ -168,9 +179,9 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             if won is not True:
-                global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-                global first_open, second_open, third_open, fourth_open, fifth_open
-                global sixth_open, seventh_open, eighth_open, ninth_open
+                # global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+                # global first_open, second_open, third_open, fourth_open, fifth_open
+                # global sixth_open, seventh_open, eighth_open, ninth_open
                 if first.collidepoint(pos) and first_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
