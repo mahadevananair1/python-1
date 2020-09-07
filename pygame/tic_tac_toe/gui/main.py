@@ -265,6 +265,7 @@ def flip_ai_player():
 
 def game_intro():
     global x_score, o_score
+    global won_x, won_o, won, board
 
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
@@ -274,20 +275,28 @@ def game_intro():
     if mode_human.collidepoint(mouse):
         pygame.draw.rect(screen, bright_grey, (250, 530, 160, 50))
         if click[0] == 1:
-            screen.fill((0, 0, 0))
-            draw_rectangle()
-            check_if_open()
+            won_x = False
+            won_o = False
+            won = False
             x_score = 0
             o_score = 0
+            board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            check_if_open()
+            screen.fill((0, 0, 0))
+            draw_rectangle()
 
     if mode_computer.collidepoint(mouse):
         pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
         if click[0] == 1:
-            screen.fill((0, 0, 0))
-            draw_rectangle()
-            check_if_open()
+            won_x = False
+            won_o = False
+            won = False
             x_score = 0
             o_score = 0
+            board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            check_if_open()
+            screen.fill((0, 0, 0))
+            draw_rectangle()
 
     human = font.render("2 Players", True, (255, 255, 255))
     screen.blit(human, (260, 540))
