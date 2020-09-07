@@ -146,10 +146,10 @@ def draw_text_won():
 def ai(player_ai):
     if current_player_turn == "Computer":
         while True:
-            # row = random.randint(0, 2)
-            # tiles = random.randint(0, 2)
-            # print(row)
-            # print(tiles)
+            row = random.randint(0, 2)
+            tiles = random.randint(0, 2)
+            print(row)
+            print(tiles)
 
             if board[0][0] == 0:
                 if board[0][0]:
@@ -157,10 +157,10 @@ def ai(player_ai):
                     board[0][0] = 2
                 elif board[0][1]:
                     screen.blit(o_img, (225, 50))
-                    board[0][0] = 2
+                    board[0][1] = 2
                 elif board[0][2]:
                     screen.blit(o_img, (400, 50))
-                    board[0][0] = 2
+                    board[0][2] = 2
 
                 break
         print(board)
