@@ -143,21 +143,21 @@ def draw_text_won():
         screen.blit(space_text, (50, 300))
 
 # Computer(AI)
-def ai():
+def ai(player_ai):
     global current_player_turn
     global first_open, second_open, third_open, fourth_open, fifth_open
     global sixth_open, seventh_open, eighth_open, ninth_open
 
-    if current_player_turn == "Computer":
-        row = random.randint(0, 1)
-        column = random.randint(0, 1)
+    while current_player_turn == "Computer":
+        row = random.randint(0, 2)
+        column = random.randint(0, 2)
         print(row)
         print(column)
 
         if board[row][column] == 0:
             board[row][column] = 2
             current_player_turn = "X"
-print(board)
+    print(board)
 
 
 def flip_ai_player():
@@ -335,7 +335,7 @@ while running:
                 if check_win(2):
                     won = True
                     o_score += 1
-                ai()
+                ai(current_player_turn)
                 flip_ai_player()
                 draw_text_won()
         game_intro()
