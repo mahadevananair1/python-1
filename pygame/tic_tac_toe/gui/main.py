@@ -144,6 +144,8 @@ def draw_text_won():
 
 # Computer(AI)
 def ai(player_ai):
+    global current_player_turn
+
     if current_player_turn == "Computer":
         while True:
             row = random.randint(0, 2)
@@ -152,17 +154,27 @@ def ai(player_ai):
             print(tiles)
 
             if board[0][0] == 0:
-                if board[0][0]:
-                    screen.blit(o_img, (50, 50))
-                    board[0][0] = 2
-                elif board[0][1]:
-                    screen.blit(o_img, (225, 50))
-                    board[0][1] = 2
-                elif board[0][2]:
-                    screen.blit(o_img, (400, 50))
-                    board[0][2] = 2
+                screen.blit(o_img, (50, 50))
+                board[0][0] = 2
+                current_player_turn = "X"
+            elif board[0][1] == 0:
+                screen.blit(o_img, (225, 50))
+                board[0][1] = 2
+                current_player_turn = "X"
+            elif board[0][2] == 0:
+                screen.blit(o_img, (400, 50))
+                board[0][2] = 2
+                current_player_turn = "X"
+            elif board[1][0] == 0:
+                screen.blit(o_img, (50, 225))
+                board[1][0] = 2
+                current_player_turn = "X"
+            elif board[1][1] == 0:
+                screen.blit(x_img, (225, 225))
+                board[1][1] = 2
+                current_player_turn = "X"
 
-                break
+            break
         print(board)
 
 def flip_ai_player():
