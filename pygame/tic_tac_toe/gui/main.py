@@ -149,15 +149,15 @@ def ai():
     global sixth_open, seventh_open, eighth_open, ninth_open
 
     if current_player_turn == "Computer":
-            row = random.randint(0, 1)
-            column = random.randint(0, 1)
-            print(row)
-            print(column)
+        row = random.randint(0, 1)
+        column = random.randint(0, 1)
+        print(row)
+        print(column)
 
-            if board[row][column] == 0:
-                board[row][column] = 2
-                current_player_turn = "X"
-    print(board)
+        if board[row][column] == 0:
+            board[row][column] = 2
+            current_player_turn = "X"
+print(board)
 
 
 def flip_ai_player():
