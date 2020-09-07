@@ -151,8 +151,8 @@ def ai(player_ai):
     while current_player_turn == "Computer":
         row = random.randint(0, 2)
         column = random.randint(0, 2)
-        print(row)
         print(column)
+        print(row)
 
         x = [50, 225, 400][column]
         print(x)
