@@ -143,41 +143,22 @@ def draw_text_won():
         screen.blit(space_text, (50, 300))
 
 # Computer(AI)
-def ai(player_ai):
+def ai():
     global current_player_turn
-    global first_open
+    global first_open, second_open, third_open, fourth_open, fifth_open
+    global sixth_open, seventh_open, eighth_open, ninth_open
 
     if current_player_turn == "Computer":
-        while True:
             row = random.randint(0, 1)
-            tiles = random.randint(0, 1)
+            column = random.randint(0, 1)
             print(row)
-            print(tiles)
+            print(column)
 
-            if board[0][0] == 0:
-                screen.blit(o_img, (50, 50))
-                board[0][0] = 2
-                first_open = False
+            if board[row][column] == 0:
+                board[row][column] = 2
                 current_player_turn = "X"
-            elif board[0][1] == 0:
-                screen.blit(o_img, (225, 50))
-                board[0][1] = 2
-                current_player_turn = "X"
-            elif board[0][2] == 0:
-                screen.blit(o_img, (400, 50))
-                board[0][2] = 2
-                current_player_turn = "X"
-            elif board[1][0] == 0:
-                screen.blit(o_img, (50, 225))
-                board[1][0] = 2
-                current_player_turn = "X"
-            elif board[1][1] == 0:
-                screen.blit(x_img, (225, 225))
-                board[1][1] = 2
-                current_player_turn = "X"
+    print(board)
 
-            break
-        print(board)
 
 def flip_ai_player():
     global current_player_turn
@@ -208,6 +189,7 @@ def game_intro():
             check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
+
     if mode_computer.collidepoint(mouse):
         pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
         if click[0] == 1:
@@ -240,10 +222,13 @@ while running:
                 won_x = False
                 won_o = False
                 won = False
+                x_score = 0
+                o_score = 0
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
                 check_if_open()
                 screen.fill((0, 0, 0))
                 draw_rectangle()
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             game_intro()
@@ -350,9 +335,9 @@ while running:
                 if check_win(2):
                     won = True
                     o_score += 1
-                draw_text_won()
-                ai(current_player_turn)
+                ai()
                 flip_ai_player()
+                draw_text_won()
         game_intro()
         x_turn()
         o_turn()
