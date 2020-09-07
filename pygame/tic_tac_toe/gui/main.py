@@ -154,9 +154,16 @@ def ai(player_ai):
         print(row)
         print(column)
 
-        if board[row][column] == 0:
-            board[row][column] = 2
-            current_player_turn = "X"
+        x = [50, 225, 400][column]
+        print(x)
+        y = [50, 225, 400][row]
+        print(y)
+        screen.blit(o_img, (x, y))
+        break
+
+        # if board[row][column] == 0:
+            # board[row][column] = 2
+            # current_player_turn = "X"
     print(board)
 
 
@@ -232,6 +239,7 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             game_intro()
+
             if won is not True:
                 global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
                 global first_open, second_open, third_open, fourth_open, fifth_open
@@ -240,7 +248,7 @@ while running:
                 if first.collidepoint(pos) and first_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
-                        current_player = "O"
+                        # current_player = "O"
                         board[0][0] = 1
                     else:
                         screen.blit(o_img, (50, 50))
@@ -250,7 +258,7 @@ while running:
                 if second.collidepoint(pos) and second_open:
                     if current_player == "X":
                         screen.blit(x_img, (225, 50))
-                        current_player = "O"
+                        # current_player = "O"
                         board[0][1] = 1
                     else:
                         screen.blit(o_img, (225, 50))
@@ -260,7 +268,7 @@ while running:
                 if third.collidepoint(pos) and third_open:
                     if current_player == "X":
                         screen.blit(x_img, (400, 50))
-                        current_player = "O"
+                        # current_player = "O"
                         board[0][2] = 1
                     else:
                         screen.blit(o_img, (400, 50))
@@ -270,7 +278,7 @@ while running:
                 if fourth.collidepoint(pos) and fourth_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 225))
-                        current_player = "O"
+                        # current_player = "O"
                         board[1][0] = 1
                     else:
                         screen.blit(o_img, (50, 225))
@@ -280,7 +288,7 @@ while running:
                 if fifth.collidepoint(pos) and fifth_open:
                     if current_player == "X":
                         screen.blit(x_img, (225, 225))
-                        current_player = "O"
+                        # current_player = "O"
                         board[1][1] = 1
                     else:
                         screen.blit(o_img, (225, 225))
@@ -290,7 +298,7 @@ while running:
                 if sixth.collidepoint(pos) and sixth_open:
                     if current_player == "X":
                         screen.blit(x_img, (400, 225))
-                        current_player = "O"
+                        # current_player = "O"
                         board[1][2] = 1
                     else:
                         screen.blit(o_img, (400, 225))
@@ -300,7 +308,7 @@ while running:
                 if seventh.collidepoint(pos) and seventh_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 400))
-                        current_player = "O"
+                        # current_player = "O"
                         board[2][0] = 1
                     else:
                         screen.blit(o_img, (50, 400))
@@ -310,7 +318,7 @@ while running:
                 if eighth.collidepoint(pos) and eighth_open:
                     if current_player == "X":
                         screen.blit(x_img, (225, 400))
-                        current_player = "O"
+                        # current_player = "O"
                         board[2][1] = 1
                     else:
                         screen.blit(o_img, (225, 400))
@@ -320,7 +328,7 @@ while running:
                 if ninth.collidepoint(pos) and ninth_open:
                     if current_player == "X":
                         screen.blit(x_img, (400, 400))
-                        current_player = "O"
+                        # current_player = "O"
                         board[2][2] = 1
                     else:
                         screen.blit(o_img, (400, 400))
