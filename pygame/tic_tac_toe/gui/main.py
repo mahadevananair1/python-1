@@ -159,6 +159,8 @@ def ai(player_ai):
         y = [50, 225, 400][row]
         print(y)
         screen.blit(o_img, (x, y))
+        board[row][column] = 2
+        current_player_turn = "X"
         break
 
         # if board[row][column] == 0:
@@ -251,7 +253,7 @@ while running:
                         # current_player = "O"
                         board[0][0] = 1
                     else:
-                        screen.blit(o_img, (50, 50))
+                        # screen.blit(o_img, (50, 50))
                         current_player = "X"
                         board[0][0] = 2
                     first_open = False
@@ -261,7 +263,7 @@ while running:
                         # current_player = "O"
                         board[0][1] = 1
                     else:
-                        screen.blit(o_img, (225, 50))
+                        # screen.blit(o_img, (225, 50))
                         current_player = "X"
                         board[0][1] = 2
                     second_open = False
@@ -271,7 +273,7 @@ while running:
                         # current_player = "O"
                         board[0][2] = 1
                     else:
-                        screen.blit(o_img, (400, 50))
+                        # screen.blit(o_img, (400, 50))
                         current_player = "X"
                         board[0][2] = 2
                     third_open = False
@@ -281,7 +283,7 @@ while running:
                         # current_player = "O"
                         board[1][0] = 1
                     else:
-                        screen.blit(o_img, (50, 225))
+                        # screen.blit(o_img, (50, 225))
                         current_player = "X"
                         board[1][0] = 2
                     fourth_open = False
@@ -291,7 +293,7 @@ while running:
                         # current_player = "O"
                         board[1][1] = 1
                     else:
-                        screen.blit(o_img, (225, 225))
+                        # screen.blit(o_img, (225, 225))
                         current_player = "X"
                         board[1][1] = 2
                     fifth_open = False
@@ -301,7 +303,7 @@ while running:
                         # current_player = "O"
                         board[1][2] = 1
                     else:
-                        screen.blit(o_img, (400, 225))
+                        # screen.blit(o_img, (400, 225))
                         current_player = "X"
                         board[1][2] = 2
                     sixth_open = False
@@ -311,7 +313,7 @@ while running:
                         # current_player = "O"
                         board[2][0] = 1
                     else:
-                        screen.blit(o_img, (50, 400))
+                        # screen.blit(o_img, (50, 400))
                         current_player = "X"
                         board[2][0] = 2
                     seventh_open = False
@@ -321,7 +323,7 @@ while running:
                         # current_player = "O"
                         board[2][1] = 1
                     else:
-                        screen.blit(o_img, (225, 400))
+                        # screen.blit(o_img, (225, 400))
                         current_player = "X"
                         board[2][1] = 2
                     eighth_open = False
@@ -331,7 +333,7 @@ while running:
                         # current_player = "O"
                         board[2][2] = 1
                     else:
-                        screen.blit(o_img, (400, 400))
+                        # screen.blit(o_img, (400, 400))
                         current_player = "X"
                         board[2][2] = 2
                     ninth_open = False
