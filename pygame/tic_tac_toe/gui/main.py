@@ -150,11 +150,18 @@ def ai(player_ai):
             # tiles = random.randint(0, 2)
             # print(row)
             # print(tiles)
+
             if board[0][0] == 0:
-                board[0][0] = 2
-                if board[0][0] and first_open:
-                    if current_player_turn == "Computer":
-                        screen.blit(o_img, (50, 50))
+                if board[0][0]:
+                    screen.blit(o_img, (50, 50))
+                    board[0][0] = 2
+                elif board[0][1]:
+                    screen.blit(o_img, (225, 50))
+                    board[0][0] = 2
+                elif board[0][2]:
+                    screen.blit(o_img, (400, 50))
+                    board[0][0] = 2
+
                 break
         print(board)
 
