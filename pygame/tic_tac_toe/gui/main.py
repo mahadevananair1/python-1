@@ -50,7 +50,6 @@ def draw_rectangle():
     seventh = pygame.draw.rect(screen, line_color, (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
-# draw_rectangle()
 
 def check_if_open():
     global first_open, second_open, third_open, fourth_open, fifth_open
@@ -65,7 +64,6 @@ def check_if_open():
     seventh_open = True
     eighth_open = True
     ninth_open = True
-check_if_open()
 
 def check_win(num):
     for row in board:
@@ -138,7 +136,6 @@ def draw_text_won():
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
-
     if won_o:
         over_text = over_font.render("O won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
@@ -147,8 +144,6 @@ def draw_text_won():
 
 # Computer(AI)
 def ai(player_ai):
-    board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-
     if current_player_turn == "Computer":
         while True:
             row = random.randint(0, 2)
@@ -160,6 +155,7 @@ def ai(player_ai):
 
 def flip_ai_player():
     global current_player_turn
+
     if current_player_turn == "X":
         current_player_turn = "Computer"
     elif current_player_turn == "Computer":
@@ -186,7 +182,6 @@ def game_intro():
             check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
-
     if mode_computer.collidepoint(mouse):
         pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
         if click[0] == 1:
@@ -230,6 +225,7 @@ while running:
                 global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
                 global first_open, second_open, third_open, fourth_open, fifth_open
                 global sixth_open, seventh_open, eighth_open, ninth_open
+
                 if first.collidepoint(pos) and first_open:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
@@ -320,7 +316,6 @@ while running:
                         current_player = "X"
                         board[2][2] = 2
                     ninth_open = False
-
                 check_win(num)
                 num()
                 if check_win(1):
