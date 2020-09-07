@@ -150,14 +150,13 @@ def ai(player_ai):
     board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
     if current_player_turn == "Computer":
-        move = random.sample(range(1, 8), 2)
-        one = move[0]
-        two = move[1]
-        one_int = int(one)
-        two_int = int(two)
-        if board[0] == 0:
-            board[move] = "O"
-    print(board)
+        while True:
+            row = random.randint(0, 2)
+            tiles = random.randint(0, 2)
+            if board[row][tiles] == 0:
+                board[row][tiles] = 2
+                break
+        print(board)
 
 def flip_ai_player():
     global current_player_turn
