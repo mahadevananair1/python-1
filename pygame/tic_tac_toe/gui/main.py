@@ -145,17 +145,19 @@ def draw_text_won():
 # Computer(AI)
 def ai(player_ai):
     global current_player_turn
+    global first_open
 
     if current_player_turn == "Computer":
         while True:
-            row = random.randint(0, 2)
-            tiles = random.randint(0, 2)
+            row = random.randint(0, 1)
+            tiles = random.randint(0, 1)
             print(row)
             print(tiles)
 
             if board[0][0] == 0:
                 screen.blit(o_img, (50, 50))
                 board[0][0] = 2
+                first_open = False
                 current_player_turn = "X"
             elif board[0][1] == 0:
                 screen.blit(o_img, (225, 50))
