@@ -150,9 +150,14 @@ def ai(player_ai):
     board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
     if current_player_turn == "Computer":
-        move = random.randint(1, 8)
-        if board[move] == 0:
+        move = random.sample(range(1, 8), 2)
+        one = move[0]
+        two = move[1]
+        one_int = int(one)
+        two_int = int(two)
+        if board[0] == 0:
             board[move] = "O"
+    print(board)
 
 def flip_ai_player():
     global current_player_turn
@@ -317,10 +322,11 @@ while running:
                     won = True
                     o_score += 1
                 draw_text_won()
+                ai(current_player_turn)
+                flip_ai_player()
         x_turn()
         o_turn()
         score_x()
         score_o()
         game_intro()
-        ai(current_player_turn)
     pygame.display.update()
