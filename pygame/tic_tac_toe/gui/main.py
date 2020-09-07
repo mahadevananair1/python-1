@@ -146,10 +146,15 @@ def draw_text_won():
 def ai(player_ai):
     if current_player_turn == "Computer":
         while True:
-            row = random.randint(0, 2)
-            tiles = random.randint(0, 2)
-            if board[row][tiles] == 0:
-                board[row][tiles] = 2
+            # row = random.randint(0, 2)
+            # tiles = random.randint(0, 2)
+            # print(row)
+            # print(tiles)
+            if board[0][0] == 0:
+                board[0][0] = 2
+                if board[0][0] and first_open:
+                    if current_player_turn == "Computer":
+                        screen.blit(o_img, (50, 50))
                 break
         print(board)
 
@@ -327,9 +332,9 @@ while running:
                 draw_text_won()
                 ai(current_player_turn)
                 flip_ai_player()
+        game_intro()
         x_turn()
         o_turn()
         score_x()
         score_o()
-        game_intro()
     pygame.display.update()
