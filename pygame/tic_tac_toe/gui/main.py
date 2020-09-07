@@ -1,4 +1,5 @@
 import os.path
+import random
 import pygame
 
 # Screen for 2 players
@@ -33,6 +34,10 @@ x_score = 0
 o_score = 0
 font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
 
+# Global variables(Computer AI)
+current_player_turn = "X"
+
+# Human
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
 
@@ -140,6 +145,22 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
+# Computer(AI)
+def ai(player_ai):
+    board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+    if current_player_turn == "Computer":
+        move = random.randint(1, 8)
+        if board[move] == 0:
+            board[move] = "O"
+
+def flip_ai_player():
+    global current_player_turn
+    if current_player_turn == "X":
+        current_player_turn = "Computer"
+    elif current_player_turn == "Computer":
+        current_player_turn = "X"
+
 def game_intro():
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
@@ -186,8 +207,6 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             game_intro()
-            x_score = 0
-            o_score = 0
             if won is not True:
                 global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
                 global first_open, second_open, third_open, fourth_open, fifth_open
@@ -297,4 +316,5 @@ while running:
         score_x()
         score_o()
         game_intro()
+        ai(current_player_turn)
     pygame.display.update()
