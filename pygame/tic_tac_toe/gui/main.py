@@ -12,7 +12,7 @@ pygame.display.set_caption("Tic Tac Toe 2 Player")
 
 # Button
 grey = (72, 72, 72)
-bright_grey = (62, 62, 72)
+bright_grey = (60, 60, 90)
 
 project_directory = os.path.dirname(__file__)
 # Loading images
@@ -148,20 +148,92 @@ def ai():
     global first_open, second_open, third_open, fourth_open, fifth_open
     global sixth_open, seventh_open, eighth_open, ninth_open
 
-    while current_player_turn == "Computer":
+    if current_player_turn == "Computer":
         row = random.randint(0, 2)
         column = random.randint(0, 2)
-        print(column)
-        print(row)
 
-        x = [50, 225, 400][column]
-        print(x)
-        y = [50, 225, 400][row]
-        print(y)
-        screen.blit(o_img, (x, y))
-        board[row][column] = 2
-        current_player_turn = "X"
-        break
+        if board[row][column] == 0:
+            print(column)
+            print(row)
+            x = [50, 225, 400][column]
+            print(x)
+            y = [50, 225, 400][row]
+            print(y)
+
+            if x == [50][0]:
+                first_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [225][0]:
+                second_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [400][0]:
+                third_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+
+            # screen.blit(o_img, (x, y))
+            # board[row][column] = 2
+            # current_player_turn = "X"
+        """
+        if board[0][0] == 0:
+            screen.blit(o_img, (50, 50))
+            first_open = False
+            board[0][0] == 2
+            current_player_turn = "X"
+
+        elif board[0][1] == 0:
+            screen.blit(o_img, (50, 225))
+            second_open = False
+            board[0][1] == 2
+            current_player_turn = "X"
+
+        elif board[0][2] == 0:
+            screen.blit(o_img, (50, 400))
+            third_open = False
+            board[0][2] == 2
+            current_player_turn = "X"
+
+        elif board[1][0] == 0:
+            screen.blit(o_img, (225, 50))
+            fourth_open = False
+            board[1][0] == 2
+            current_player_turn = "X"
+
+        elif board[1][1] == 0:
+            screen.blit(o_img, (225, 225))
+            fifth_open = False
+            board[1][1] == 2
+            current_player_turn = "X"
+
+        elif board[1][2] == 0:
+            screen.blit(o_img, (225, 400))
+            sixth_open = False
+            board[1][2] == 2
+            current_player_turn = "X"
+
+        elif board[2][0] == 0:
+            screen.blit(o_img, (400, 50))
+            seventh_open = False
+            board[1][2] == 2
+            current_player_turn = "X"
+
+        elif board[2][1] == 0:
+            screen.blit(o_img, (400, 225))
+            eighth_open = False
+            board[2][1] == 2
+            current_player_turn = "X"
+
+        elif board[2][2] == 0:
+            screen.blit(o_img, (400, 400))
+            ninth_open = False
+            board[2][2] == 2
+            current_player_turn = "X"
+        """
 
         # if board[row][column] == 0:
             # board[row][column] = 2
@@ -240,6 +312,8 @@ while running:
                 check_if_open()
                 screen.fill((0, 0, 0))
                 draw_rectangle()
+                ai()
+                flip_ai_player()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -346,6 +420,8 @@ while running:
                         board[2][2] = 2
                     ninth_open = False
 
+                ai()
+                flip_ai_player()
                 check_win(num)
                 num()
                 if check_win(1):
@@ -355,8 +431,6 @@ while running:
                     won = True
                     o_score += 1
                 draw_text_won()
-                ai()
-                flip_ai_player()
         game_intro()
         x_turn()
         o_turn()
