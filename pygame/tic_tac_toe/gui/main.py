@@ -51,20 +51,6 @@ def draw_rectangle():
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
 
-def check_if_open():
-    global first_open, second_open, third_open, fourth_open, fifth_open
-    global sixth_open, seventh_open, eighth_open, ninth_open
-
-    first_open = True
-    second_open = True
-    third_open = True
-    fourth_open = True
-    fifth_open = True
-    sixth_open = True
-    seventh_open = True
-    eighth_open = True
-    ninth_open = True
-
 def check_win(num):
     for row in board:
         for tile in row:
@@ -194,7 +180,6 @@ def game_intro():
             x_score = 0
             o_score = 0
             board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-            check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
 
@@ -207,7 +192,6 @@ def game_intro():
             x_score = 0
             o_score = 0
             board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-            check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
 
@@ -235,7 +219,6 @@ while running:
                 x_score = 0
                 o_score = 0
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-                check_if_open()
                 screen.fill((0, 0, 0))
                 draw_rectangle()
                 ai()
