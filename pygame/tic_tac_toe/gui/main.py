@@ -160,7 +160,7 @@ def ai():
         print(y)
         screen.blit(o_img, (x, y))
         board[row][column] = 2
-        # current_player_turn = "X"
+        current_player_turn = "X"
         break
 
         # if board[row][column] == 0:
