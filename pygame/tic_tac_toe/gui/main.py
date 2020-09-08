@@ -159,55 +159,55 @@ def ai():
         y = [50, 225, 400][row]
         print(y)
 
-        if column == 0 and row == 0:
+        if board[0][0] == 0:
             first_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 0 and row == 1:
+        elif board[0][1] == 0:
             second_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 0 and row == 2:
+        elif board[0][2] == 0:
             third_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 1 and row == 0:
+        elif board[1][0] == 0:
             fourth_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 1 and row == 1:
+        elif board[1][1] == 0:
             fifth_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 1 and row == 2:
+        elif board[1][2] == 0:
             sixth_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 2 and row == 0:
+        elif board[2][0] == 0:
             seventh_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 2 and row == 1:
+        elif board[2][1] == 0:
             eighth_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
-        if column == 2 and row == 2:
+        elif board[2][2] == 0:
             ninth_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
             current_player_turn = "X"
 
-        screen.blit(o_img, (x, y))
-        board[row][column] = 2
-        current_player_turn = "X"
+        # screen.blit(o_img, (x, y))
+        # board[row][column] = 2
+        # current_player_turn = "X"
 
         """
         if board[row][column] == 0:
