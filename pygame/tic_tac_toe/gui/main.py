@@ -211,6 +211,7 @@ def game_intro():
             check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
+            ai(current_player_turn)
 
     human = font.render("2 Players", True, (255, 255, 255))
     screen.blit(human, (260, 540))
@@ -337,6 +338,7 @@ while running:
                         current_player = "X"
                         board[2][2] = 2
                     ninth_open = False
+
                 check_win(num)
                 num()
                 if check_win(1):
