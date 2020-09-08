@@ -132,7 +132,7 @@ def draw_text_won():
 def ai():
     global current_player_turn
 
-    if current_player_turn == "Computer":
+    while current_player_turn == "Computer":
         row = random.randint(0, 2)
         column = random.randint(0, 2)
         print(column)
