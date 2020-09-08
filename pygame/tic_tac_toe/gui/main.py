@@ -152,66 +152,68 @@ def ai():
         row = random.randint(0, 2)
         column = random.randint(0, 2)
 
+        print(column)
+        print(row)
+        x = [50, 225, 400][column]
+        print(x)
+        y = [50, 225, 400][row]
+        print(y)
+
+        if column == 0 and row == 0:
+            first_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 0 and row == 1:
+            second_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 0 and row == 2:
+            third_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 1 and row == 0:
+            fourth_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 1 and row == 1:
+            fifth_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 1 and row == 2:
+            sixth_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 2 and row == 0:
+            seventh_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 2 and row == 1:
+            eighth_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+        if column == 2 and row == 2:
+            ninth_open = False
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
+
+        screen.blit(o_img, (x, y))
+        board[row][column] = 2
+        current_player_turn = "X"
+
+        """
         if board[row][column] == 0:
-            print(column)
-            print(row)
-            x = [50, 225, 400][column]
-            print(x)
-            y = [50, 225, 400][row]
-            print(y)
-
-            if x == [50][0]:
-                first_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [225][0]:
-                second_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [400][0]:
-                third_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [50][1]:
-                fourth_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [255][1]:
-                fifth_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [400][1]:
-                sixth_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [50][2]:
-                seventh_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [255][2]:
-                eighth_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            if x == [400][2]:
-                ninth_open = False
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
-            # screen.blit(o_img, (x, y))
-            # board[row][column] = 2
-            # current_player_turn = "X"
-
-        # if board[row][column] == 0:
-            # board[row][column] = 2
-            # current_player_turn = "X"
+            board[row][column] = 2
+            current_player_turn = "X"
+        """
     print(board)
 
 
