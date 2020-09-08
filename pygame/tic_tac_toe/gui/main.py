@@ -175,65 +175,39 @@ def ai():
                 screen.blit(o_img, (x, y))
                 board[row][column] = 2
                 current_player_turn = "X"
-
+            if x == [50][1]:
+                fourth_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [255][1]:
+                fifth_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [400][1]:
+                sixth_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [50][2]:
+                seventh_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [255][2]:
+                eighth_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
+            if x == [400][2]:
+                ninth_open = False
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
             # screen.blit(o_img, (x, y))
             # board[row][column] = 2
             # current_player_turn = "X"
-        """
-        if board[0][0] == 0:
-            screen.blit(o_img, (50, 50))
-            first_open = False
-            board[0][0] == 2
-            current_player_turn = "X"
-
-        elif board[0][1] == 0:
-            screen.blit(o_img, (50, 225))
-            second_open = False
-            board[0][1] == 2
-            current_player_turn = "X"
-
-        elif board[0][2] == 0:
-            screen.blit(o_img, (50, 400))
-            third_open = False
-            board[0][2] == 2
-            current_player_turn = "X"
-
-        elif board[1][0] == 0:
-            screen.blit(o_img, (225, 50))
-            fourth_open = False
-            board[1][0] == 2
-            current_player_turn = "X"
-
-        elif board[1][1] == 0:
-            screen.blit(o_img, (225, 225))
-            fifth_open = False
-            board[1][1] == 2
-            current_player_turn = "X"
-
-        elif board[1][2] == 0:
-            screen.blit(o_img, (225, 400))
-            sixth_open = False
-            board[1][2] == 2
-            current_player_turn = "X"
-
-        elif board[2][0] == 0:
-            screen.blit(o_img, (400, 50))
-            seventh_open = False
-            board[1][2] == 2
-            current_player_turn = "X"
-
-        elif board[2][1] == 0:
-            screen.blit(o_img, (400, 225))
-            eighth_open = False
-            board[2][1] == 2
-            current_player_turn = "X"
-
-        elif board[2][2] == 0:
-            screen.blit(o_img, (400, 400))
-            ninth_open = False
-            board[2][2] == 2
-            current_player_turn = "X"
-        """
 
         # if board[row][column] == 0:
             # board[row][column] = 2
