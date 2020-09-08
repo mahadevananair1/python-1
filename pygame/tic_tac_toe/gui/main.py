@@ -51,10 +51,11 @@ def draw_rectangle():
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
 
-def check_win(num):
+
+def check_win(number):
     for row in board:
         for tile in row:
-            if tile == num:
+            if tile == number:
                 continue
             else:
                 break
@@ -63,7 +64,7 @@ def check_win(num):
 
     for column in range(3):
         for row in board:
-            if row[column] == num:
+            if row[column] == number:
                 continue
             else:
                 break
@@ -71,7 +72,7 @@ def check_win(num):
             return True
 
     for tile in range(3):
-        if board[tile][tile] == num:
+        if board[tile][tile] == number:
             continue
         else:
             break
@@ -79,7 +80,7 @@ def check_win(num):
         return True
 
     for tile in range(3):
-        if board[tile][2 - tile] == num:
+        if board[tile][2 - tile] == number:
             continue
         else:
             break
@@ -96,14 +97,14 @@ def num():
 
 def x_turn():
     if current_player == "X":
-        x_turn = font.render("X turn", True, (255, 255, 255))
-        screen.blit(x_turn, (130, 550))
+        x_turn_text = font.render("X turn", True, (255, 255, 255))
+        screen.blit(x_turn_text, (130, 550))
         pygame.draw.rect(screen, (0, 0, 0), (120, 600, 110, 30))
 
 def o_turn():
     if current_player == "O":
-        o_turn = font.render("O turn", True, (255, 255, 255))
-        screen.blit(o_turn, (130, 600))
+        o_turn_text = font.render("O turn", True, (255, 255, 255))
+        screen.blit(o_turn_text, (130, 600))
         pygame.draw.rect(screen, (0, 0, 0), (130, 550, 110, 30))
 
 def score_x():
@@ -134,7 +135,6 @@ def ai():
     global current_player_turn
 
     i = 0
-
     while current_player_turn == "Computer" and i < 8:
         row = random.randint(0, 2)
         column = random.randint(0, 2)
