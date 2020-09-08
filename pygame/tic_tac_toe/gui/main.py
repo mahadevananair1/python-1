@@ -145,8 +145,6 @@ def draw_text_won():
 # Computer(AI)
 def ai():
     global current_player_turn
-    global first_open, second_open, third_open, fourth_open, fifth_open
-    global sixth_open, seventh_open, eighth_open, ninth_open
 
     if current_player_turn == "Computer":
         row = random.randint(0, 2)
@@ -159,61 +157,13 @@ def ai():
         y = [50, 225, 400][row]
         print(y)
 
-        if board[0][0] == 0: # True and skip, all elif
-            first_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[0][1] == 0:
-            second_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[0][2] == 0:
-            third_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[1][0] == 0:
-            fourth_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[1][1] == 0:
-            fifth_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[1][2] == 0:
-            sixth_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[2][0] == 0:
-            seventh_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[2][1] == 0:
-            eighth_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
-        elif board[2][2] == 0:
-            ninth_open = False
-            screen.blit(o_img, (x, y))
-            board[row][column] = 2
-            current_player_turn = "X"
+        screen.blit(o_img, (x, y))
+        board[row][column] = 2
+        current_player_turn = "X"
 
-        # screen.blit(o_img, (x, y))
-        # board[row][column] = 2
-        # current_player_turn = "X"
-
-        """
         if board[row][column] == 0:
             board[row][column] = 2
             current_player_turn = "X"
-        """
     print(board)
 
 
@@ -305,7 +255,7 @@ while running:
                 global first_open, second_open, third_open, fourth_open, fifth_open
                 global sixth_open, seventh_open, eighth_open, ninth_open
 
-                if first.collidepoint(pos) and first_open:
+                if first.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
                         # current_player = "O"
@@ -314,8 +264,7 @@ while running:
                         # screen.blit(o_img, (50, 50))
                         # current_player = "X"
                         board[0][0] = 2
-                    first_open = False
-                if second.collidepoint(pos) and second_open:
+                if second.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (225, 50))
                         # current_player = "O"
@@ -324,8 +273,7 @@ while running:
                         # screen.blit(o_img, (225, 50))
                         # current_player = "X"
                         board[0][1] = 2
-                    second_open = False
-                if third.collidepoint(pos) and third_open:
+                if third.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (400, 50))
                         # current_player = "O"
@@ -334,8 +282,7 @@ while running:
                         # screen.blit(o_img, (400, 50))
                         # current_player = "X"
                         board[0][2] = 2
-                    third_open = False
-                if fourth.collidepoint(pos) and fourth_open:
+                if fourth.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (50, 225))
                         # current_player = "O"
@@ -344,8 +291,7 @@ while running:
                         # screen.blit(o_img, (50, 225))
                         # current_player = "X"
                         board[1][0] = 2
-                    fourth_open = False
-                if fifth.collidepoint(pos) and fifth_open:
+                if fifth.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (225, 225))
                         # current_player = "O"
@@ -354,8 +300,7 @@ while running:
                         # screen.blit(o_img, (225, 225))
                         # current_player = "X"
                         board[1][1] = 2
-                    fifth_open = False
-                if sixth.collidepoint(pos) and sixth_open:
+                if sixth.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (400, 225))
                         # current_player = "O"
@@ -364,8 +309,7 @@ while running:
                         # screen.blit(o_img, (400, 225))
                         # current_player = "X"
                         board[1][2] = 2
-                    sixth_open = False
-                if seventh.collidepoint(pos) and seventh_open:
+                if seventh.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (50, 400))
                         # current_player = "O"
@@ -374,8 +318,7 @@ while running:
                         # screen.blit(o_img, (50, 400))
                         # current_player = "X"
                         board[2][0] = 2
-                    seventh_open = False
-                if eighth.collidepoint(pos) and eighth_open:
+                if eighth.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (225, 400))
                         # current_player = "O"
@@ -384,8 +327,7 @@ while running:
                         # screen.blit(o_img, (225, 400))
                         # current_player = "X"
                         board[2][1] = 2
-                    eighth_open = False
-                if ninth.collidepoint(pos) and ninth_open:
+                if ninth.collidepoint(pos):
                     if current_player == "X":
                         screen.blit(x_img, (400, 400))
                         # current_player = "O"
@@ -394,7 +336,6 @@ while running:
                         # screen.blit(o_img, (400, 400))
                         # current_player = "X"
                         board[2][2] = 2
-                    ninth_open = False
 
                 ai()
                 flip_ai_player()
