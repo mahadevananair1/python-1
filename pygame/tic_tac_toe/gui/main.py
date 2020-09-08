@@ -159,7 +159,7 @@ def ai():
         y = [50, 225, 400][row]
         print(y)
 
-        if board[0][0] == 0:
+        if board[0][0] == 0: # True and skip, all elif
             first_open = False
             screen.blit(o_img, (x, y))
             board[row][column] = 2
