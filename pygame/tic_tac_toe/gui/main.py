@@ -199,7 +199,6 @@ def game_intro():
             check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
-            player_mode()
 
     if mode_computer.collidepoint(mouse):
         pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
@@ -213,7 +212,6 @@ def game_intro():
             check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
-            ai_mode()
 
     human = font.render("2 Players", True, (255, 255, 255))
     screen.blit(human, (260, 540))
