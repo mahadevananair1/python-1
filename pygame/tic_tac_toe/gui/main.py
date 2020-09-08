@@ -8,7 +8,7 @@ black = (0, 0, 0)
 line_color = (255, 255, 255)
 width, height = 550, 650
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Tic Tac Toe 2 Player")
+pygame.display.set_caption("Tic Tac Toe")
 
 # Button
 grey = (72, 72, 72)
