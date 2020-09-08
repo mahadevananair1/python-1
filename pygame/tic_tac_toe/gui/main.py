@@ -448,9 +448,11 @@ fps = 60
 running = True
 while running:
     clock.tick(60)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 won_x = False
@@ -496,114 +498,6 @@ while running:
                         screen.fill((0, 0, 0))
                         draw_rectangle()
                         ai_mode()
-
-            # if won is not True:
-            #     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-            #     global first_open, second_open, third_open, fourth_open, fifth_open
-            #     global sixth_open, seventh_open, eighth_open, ninth_open
-            #
-            #     if first.collidepoint(pos) and first_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (50, 50))
-            #             current_player_turn = "Computer"
-            #             board[0][0] = 1
-            #         else:
-            #             #screen.blit(o_img, (50, 50))
-            #             current_player_turn = "X"
-            #             board[0][0] = 2
-            #         first_open = False
-            #     if second.collidepoint(pos) and second_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (225, 50))
-            #             current_player_turn = "Computer"
-            #             board[0][1] = 1
-            #         else:
-            #             #screen.blit(o_img, (225, 50))
-            #             current_player_turn = "X"
-            #             board[0][1] = 2
-            #         second_open = False
-            #     if third.collidepoint(pos) and third_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (400, 50))
-            #             current_player_turn = "Computer"
-            #             board[0][2] = 1
-            #         else:
-            #             #screen.blit(o_img, (400, 50))
-            #             current_player_turn = "X"
-            #             board[0][2] = 2
-            #         third_open = False
-            #     if fourth.collidepoint(pos) and fourth_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (50, 225))
-            #             current_player_turn = "Computer"
-            #             board[1][0] = 1
-            #         else:
-            #             #screen.blit(o_img, (50, 225))
-            #             current_player_turn = "X"
-            #             board[1][0] = 2
-            #         fourth_open = False
-            #     if fifth.collidepoint(pos) and fifth_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (225, 225))
-            #             current_player_turn = "Computer"
-            #             board[1][1] = 1
-            #         else:
-            #             #screen.blit(o_img, (225, 225))
-            #             current_player_turn = "X"
-            #             board[1][1] = 2
-            #         fifth_open = False
-            #     if sixth.collidepoint(pos) and sixth_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (400, 225))
-            #             current_player_turn = "Computer"
-            #             board[1][2] = 1
-            #         else:
-            #             #screen.blit(o_img, (400, 225))
-            #             current_player_turn = "X"
-            #             board[1][2] = 2
-            #         sixth_open = False
-            #     if seventh.collidepoint(pos) and seventh_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (50, 400))
-            #             current_player_turn = "Computer"
-            #             board[2][0] = 1
-            #         else:
-            #             #screen.blit(o_img, (50, 400))
-            #             current_player_turn = "X"
-            #             board[2][0] = 2
-            #         seventh_open = False
-            #     if eighth.collidepoint(pos) and eighth_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (225, 400))
-            #             current_player_turn = "Computer"
-            #             board[2][1] = 1
-            #         else:
-            #             #screen.blit(o_img, (225, 400))
-            #             current_player_turn = "X"
-            #             board[2][1] = 2
-            #         eighth_open = False
-            #     if ninth.collidepoint(pos) and ninth_open:
-            #         if current_player_turn == "X":
-            #             screen.blit(x_img, (400, 400))
-            #             current_player_turn = "Computer"
-            #             board[2][2] = 1
-            #         else:
-            #             #screen.blit(o_img, (400, 400))
-            #             current_player_turn = "X"
-            #             board[2][2] = 2
-            #         ninth_open = False
-            #
-            #     check_win(num)
-            #     num()
-            #     if check_win(1):
-            #         won = True
-            #         x_score += 1
-            #     if check_win(2):
-            #         won = True
-            #         o_score += 1
-            #     draw_text_won()
-            #     ai()
-            #     #flip_ai_player()
         game_intro()
         x_turn()
         o_turn()
