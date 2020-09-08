@@ -101,8 +101,8 @@ def x_turn():
         pygame.draw.rect(screen, (0, 0, 0), (120, 600, 110, 30))
 
 def o_turn():
-    if current_player == "Computer":
-        o_turn = font.render("Computer turn", True, (255, 255, 255))
+    if current_player == "O":
+        o_turn = font.render("O turn", True, (255, 255, 255))
         screen.blit(o_turn, (130, 600))
         pygame.draw.rect(screen, (0, 0, 0), (130, 550, 110, 30))
 
@@ -111,7 +111,7 @@ def score_x():
     screen.blit(score_value, (50, 550))
 
 def score_o():
-    score_value = font.render("Computer " + str(o_score), True, (255, 255, 255))
+    score_value = font.render("O " + str(o_score), True, (255, 255, 255))
     screen.blit(score_value, (50, 600))
 
 def draw_text_won():
@@ -133,16 +133,20 @@ def draw_text_won():
 def ai():
     global current_player_turn
 
-    while current_player_turn == "Computer":
+    i = 0
+
+    while current_player_turn == "Computer" and i < 8:
         row = random.randint(0, 2)
         column = random.randint(0, 2)
-        print(column)
-        print(row)
+        print("Column", column)
+        print("Row", row)
+        i += 1
+        print("The values I", i)
 
         x = [50, 225, 400][column]
-        print(x)
+        print("X", x)
         y = [50, 225, 400][row]
-        print(y)
+        print("Y", y)
 
         if board[row][column] == 0:
             board[row][column] = 2
