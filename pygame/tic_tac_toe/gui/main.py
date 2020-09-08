@@ -143,7 +143,7 @@ def draw_text_won():
         screen.blit(space_text, (50, 300))
 
 # Computer(AI)
-def ai(player_ai):
+def ai():
     global current_player_turn
     global first_open, second_open, third_open, fourth_open, fifth_open
     global sixth_open, seventh_open, eighth_open, ninth_open
@@ -211,7 +211,7 @@ def game_intro():
             check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
-            ai(current_player_turn)
+            # ai()
 
     human = font.render("2 Players", True, (255, 255, 255))
     screen.blit(human, (260, 540))
@@ -255,7 +255,7 @@ while running:
                         board[0][0] = 1
                     else:
                         # screen.blit(o_img, (50, 50))
-                        current_player = "X"
+                        # current_player = "X"
                         board[0][0] = 2
                     first_open = False
                 if second.collidepoint(pos) and second_open:
@@ -265,7 +265,7 @@ while running:
                         board[0][1] = 1
                     else:
                         # screen.blit(o_img, (225, 50))
-                        current_player = "X"
+                        # current_player = "X"
                         board[0][1] = 2
                     second_open = False
                 if third.collidepoint(pos) and third_open:
@@ -275,7 +275,7 @@ while running:
                         board[0][2] = 1
                     else:
                         # screen.blit(o_img, (400, 50))
-                        current_player = "X"
+                        # current_player = "X"
                         board[0][2] = 2
                     third_open = False
                 if fourth.collidepoint(pos) and fourth_open:
@@ -285,7 +285,7 @@ while running:
                         board[1][0] = 1
                     else:
                         # screen.blit(o_img, (50, 225))
-                        current_player = "X"
+                        # current_player = "X"
                         board[1][0] = 2
                     fourth_open = False
                 if fifth.collidepoint(pos) and fifth_open:
@@ -295,7 +295,7 @@ while running:
                         board[1][1] = 1
                     else:
                         # screen.blit(o_img, (225, 225))
-                        current_player = "X"
+                        # current_player = "X"
                         board[1][1] = 2
                     fifth_open = False
                 if sixth.collidepoint(pos) and sixth_open:
@@ -305,7 +305,7 @@ while running:
                         board[1][2] = 1
                     else:
                         # screen.blit(o_img, (400, 225))
-                        current_player = "X"
+                        # current_player = "X"
                         board[1][2] = 2
                     sixth_open = False
                 if seventh.collidepoint(pos) and seventh_open:
@@ -315,7 +315,7 @@ while running:
                         board[2][0] = 1
                     else:
                         # screen.blit(o_img, (50, 400))
-                        current_player = "X"
+                        # current_player = "X"
                         board[2][0] = 2
                     seventh_open = False
                 if eighth.collidepoint(pos) and eighth_open:
@@ -325,7 +325,7 @@ while running:
                         board[2][1] = 1
                     else:
                         # screen.blit(o_img, (225, 400))
-                        current_player = "X"
+                        # current_player = "X"
                         board[2][1] = 2
                     eighth_open = False
                 if ninth.collidepoint(pos) and ninth_open:
@@ -335,7 +335,7 @@ while running:
                         board[2][2] = 1
                     else:
                         # screen.blit(o_img, (400, 400))
-                        current_player = "X"
+                        # current_player = "X"
                         board[2][2] = 2
                     ninth_open = False
 
@@ -347,9 +347,9 @@ while running:
                 if check_win(2):
                     won = True
                     o_score += 1
-                ai(current_player_turn)
-                flip_ai_player()
                 draw_text_won()
+                ai()
+                flip_ai_player()
         game_intro()
         x_turn()
         o_turn()
