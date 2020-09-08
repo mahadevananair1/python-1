@@ -51,20 +51,6 @@ def draw_rectangle():
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
 
-def check_if_open():
-    global first_open, second_open, third_open, fourth_open, fifth_open
-    global sixth_open, seventh_open, eighth_open, ninth_open
-
-    first_open = True
-    second_open = True
-    third_open = True
-    fourth_open = True
-    fifth_open = True
-    sixth_open = True
-    seventh_open = True
-    eighth_open = True
-    ninth_open = True
-
 def check_win(num):
     for row in board:
         for tile in row:
@@ -109,14 +95,14 @@ def num():
         won_o = True
 
 def x_turn():
-    if current_player == 'X':
+    if current_player == "X":
         x_turn = font.render("X turn", True, (255, 255, 255))
         screen.blit(x_turn, (130, 550))
         pygame.draw.rect(screen, (0, 0, 0), (120, 600, 110, 30))
 
 def o_turn():
-    if current_player == 'O':
-        o_turn = font.render("O turn", True, (255, 255, 255))
+    if current_player == "Computer":
+        o_turn = font.render("Computer turn", True, (255, 255, 255))
         screen.blit(o_turn, (130, 600))
         pygame.draw.rect(screen, (0, 0, 0), (130, 550, 110, 30))
 
@@ -125,7 +111,7 @@ def score_x():
     screen.blit(score_value, (50, 550))
 
 def score_o():
-    score_value = font.render("O " + str(o_score), True, (255, 255, 255))
+    score_value = font.render("Computer " + str(o_score), True, (255, 255, 255))
     screen.blit(score_value, (50, 600))
 
 def draw_text_won():
@@ -137,7 +123,7 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
     if won_o:
-        over_text = over_font.render("O won", True, (255, 0, 255))
+        over_text = over_font.render("Computer won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
@@ -149,21 +135,19 @@ def ai():
     if current_player_turn == "Computer":
         row = random.randint(0, 2)
         column = random.randint(0, 2)
-
         print(column)
         print(row)
+
         x = [50, 225, 400][column]
         print(x)
         y = [50, 225, 400][row]
         print(y)
 
-        screen.blit(o_img, (x, y))
-        board[row][column] = 2
-        current_player_turn = "X"
-
         if board[row][column] == 0:
             board[row][column] = 2
+            screen.blit(o_img, (x, y))
             current_player_turn = "X"
+
     print(board)
 
 
@@ -194,7 +178,6 @@ def game_intro():
             x_score = 0
             o_score = 0
             board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-            check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
 
@@ -207,7 +190,6 @@ def game_intro():
             x_score = 0
             o_score = 0
             board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-            check_if_open()
             screen.fill((0, 0, 0))
             draw_rectangle()
 
@@ -235,7 +217,6 @@ while running:
                 x_score = 0
                 o_score = 0
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-                check_if_open()
                 screen.fill((0, 0, 0))
                 draw_rectangle()
                 ai()
