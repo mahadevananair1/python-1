@@ -466,38 +466,41 @@ while running:
                 draw_rectangle()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
+            global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+            global first_open, second_open, third_open, fourth_open, fifth_open
+            global sixth_open, seventh_open, eighth_open, ninth_open
             global mode_human, mouse, click, mode_computer
+
             pos = pygame.mouse.get_pos()
-            game_intro()
-            #ai_mode()
 
-            if mode_human.collidepoint(mouse):
-                pygame.draw.rect(screen, bright_grey, (250, 530, 160, 50))
-                if click[0] == 1:
-                    won_x = False
-                    won_o = False
-                    won = False
-                    x_score = 0
-                    o_score = 0
-                    board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-                    check_if_open()
-                    screen.fill((0, 0, 0))
-                    draw_rectangle()
-                    player_mode()
+            # if mode_human.collidepoint(mouse):
+            #     pygame.draw.rect(screen, bright_grey, (250, 530, 160, 50))
+            #     if click[0] == 1:
+            #         won_x = False
+            #         won_o = False
+            #         won = False
+            #         x_score = 0
+            #         o_score = 0
+            #         board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            #         check_if_open()
+            #         screen.fill((0, 0, 0))
+            #         draw_rectangle()
+            #         player_mode()
+            #
+            # if mode_computer.collidepoint(mouse):
+            #     pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
+            #     if click[0] == 1:
+            #         won_x = False
+            #         won_o = False
+            #         won = False
+            #         x_score = 0
+            #         o_score = 0
+            #         board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            #         check_if_open()
+            #         screen.fill((0, 0, 0))
+            #         draw_rectangle()
+            #         ai_mode()
 
-                if mode_computer.collidepoint(mouse):
-                    pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
-                    if click[0] == 1:
-                        won_x = False
-                        won_o = False
-                        won = False
-                        x_score = 0
-                        o_score = 0
-                        board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-                        check_if_open()
-                        screen.fill((0, 0, 0))
-                        draw_rectangle()
-                        ai_mode()
         game_intro()
         x_turn()
         o_turn()
