@@ -177,7 +177,7 @@ def flip_ai_player():
 def game_intro():
     global x_score, o_score
     global won_x, won_o, won, board
-    global mode_human, mode_computer, mouse, click
+    global mode_human, mode_computer, mouse, click, current_player_turn
 
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
@@ -204,6 +204,7 @@ def game_intro():
             won = False
             x_score = 0
             o_score = 0
+            current_player_turn = "Computer"
             board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
             screen.fill((0, 0, 0))
             draw_rectangle()
