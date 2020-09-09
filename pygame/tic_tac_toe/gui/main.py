@@ -148,21 +148,22 @@ def tie():
 def ai():
     global current_player_turn
 
-    while current_player_turn == "Computer":
-        row = random.randint(0, 2)
-        column = random.randint(0, 2)
-        print("Column", column)
-        print("Row", row)
+    if 0 not in board:
+        while current_player_turn == "Computer":
+            row = random.randint(0, 2)
+            column = random.randint(0, 2)
+            print("Column", column)
+            print("Row", row)
 
-        x = [50, 225, 400][column]
-        print("X", x)
-        y = [50, 225, 400][row]
-        print("Y", y)
+            x = [50, 225, 400][column]
+            print("X", x)
+            y = [50, 225, 400][row]
+            print("Y", y)
 
-        if board[row][column] == 0:
-            board[row][column] = 2
-            screen.blit(o_img, (x, y))
-            current_player_turn = "X"
+            if board[row][column] == 0:
+                screen.blit(o_img, (x, y))
+                board[row][column] = 2
+                current_player_turn = "X"
 
     print(board)
 
