@@ -132,7 +132,7 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
-    """
+"""
 def tie():
     global over_font
 
@@ -142,28 +142,27 @@ def tie():
         screen.blit(tie_text, (220, 200))
         screen.blit(space_text, (50, 300))
         print("Game tie")
-    """
+"""
 
 # Computer(AI)
 def ai():
     global current_player_turn
 
-    if 0 not in board:
-        while current_player_turn == "Computer":
-            row = random.randint(0, 2)
-            column = random.randint(0, 2)
-            print("Column", column)
-            print("Row", row)
+    while current_player_turn == "Computer":
+        row = random.randint(0, 2)
+        column = random.randint(0, 2)
+        print("Column", column)
+        print("Row", row)
 
-            x = [50, 225, 400][column]
-            print("X", x)
-            y = [50, 225, 400][row]
-            print("Y", y)
+        x = [50, 225, 400][column]
+        print("X", x)
+        y = [50, 225, 400][row]
+        print("Y", y)
 
-            if board[row][column] == 0:
-                screen.blit(o_img, (x, y))
-                board[row][column] = 2
-                current_player_turn = "X"
+        if board[row][column] == 0:
+            screen.blit(o_img, (x, y))
+            board[row][column] = 2
+            current_player_turn = "X"
 
     print(board)
 
@@ -255,47 +254,56 @@ while running:
                     if current_player == "X":
                         screen.blit(x_img, (50, 50))
                         board[0][0] = 1
-                        ai()
+                        if board[0][0] in board:
+                            ai()
                 if second.collidepoint(pos) and board[0][1] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (225, 50))
                         board[0][1] = 1
-                        ai()
+                        if board[0][1] in board:
+                            ai()
                 if third.collidepoint(pos) and board[0][2] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (400, 50))
                         board[0][2] = 1
-                        ai()
+                        if board[0][2] in board:
+                            ai()
                 if fourth.collidepoint(pos) and board[1][0] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (50, 225))
                         board[1][0] = 1
-                        ai()
+                        if board[1][0] in board:
+                            ai()
                 if fifth.collidepoint(pos) and board[1][1] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (225, 225))
                         board[1][1] = 1
-                        ai()
+                        if board[1][1] in board:
+                            ai()
                 if sixth.collidepoint(pos) and board[1][2] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (400, 225))
                         board[1][2] = 1
-                        ai()
+                        if board[1][2] in board:
+                            ai()
                 if seventh.collidepoint(pos) and board[2][0] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (50, 400))
                         board[2][0] = 1
-                        ai()
+                        if board[2][0] in board:
+                            ai()
                 if eighth.collidepoint(pos) and board[2][1] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (225, 400))
                         board[2][1] = 1
-                        ai()
+                        if board[2][1] in board:
+                            ai()
                 if ninth.collidepoint(pos) and board[2][2] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (400, 400))
                         board[2][2] = 1
-                        ai()
+                        if board[2][2] in board:
+                            ai()
 
                 check_win(num)
                 num()
