@@ -255,90 +255,54 @@ while running:
                         screen.blit(x_img, (50, 50))
                         # current_player = "O"
                         board[0][0] = 1
-                    else:
-                        # screen.blit(o_img, (50, 50))
-                        # current_player = "X"
-                        board[0][0] = 2
                 if second.collidepoint(pos) and board[0][1] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (225, 50))
                         # current_player = "O"
                         board[0][1] = 1
-                    else:
-                        # screen.blit(o_img, (225, 50))
-                        # current_player = "X"
-                        board[0][1] = 2
                 if third.collidepoint(pos) and board[0][2] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (400, 50))
                         # current_player = "O"
                         board[0][2] = 1
-                    else:
-                        # screen.blit(o_img, (400, 50))
-                        # current_player = "X"
-                        board[0][2] = 2
                 if fourth.collidepoint(pos) and board[1][0] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (50, 225))
                         # current_player = "O"
                         board[1][0] = 1
-                    else:
-                        # screen.blit(o_img, (50, 225))
-                        # current_player = "X"
-                        board[1][0] = 2
                 if fifth.collidepoint(pos) and board[1][1] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (225, 225))
                         # current_player = "O"
                         board[1][1] = 1
-                    else:
-                        # screen.blit(o_img, (225, 225))
-                        # current_player = "X"
-                        board[1][1] = 2
                 if sixth.collidepoint(pos) and board[1][2] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (400, 225))
                         # current_player = "O"
                         board[1][2] = 1
-                    else:
-                        # screen.blit(o_img, (400, 225))
-                        # current_player = "X"
-                        board[1][2] = 2
                 if seventh.collidepoint(pos) and board[2][0] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (50, 400))
                         # current_player = "O"
                         board[2][0] = 1
-                    else:
-                        # screen.blit(o_img, (50, 400))
-                        # current_player = "X"
-                        board[2][0] = 2
                 if eighth.collidepoint(pos) and board[2][1] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (225, 400))
                         # current_player = "O"
                         board[2][1] = 1
-                    else:
-                        # screen.blit(o_img, (225, 400))
-                        # current_player = "X"
-                        board[2][1] = 2
                 if ninth.collidepoint(pos) and board[2][2] == 0:
                     if current_player == "X":
                         ai()
                         screen.blit(x_img, (400, 400))
                         # current_player = "O"
                         board[2][2] = 1
-                    else:
-                        # screen.blit(o_img, (400, 400))
-                        # current_player = "X"
-                        board[2][2] = 2
 
                 check_win(num)
                 num()
