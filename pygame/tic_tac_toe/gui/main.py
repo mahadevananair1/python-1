@@ -32,7 +32,10 @@ won_x = False
 won_o = False
 x_score = 0
 o_score = 0
+
+# Fonts
 font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
+over_font = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
 
 # Global variables(Computer AI)
 current_player_turn = "X"
@@ -50,7 +53,6 @@ def draw_rectangle():
     seventh = pygame.draw.rect(screen, line_color, (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
-
 
 def check_win(number):
     for row in board:
@@ -116,7 +118,7 @@ def score_o():
     screen.blit(score_value, (50, 600))
 
 def draw_text_won():
-    over_font = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
+    global over_font
 
     if won_x:
         over_text = over_font.render("X won", True, (255, 0, 255))
@@ -130,18 +132,27 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
+    """
+def tie():
+    global over_font
+
+    if won_x is False or won_o is False:
+        tie_text = over_font.render("Tie", True, (255, 0, 255))
+        space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
+        screen.blit(tie_text, (220, 200))
+        screen.blit(space_text, (50, 300))
+        print("Game tie")
+    """
+
 # Computer(AI)
 def ai():
     global current_player_turn
 
-    i = 0
-    while current_player_turn == "Computer" and i < 8:
+    while current_player_turn == "Computer":
         row = random.randint(0, 2)
         column = random.randint(0, 2)
         print("Column", column)
         print("Row", row)
-        i += 1
-        print("The values I", i)
 
         x = [50, 225, 400][column]
         print("X", x)
@@ -154,7 +165,6 @@ def ai():
             current_player_turn = "X"
 
     print(board)
-
 
 def flip_ai_player():
     global current_player_turn
@@ -219,8 +229,6 @@ while running:
                 won_x = False
                 won_o = False
                 won = False
-                x_score = 0
-                o_score = 0
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
                 screen.fill((0, 0, 0))
                 draw_rectangle()
@@ -243,6 +251,7 @@ while running:
 
                 if first.collidepoint(pos) and board[0][0] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (50, 50))
                         # current_player = "O"
                         board[0][0] = 1
@@ -252,6 +261,7 @@ while running:
                         board[0][0] = 2
                 if second.collidepoint(pos) and board[0][1] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (225, 50))
                         # current_player = "O"
                         board[0][1] = 1
@@ -261,6 +271,7 @@ while running:
                         board[0][1] = 2
                 if third.collidepoint(pos) and board[0][2] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (400, 50))
                         # current_player = "O"
                         board[0][2] = 1
@@ -270,6 +281,7 @@ while running:
                         board[0][2] = 2
                 if fourth.collidepoint(pos) and board[1][0] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (50, 225))
                         # current_player = "O"
                         board[1][0] = 1
@@ -279,6 +291,7 @@ while running:
                         board[1][0] = 2
                 if fifth.collidepoint(pos) and board[1][1] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (225, 225))
                         # current_player = "O"
                         board[1][1] = 1
@@ -288,6 +301,7 @@ while running:
                         board[1][1] = 2
                 if sixth.collidepoint(pos) and board[1][2] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (400, 225))
                         # current_player = "O"
                         board[1][2] = 1
@@ -297,6 +311,7 @@ while running:
                         board[1][2] = 2
                 if seventh.collidepoint(pos) and board[2][0] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (50, 400))
                         # current_player = "O"
                         board[2][0] = 1
@@ -306,6 +321,7 @@ while running:
                         board[2][0] = 2
                 if eighth.collidepoint(pos) and board[2][1] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (225, 400))
                         # current_player = "O"
                         board[2][1] = 1
@@ -315,6 +331,7 @@ while running:
                         board[2][1] = 2
                 if ninth.collidepoint(pos) and board[2][2] == 0:
                     if current_player == "X":
+                        ai()
                         screen.blit(x_img, (400, 400))
                         # current_player = "O"
                         board[2][2] = 1
@@ -323,8 +340,6 @@ while running:
                         # current_player = "X"
                         board[2][2] = 2
 
-                ai()
-                flip_ai_player()
                 check_win(num)
                 num()
                 if check_win(1):
@@ -333,6 +348,7 @@ while running:
                 if check_win(2):
                     won = True
                     o_score += 1
+                flip_ai_player()
                 draw_text_won()
         game_intro()
         x_turn()
