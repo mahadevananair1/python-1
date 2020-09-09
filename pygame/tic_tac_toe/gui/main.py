@@ -2,7 +2,7 @@ import os.path
 import random
 import pygame
 
-# Screen for 2 players
+# Screen
 pygame.init()
 black = (0, 0, 0)
 line_color = (255, 255, 255)
@@ -10,12 +10,16 @@ width, height = 550, 650
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
 
+# Refresh
+clock = pygame.time.Clock()
+fps = 60
+
 # Button
 grey = (72, 72, 72)
 bright_grey = (60, 60, 90)
 
-project_directory = os.path.dirname(__file__)
 # Loading images
+project_directory = os.path.dirname(__file__)
 x_img = pygame.image.load(os.path.join(project_directory, "img/x.png"))
 o_img = pygame.image.load(os.path.join(project_directory, "img/o.png"))
 
@@ -94,7 +98,7 @@ def num():
 
     if check_win(1):
         won_x = True
-    if check_win(2):
+    elif check_win(2):
         won_o = True
 
 def x_turn():
@@ -126,7 +130,7 @@ def draw_text_won():
         screen.blit(over_text, (220, 200))
         screen.blit(space_text, (50, 300))
 
-    if won_o:
+    elif won_o:
         over_text = over_font.render("Computer won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
         screen.blit(over_text, (220, 200))
@@ -175,15 +179,16 @@ def flip_ai_player():
         current_player_turn = "X"
 
 def is_board_fill():
-    return (board[0][0] != 0 and
-            board[0][1] != 0 and
-            board[0][2] != 0 and
-            board[1][0] != 0 and
-            board[1][1] != 0 and
-            board[1][2] != 0 and
-            board[2][0] != 0 and
-            board[2][1] != 0 and
-            board[2][2] != 0)
+    return \
+        board[0][0] != 0 and \
+        board[0][1] != 0 and \
+        board[0][2] != 0 and \
+        board[1][0] != 0 and \
+        board[1][1] != 0 and \
+        board[1][2] != 0 and \
+        board[2][0] != 0 and \
+        board[2][1] != 0 and \
+        board[2][2] != 0
 
 def game_intro():
     global x_score, o_score
@@ -226,11 +231,9 @@ def game_intro():
     computer = font.render("Computer", True, (255, 255, 255))
     screen.blit(computer, (260, 610))
 
-clock = pygame.time.Clock()
-fps = 60
 running = True
 while running:
-    clock.tick(60)
+    clock.tick(fps)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -267,48 +270,56 @@ while running:
                         board[0][0] = 1
                         is_board_fill()
                         ai()
+
                 if second.collidepoint(pos) and board[0][1] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (225, 50))
                         board[0][1] = 1
                         is_board_fill()
                         ai()
+
                 if third.collidepoint(pos) and board[0][2] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (400, 50))
                         board[0][2] = 1
                         is_board_fill()
                         ai()
+
                 if fourth.collidepoint(pos) and board[1][0] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (50, 225))
                         board[1][0] = 1
                         is_board_fill()
                         ai()
+
                 if fifth.collidepoint(pos) and board[1][1] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (225, 225))
                         board[1][1] = 1
                         is_board_fill()
                         ai()
+
                 if sixth.collidepoint(pos) and board[1][2] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (400, 225))
                         board[1][2] = 1
                         is_board_fill()
                         ai()
+
                 if seventh.collidepoint(pos) and board[2][0] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (50, 400))
                         board[2][0] = 1
                         is_board_fill()
                         ai()
+
                 if eighth.collidepoint(pos) and board[2][1] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (225, 400))
                         board[2][1] = 1
                         is_board_fill()
                         ai()
+
                 if ninth.collidepoint(pos) and board[2][2] == 0:
                     if current_player == "X":
                         screen.blit(x_img, (400, 400))
