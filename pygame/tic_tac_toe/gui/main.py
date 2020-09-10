@@ -248,6 +248,7 @@ def mode_ai():
                 board[0][0] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if second.collidepoint(pos) and board[0][1] == 0:
             if current_player == "X":
@@ -255,6 +256,7 @@ def mode_ai():
                 board[0][1] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if third.collidepoint(pos) and board[0][2] == 0:
             if current_player == "X":
@@ -262,6 +264,7 @@ def mode_ai():
                 board[0][2] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if fourth.collidepoint(pos) and board[1][0] == 0:
             if current_player == "X":
@@ -269,6 +272,7 @@ def mode_ai():
                 board[1][0] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if fifth.collidepoint(pos) and board[1][1] == 0:
             if current_player == "X":
@@ -276,6 +280,7 @@ def mode_ai():
                 board[1][1] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if sixth.collidepoint(pos) and board[1][2] == 0:
             if current_player == "X":
@@ -283,6 +288,7 @@ def mode_ai():
                 board[1][2] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if seventh.collidepoint(pos) and board[2][0] == 0:
             if current_player == "X":
@@ -290,6 +296,7 @@ def mode_ai():
                 board[2][0] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if eighth.collidepoint(pos) and board[2][1] == 0:
             if current_player == "X":
@@ -297,6 +304,7 @@ def mode_ai():
                 board[2][1] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
         if ninth.collidepoint(pos) and board[2][2] == 0:
             if current_player == "X":
@@ -304,6 +312,7 @@ def mode_ai():
                 board[2][2] = 1
                 if not is_board_fill():
                     ai()
+                    flip_ai_player()
 
 
 running = True
@@ -339,7 +348,6 @@ while running:
             if check_win(2):
                 won = True
                 o_score += 1
-            flip_ai_player()
             draw_text_won()
 
         is_button_click()
@@ -348,4 +356,5 @@ while running:
         o_turn()
         score_x()
         score_o()
+        print(current_player_turn)
     pygame.display.update()
