@@ -36,6 +36,7 @@ won_x = False
 won_o = False
 x_score = 0
 o_score = 0
+is_click = "not click"
 
 # Fonts
 font = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
@@ -190,7 +191,7 @@ def is_board_fill():
 def game_intro():
     global x_score, o_score
     global won_x, won_o, won, board
-    global mode_human, mode_computer, mouse, click, current_player_turn
+    global click, current_player_turn
 
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
@@ -228,12 +229,15 @@ def game_intro():
     computer = font.render("Computer", True, (255, 255, 255))
     screen.blit(computer, (260, 610))
 
-def mode_ai():
-    global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-    global first_open, second_open, third_open, fourth_open, fifth_open
-    global sixth_open, seventh_open, eighth_open, ninth_open
-    global mode_human, mouse, click, mode_computer
+def is_button_click():
+    global is_click
 
+    if not click[0] == 1 and is_click == "not click":
+        click_on_button = font.render("Click   on   the   button   to   play", True, (255, 255, 255))
+        screen.blit(click_on_button, (55, 200))
+        is_click = "click"
+
+def mode_ai():
     pos = pygame.mouse.get_pos()
     game_intro()
 
@@ -301,14 +305,6 @@ def mode_ai():
                 if not is_board_fill():
                     ai()
 
-is_click = "not click"
-def is_button_click():
-    global is_click
-
-    if not click[0] == 1 and is_click == "not click":
-        click_on_button = font.render("Click   on   the   button   to   play", True, (255, 255, 255))
-        screen.blit(click_on_button, (55, 200))
-        is_click = "click"
 
 running = True
 while running:
