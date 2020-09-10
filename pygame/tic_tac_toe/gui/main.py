@@ -314,7 +314,6 @@ def mode_ai():
                     ai()
                     flip_ai_player()
 
-
 running = True
 while running:
     click = pygame.mouse.get_pressed()
@@ -356,5 +355,4 @@ while running:
         o_turn()
         score_x()
         score_o()
-        print(current_player_turn)
     pygame.display.update()

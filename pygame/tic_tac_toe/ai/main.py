@@ -1,5 +1,5 @@
-import sys
 import random
+import sys
 
 # Global variables(2 Players)
 game_still_going = True
@@ -179,7 +179,6 @@ def flip_ai_player():
         current_player_turn = "Computer"
     elif current_player_turn == "Computer":
         current_player_turn = "X"
-
 
 play_again = True
 while play_again:
