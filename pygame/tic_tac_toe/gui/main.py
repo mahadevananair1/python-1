@@ -303,6 +303,7 @@ def mode_ai():
 
 running = True
 while running:
+    click = pygame.mouse.get_pressed()
     clock.tick(fps)
 
     for event in pygame.event.get():
@@ -335,6 +336,9 @@ while running:
                 o_score += 1
             flip_ai_player()
             draw_text_won()
+        if not click[0] == 1:
+            click_on_button = font.render("Click on the button to play", True, (255, 255, 255))
+            screen.blit(click_on_button, (70, 200))
         game_intro()
         x_turn()
         o_turn()
