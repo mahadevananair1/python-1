@@ -334,8 +334,6 @@ while running:
                 if check_win(2):
                     won = True
                     o_score += 1
-                if won_x is False and won_o is False and is_board_fill():
-                    tie()
                 flip_ai_player()
                 draw_text_won()
         game_intro()
