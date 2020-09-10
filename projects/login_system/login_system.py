@@ -13,7 +13,7 @@ def register_user():
     username_entry.delete(0, END)
     password_entry.delete(0, END)
 
-    Label(screen1, text="Registration Sucess", fg="green", font=("calibri", 11)).pack()
+    Label(screen1, text="Registration Success", fg="green", font=("calibre", 11)).pack()
 
 def login_verify():
     username1 = username_verify.get()
@@ -26,7 +26,7 @@ def login_verify():
         file1 = open(username1, "r")
         verify = file1.read().splitlines()
         if password1 in verify:
-            print("Login Sucess")
+            print("Login Success")
         else:
             print("Password has not been recognised")
     else:
@@ -88,7 +88,7 @@ def main_screen():
     screen = Tk()
     screen.geometry("300x250")
     screen.title("Login System")
-    Label(text="Login System", width="300", height="2", font=("Calibri", 13)).pack()
+    Label(text="Login System", width="300", height="2", font=("Calibre", 13)).pack()
     Label(text="").pack()
     Button(text="Login", height="2", width="30", command=login).pack()
     Label(text="").pack()

@@ -9,8 +9,8 @@ root.geometry("400x400")
 root.title("Password Generator")
 
 # Value
-passstr = StringVar()
-passlen = IntVar()
+password_string = StringVar()
+password_length = IntVar()
 
 
 def generate():
@@ -23,13 +23,13 @@ def generate():
              '9', '0', ' ', '!', '@', '#', '$', '%', '^', '&',
              '*', '(', ')']
     password = ""
-    for i in range(passlen.get()):
+    for i in range(password_length.get()):
         password += random.choice(pass1)
-    passstr.set(password)
+    password_string.set(password)
 
 
-def copytoclipboard():
-    random_password = passstr.get()
+def copy_to_clipboard():
+    random_password = password_string.get()
     pyperclip.copy(random_password)
 
 
@@ -37,9 +37,9 @@ def copytoclipboard():
 Label(root, text="PASSWORD GENERATOR", width="300", height="2", font=("Times", 20)).pack()
 
 Label(root, text="Enter Password Length", width="100", height="1", font=("Helvetica", 16)).pack()
-Entry(root, textvariable=passlen, width="30").pack()
+Entry(root, textvariable=password_length, width="30").pack()
 Button(root, text="Generate Password", command=generate).pack()
 
-Entry(root, textvariable=passstr, width="30").pack()
-Button(root, text="Copy to clipboard", command=copytoclipboard).pack()
+Entry(root, textvariable=password_string, width="30").pack()
+Button(root, text="Copy to clipboard", command=copy_to_clipboard).pack()
 root.mainloop()

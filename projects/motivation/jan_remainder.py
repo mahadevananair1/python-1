@@ -31,7 +31,7 @@ if jan_answer == "Bad":
     time.sleep(4)
     print("By WORKING HARD everyday on thing you like, WORK LIKE HELL IF YOU WANT TO IMPROVE")
     time.sleep(3)
-    print("People like you(Jan) will lose, if you don't change your mindset, YOU HAVE BELIVE IN YOURSELF")
+    print("People like you(Jan) will lose, if you don't change your mindset, YOU HAVE BELIEVE IN YOURSELF")
     time.sleep(4)
     print("BE TOUGH, BE STRONG, BE HUNGRY, BE STUDENT")
     time.sleep(3)
