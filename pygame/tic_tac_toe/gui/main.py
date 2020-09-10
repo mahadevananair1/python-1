@@ -139,22 +139,11 @@ def draw_text_won():
 def tie():
     global over_font
 
-    if won_x is False or won_o is False:
-        tie_text = over_font.render("Tie", True, (255, 0, 255))
-        space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
-        screen.blit(tie_text, (220, 200))
-        screen.blit(space_text, (50, 300))
-        print("Game tie")
-
-def tie():
-    global over_font
-
     tie_text = over_font.render("Tie", True, (255, 0, 255))
     space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
     screen.blit(tie_text, (220, 200))
     screen.blit(space_text, (50, 300))
     print("Game tie")
-
 
 # Computer(AI)
 def ai():
