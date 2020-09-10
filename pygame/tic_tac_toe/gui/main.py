@@ -228,6 +228,79 @@ def game_intro():
     computer = font.render("Computer", True, (255, 255, 255))
     screen.blit(computer, (260, 610))
 
+def mode_ai():
+    global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+    global first_open, second_open, third_open, fourth_open, fifth_open
+    global sixth_open, seventh_open, eighth_open, ninth_open
+    global mode_human, mouse, click, mode_computer
+
+    pos = pygame.mouse.get_pos()
+    game_intro()
+
+    if won is not True:
+        if first.collidepoint(pos) and board[0][0] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (50, 50))
+                board[0][0] = 1
+                if not is_board_fill():
+                    ai()
+
+        if second.collidepoint(pos) and board[0][1] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (225, 50))
+                board[0][1] = 1
+                if not is_board_fill():
+                    ai()
+
+        if third.collidepoint(pos) and board[0][2] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (400, 50))
+                board[0][2] = 1
+                if not is_board_fill():
+                    ai()
+
+        if fourth.collidepoint(pos) and board[1][0] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (50, 225))
+                board[1][0] = 1
+                if not is_board_fill():
+                    ai()
+
+        if fifth.collidepoint(pos) and board[1][1] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (225, 225))
+                board[1][1] = 1
+                if not is_board_fill():
+                    ai()
+
+        if sixth.collidepoint(pos) and board[1][2] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (400, 225))
+                board[1][2] = 1
+                if not is_board_fill():
+                    ai()
+
+        if seventh.collidepoint(pos) and board[2][0] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (50, 400))
+                board[2][0] = 1
+                if not is_board_fill():
+                    ai()
+
+        if eighth.collidepoint(pos) and board[2][1] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (225, 400))
+                board[2][1] = 1
+                if not is_board_fill():
+                    ai()
+
+        if ninth.collidepoint(pos) and board[2][2] == 0:
+            if current_player == "X":
+                screen.blit(x_img, (400, 400))
+                board[2][2] = 1
+                if not is_board_fill():
+                    ai()
+
 running = True
 while running:
     clock.tick(fps)
@@ -248,94 +321,20 @@ while running:
                 flip_ai_player()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-            global first_open, second_open, third_open, fourth_open, fifth_open
-            global sixth_open, seventh_open, eighth_open, ninth_open
-            global mode_human, mouse, click, mode_computer
+            mode_ai()
 
-            pos = pygame.mouse.get_pos()
-            game_intro()
-
-            if won is not True:
-                global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
-                global first_open, second_open, third_open, fourth_open, fifth_open
-                global sixth_open, seventh_open, eighth_open, ninth_open
-
-                if first.collidepoint(pos) and board[0][0] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (50, 50))
-                        board[0][0] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if second.collidepoint(pos) and board[0][1] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (225, 50))
-                        board[0][1] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if third.collidepoint(pos) and board[0][2] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (400, 50))
-                        board[0][2] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if fourth.collidepoint(pos) and board[1][0] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (50, 225))
-                        board[1][0] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if fifth.collidepoint(pos) and board[1][1] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (225, 225))
-                        board[1][1] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if sixth.collidepoint(pos) and board[1][2] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (400, 225))
-                        board[1][2] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if seventh.collidepoint(pos) and board[2][0] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (50, 400))
-                        board[2][0] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if eighth.collidepoint(pos) and board[2][1] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (225, 400))
-                        board[2][1] = 1
-                        if not is_board_fill():
-                            ai()
-
-                if ninth.collidepoint(pos) and board[2][2] == 0:
-                    if current_player == "X":
-                        screen.blit(x_img, (400, 400))
-                        board[2][2] = 1
-                        if not is_board_fill():
-                            ai()
-
-                check_win(num)
-                num()
-                if won_x is False and won_o is False and is_board_fill():
-                    tie()
-                if check_win(1):
-                    won = True
-                    x_score += 1
-                if check_win(2):
-                    won = True
-                    o_score += 1
-                flip_ai_player()
-                draw_text_won()
+            check_win(num)
+            num()
+            if won_x is False and won_o is False and is_board_fill():
+                tie()
+            if check_win(1):
+                won = True
+                x_score += 1
+            if check_win(2):
+                won = True
+                o_score += 1
+            flip_ai_player()
+            draw_text_won()
         game_intro()
         x_turn()
         o_turn()
