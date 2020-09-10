@@ -133,7 +133,7 @@ def draw_text_won():
     elif won_o:
         over_text = over_font.render("Computer won", True, (255, 0, 255))
         space_text = over_font.render("Space bar for clear", True, (255, 0, 255))
-        screen.blit(over_text, (220, 200))
+        screen.blit(over_text, (140, 200))
         screen.blit(space_text, (50, 300))
 
 def tie():
@@ -306,8 +306,8 @@ def is_button_click():
     global is_click
 
     if not click[0] == 1 and is_click == "not click":
-        click_on_button = font.render("Click on the button to play", True, (255, 255, 255))
-        screen.blit(click_on_button, (70, 200))
+        click_on_button = font.render("Click   on   the   button   to   play", True, (255, 255, 255))
+        screen.blit(click_on_button, (55, 200))
         is_click = "click"
 
 running = True
@@ -345,6 +345,7 @@ while running:
                 o_score += 1
             flip_ai_player()
             draw_text_won()
+
         is_button_click()
         game_intro()
         x_turn()
