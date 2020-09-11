@@ -238,6 +238,7 @@ def is_button_click():
         is_click = "click"
 
 def mode_ai():
+    global x_score, o_score, won
     pos = pygame.mouse.get_pos()
     game_intro()
 
@@ -335,7 +336,10 @@ while running:
                 flip_ai_player()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            mode_ai()
+            try:
+                mode_ai()
+            except:
+                print("Click on the button")
 
             check_win(num)
             num()
@@ -344,9 +348,11 @@ while running:
             if check_win(1):
                 won = True
                 x_score += 1
+                print(won)
             if check_win(2):
                 won = True
                 o_score += 1
+                print(won)
             draw_text_won()
 
         is_button_click()
