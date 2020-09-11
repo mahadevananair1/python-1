@@ -314,6 +314,7 @@ def mode_ai():
                     ai()
                     flip_ai_player()
 
+is_game_end = False
 running = True
 while running:
     click = pygame.mouse.get_pressed()
@@ -344,14 +345,19 @@ while running:
             num()
             if won_x is False and won_o is False and is_board_fill():
                 tie()
-            if check_win(1):
-                won = True
-                x_score += 1
-                print(won)
-            if check_win(2):
-                won = True
-                o_score += 1
-                print(won)
+            if is_game_end is False:
+                if check_win(1):
+                    won = True
+                    x_score += 1
+                    is_game_end = True
+                    print(won)
+                    print(x_score)
+                if check_win(2):
+                    won = True
+                    o_score += 1
+                    is_game_end = True
+                    print(won)
+                    print(o_score)
             draw_text_won()
 
         is_button_click()
