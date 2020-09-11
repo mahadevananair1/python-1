@@ -329,6 +329,7 @@ while running:
                 won_x = False
                 won_o = False
                 won = False
+                is_game_end = False
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
                 screen.fill((0, 0, 0))
                 draw_rectangle()
@@ -350,14 +351,10 @@ while running:
                     is_game_end = True
                     won = True
                     x_score += 1
-                    print("Won", won)
-                    print(x_score)
                 if check_win(2):
                     is_game_end = True
                     won = True
                     o_score += 1
-                    print(won)
-                    print(o_score)
             draw_text_won()
 
         is_button_click()
@@ -366,5 +363,4 @@ while running:
         o_turn()
         score_x()
         score_o()
-        print(is_game_end)
     pygame.display.update()
