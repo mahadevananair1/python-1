@@ -238,7 +238,6 @@ def is_button_click():
         is_click = "click"
 
 def mode_ai():
-    global x_score, o_score, won
     pos = pygame.mouse.get_pos()
     game_intro()
 
