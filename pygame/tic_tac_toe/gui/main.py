@@ -347,15 +347,15 @@ while running:
                 tie()
             if is_game_end is False:
                 if check_win(1):
+                    is_game_end = True
                     won = True
                     x_score += 1
-                    is_game_end = True
-                    print(won)
+                    print("Won", won)
                     print(x_score)
                 if check_win(2):
+                    is_game_end = True
                     won = True
                     o_score += 1
-                    is_game_end = True
                     print(won)
                     print(o_score)
             draw_text_won()
@@ -366,4 +366,5 @@ while running:
         o_turn()
         score_x()
         score_o()
+        print(is_game_end)
     pygame.display.update()
