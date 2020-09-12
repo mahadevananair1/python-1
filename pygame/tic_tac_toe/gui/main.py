@@ -45,6 +45,7 @@ over_font = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
 # Global variables(Computer AI)
 current_player_turn = "X"
 
+
 # Human
 def draw_rectangle():
     global first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
@@ -58,6 +59,7 @@ def draw_rectangle():
     seventh = pygame.draw.rect(screen, line_color, (25, 375, 150, 150))
     eighth = pygame.draw.rect(screen, line_color, (200, 375, 150, 150))
     ninth = pygame.draw.rect(screen, line_color, (375, 375, 150, 150))
+
 
 def check_win(number):
     for row in board:
@@ -94,6 +96,7 @@ def check_win(number):
     else:
         return True
 
+
 def num():
     global won_x, won_o
 
@@ -102,11 +105,13 @@ def num():
     elif check_win(2):
         won_o = True
 
+
 def x_turn():
     if current_player == "X":
         x_turn_text = font.render("X turn", True, (255, 255, 255))
         screen.blit(x_turn_text, (130, 550))
         pygame.draw.rect(screen, (0, 0, 0), (120, 600, 110, 30))
+
 
 def o_turn():
     if current_player == "O":
@@ -114,13 +119,16 @@ def o_turn():
         screen.blit(o_turn_text, (130, 600))
         pygame.draw.rect(screen, (0, 0, 0), (130, 550, 110, 30))
 
+
 def score_x():
     score_value = font.render("X " + str(x_score), True, (255, 255, 255))
     screen.blit(score_value, (50, 550))
 
+
 def score_o():
     score_value = font.render("O " + str(o_score), True, (255, 255, 255))
     screen.blit(score_value, (50, 600))
+
 
 def draw_text_won():
     global over_font
@@ -137,6 +145,7 @@ def draw_text_won():
         screen.blit(over_text, (140, 200))
         screen.blit(space_text, (50, 300))
 
+
 def tie():
     global over_font
 
@@ -145,6 +154,7 @@ def tie():
     screen.blit(tie_text, (220, 200))
     screen.blit(space_text, (50, 300))
     print("Game tie")
+
 
 # Computer(AI)
 def ai():
@@ -168,6 +178,7 @@ def ai():
 
     print(board)
 
+
 def flip_ai_player():
     global current_player_turn
 
@@ -175,6 +186,7 @@ def flip_ai_player():
         current_player_turn = "Computer"
     elif current_player_turn == "Computer":
         current_player_turn = "X"
+
 
 def is_board_fill():
     return \
@@ -188,6 +200,7 @@ def is_board_fill():
         board[2][1] != 0 and \
         board[2][2] != 0
 
+
 def game_intro():
     global x_score, o_score
     global won_x, won_o, won, board
@@ -195,20 +208,7 @@ def game_intro():
 
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
-    mode_human = pygame.draw.rect(screen, grey, (250, 530, 160, 50))
     mode_computer = pygame.draw.rect(screen, grey, (250, 600, 160, 50))
-
-    if mode_human.collidepoint(mouse):
-        pygame.draw.rect(screen, bright_grey, (250, 530, 160, 50))
-        if click[0] == 1:
-            won_x = False
-            won_o = False
-            won = False
-            x_score = 0
-            o_score = 0
-            board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-            screen.fill((0, 0, 0))
-            draw_rectangle()
 
     if mode_computer.collidepoint(mouse):
         pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
@@ -223,11 +223,9 @@ def game_intro():
             screen.fill((0, 0, 0))
             draw_rectangle()
 
-    human = font.render("2 Players", True, (255, 255, 255))
-    screen.blit(human, (260, 540))
-
     computer = font.render("Computer", True, (255, 255, 255))
     screen.blit(computer, (260, 610))
+
 
 def is_button_click():
     global is_click
@@ -236,6 +234,7 @@ def is_button_click():
         click_on_button = font.render("Click   on   the   button   to   play", True, (255, 255, 255))
         screen.blit(click_on_button, (55, 200))
         is_click = "click"
+
 
 def mode_ai():
     pos = pygame.mouse.get_pos()
@@ -313,6 +312,7 @@ def mode_ai():
                 if not is_board_fill():
                     ai()
                     flip_ai_player()
+
 
 is_game_end = False
 running = True
