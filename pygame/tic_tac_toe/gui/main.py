@@ -208,10 +208,10 @@ def game_intro():
 
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
-    mode_computer = pygame.draw.rect(screen, grey, (250, 600, 160, 50))
+    mode_computer = pygame.draw.rect(screen, grey, (250, 560, 160, 50))
 
     if mode_computer.collidepoint(mouse):
-        pygame.draw.rect(screen, bright_grey, (250, 600, 160, 50))
+        pygame.draw.rect(screen, bright_grey, (250, 560, 160, 50))
         if click[0] == 1:
             won_x = False
             won_o = False
@@ -224,7 +224,7 @@ def game_intro():
             draw_rectangle()
 
     computer = font.render("Computer", True, (255, 255, 255))
-    screen.blit(computer, (260, 610))
+    screen.blit(computer, (260, 570))
 
 
 def is_button_click():
