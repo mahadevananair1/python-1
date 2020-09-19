@@ -8,6 +8,7 @@ driver.get("http://orteil.dashnet.org/cookieclicker/")
 
 driver.implicitly_wait(5)
 
+# Cookie that have to be click
 cookie = driver.find_element_by_id("bigCookie")
 cookie_count = driver.find_element_by_id("cookies")
 # Range(1, -1, -1) mean start from 1 and go to 0
@@ -18,8 +19,10 @@ actions.click(cookie)
 
 for i in range(5000):
     actions.perform()
+    # Get the value of cookie_count by spliting
     count = int(cookie_count.text.split(" ")[0])
     for item in items:
+        # Get the price of the items
         value = int(item.text)
         if value <= count:
             upgrade_actions = ActionChains(driver)
