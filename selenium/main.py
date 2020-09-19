@@ -1,33 +1,28 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.webdriver.common.action_chains import ActionChains
 
-PATH = '/home/jan/code/python/selenium/chromedriver'
+PATH = "/home/jan/code/python/selenium/chromedriver"
 driver = webdriver.Chrome(PATH)
 
-driver.get('https://techwithtim.net')
+driver.get("http://orteil.dashnet.org/cookieclicker/")
 
-link = driver.find_element_by_link_text("Game Development With Python")
-link.click()
+driver.implicitly_wait(5)
 
-try:
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.LINK_TEXT, "Snake Tutorial"))
-    )
-    element.click()
+cookie = driver.find_element_by_id("bigCookie")
+cookie_count = driver.find_element_by_id("cookies")
+# Range(1, -1, -1) mean start from 1 and go to 0
+items = [driver.find_element_by_id("productPrice" + str(i)) for i in range(1, -1, -1)]
 
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "sow-button-19310003"))
-    )
-    element.click()
+actions = ActionChains(driver)
+actions.click(cookie)
 
-    driver.back()
-    driver.back()
-    driver.back()
-    driver.forward()
-    driver.forward()
-finally:
-    time.sleep(2)
-    driver.quit()
+for i in range(5000):
+    actions.perform()
+    count = int(cookie_count.text.split(" ")[0])
+    for item in items:
+        value = int(item.text)
+        if value <= count:
+            upgrade_actions = ActionChains(driver)
+            upgrade_actions.move_to_element(item)
+            upgrade_actions.click()
+            upgrade_actions.perform()
