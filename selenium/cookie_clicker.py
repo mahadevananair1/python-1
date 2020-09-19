@@ -19,7 +19,7 @@ actions.click(cookie)
 
 for i in range(5000):
     actions.perform()
-    # Get the value of cookie_count by spliting
+    # Get the value of cookie_count by splitting
     count = int(cookie_count.text.split(" ")[0])
     for item in items:
         # Get the price of the items
