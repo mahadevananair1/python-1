@@ -6,7 +6,7 @@ pygame.mixer.init()
 
 # Create a screen position and color
 wn = turtle.Screen()
-wn.title("Pong by @JanPoonthong")
+wn.title("Pong")
 wn.bgcolor("Black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
