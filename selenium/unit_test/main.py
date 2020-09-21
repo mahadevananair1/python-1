@@ -5,15 +5,16 @@ import page
 class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
+        print("setup")
         self.driver = webdriver.Chrome("/home/jan/code/python/selenium/chromedriver")
         self.driver.get("http://www.python.org")
 
-    def test(self):
+    def test_1(self):
         print("Test")
-        assert True
+        assert False
 
-    def not_test(self):
-        print("Not Test")
+    def test_2(self):
+        assert True
 
     def tearDown(self):
         self.driver.close()
