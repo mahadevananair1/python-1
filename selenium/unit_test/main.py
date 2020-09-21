@@ -4,7 +4,6 @@ import page
 
 class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
-        print("setup")
         self.driver = webdriver.Chrome("/home/jan/code/python/selenium/chromedriver")
         self.driver.get("http://www.python.org")
 
