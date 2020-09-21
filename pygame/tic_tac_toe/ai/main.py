@@ -5,13 +5,12 @@ import sys
 game_still_going = True
 current_player = "X"
 winner = None
-
 board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
-
 # Global variables(Computer AI)
 current_player_turn = "X"
+
 
 def display_board():
     print("\n")
@@ -19,6 +18,7 @@ def display_board():
     print(board[3] + " | " + board[4] + " | " + board[5])
     print(board[6] + " | " + board[7] + " | " + board[8])
     print("\n")
+
 
 def play_game():
     which_mode = input("""1. 2 Players
@@ -51,6 +51,7 @@ def play_game():
         elif winner is None:
             print("Tie")
 
+
 def handle_turn(player):
     print(player + "'s turn")
     position = input("Choose a position from 1-9: ")
@@ -69,14 +70,17 @@ def handle_turn(player):
     board[position] = player
     display_board()
 
+
 def check_if_game_over():
     check_for_winner()
     check_if_tie()
+
 
 def check_if_tie():
     global game_still_going
     if "-" not in board:
         game_still_going = False
+
 
 def check_for_winner():
     global winner
@@ -92,6 +96,7 @@ def check_for_winner():
         winner = diagonal_winner
     else:
         winner = None
+
 
 def check_rows():
     global game_still_going
@@ -109,6 +114,7 @@ def check_rows():
     elif row_3:
         return board[6]
 
+
 def check_columns():
     global game_still_going
     column_1 = board[0] == board[3] == board[6] != "-"
@@ -125,6 +131,7 @@ def check_columns():
     elif column_3:
         return board[2]
 
+
 def check_diagonals():
     global game_still_going
     diagonal_1 = board[0] == board[4] == board[8] != "-"
@@ -138,12 +145,14 @@ def check_diagonals():
     elif diagonal_2:
         return board[6]
 
+
 def flip_player():
     global current_player
     if current_player == "X":
         current_player = "O"
     elif current_player == "O":
         current_player = "X"
+
 
 # Computer(AI)
 def ai(player_ai):
@@ -173,12 +182,14 @@ def ai(player_ai):
 
     display_board()
 
+
 def flip_ai_player():
     global current_player_turn
     if current_player_turn == "X":
         current_player_turn = "Computer"
     elif current_player_turn == "Computer":
         current_player_turn = "X"
+
 
 play_again = True
 while play_again:

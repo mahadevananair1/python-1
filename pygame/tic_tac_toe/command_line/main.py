@@ -6,12 +6,14 @@ game_still_going = True
 winner = None
 current_player = "X"
 
+
 def display_board():
     print("\n")
     print(board[0] + " | " + board[1] + " | " + board[2])
     print(board[3] + " | " + board[4] + " | " + board[5])
     print(board[6] + " | " + board[7] + " | " + board[8])
     print("\n")
+
 
 def play_game():
     display_board()
@@ -25,6 +27,7 @@ def play_game():
         print(winner + " won.")
     elif winner is None:
         print("Tie.")
+
 
 def handle_turn(player):
     print(player + "'s turn.")
@@ -44,9 +47,11 @@ def handle_turn(player):
     board[position] = player
     display_board()
 
+
 def check_if_game_over():
     check_for_winner()
     check_if_tie()
+
 
 def check_for_winner():
     global winner
@@ -63,6 +68,7 @@ def check_for_winner():
     else:
         winner = None
     return
+
 
 def check_rows():
     if board[0] == board[1] == board[2] != "-":
@@ -81,6 +87,7 @@ def check_rows():
     # return board[i]
     # return None
 
+
 def check_columns():
     global game_still_going
     column_1 = board[0] == board[3] == board[6] != "-"
@@ -96,6 +103,7 @@ def check_columns():
         return board[2]
     return
 
+
 def check_diagonals():
     global game_still_going
     diagonal_1 = board[0] == board[4] == board[8] != "-"
@@ -108,11 +116,13 @@ def check_diagonals():
         return board[2]
     return
 
+
 def check_if_tie():
     global game_still_going
     if "-" not in board:
         game_still_going = False
     return
+
 
 def flip_player():
     global current_player
@@ -121,5 +131,6 @@ def flip_player():
     elif current_player == "O":
         current_player = "X"
     return
+
 
 play_game()

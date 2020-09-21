@@ -60,6 +60,7 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A: 0 Player B: 0", align="Center", font=("Courier", 24, "normal"))
 
+
 def paddle_a_up():
     # Return a Y coordinate to Y
     y = paddle_a.ycor()
@@ -68,20 +69,24 @@ def paddle_a_up():
     # Set Y
     paddle_a.sety(y)
 
+
 def paddle_a_down():
     y = paddle_a.ycor()
     y -= 20
     paddle_a.sety(y)
+
 
 def paddle_b_up():
     y = paddle_b.ycor()
     y += 20
     paddle_b.sety(y)
 
+
 def paddle_b_down():
     y = paddle_b.ycor()
     y -= 20
     paddle_b.sety(y)
+
 
 # Keyboard binding
 wn.listen()
@@ -89,6 +94,7 @@ wn.onkeypress(paddle_a_up, "w")
 wn.onkeypress(paddle_a_down, "s")
 wn.onkeypress(paddle_b_up, "Up")
 wn.onkeypress(paddle_b_down, "Down")
+
 
 def tick():
     global score_a
@@ -143,7 +149,8 @@ def tick():
         pygame.mixer.music.play()
 
     wn.update()
-tick()
 
+
+tick()
 # Main game loop
 wn.mainloop()

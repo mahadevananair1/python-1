@@ -313,6 +313,7 @@ def mode_ai():
                     ai()
                     flip_ai_player()
 
+
 is_game_end = False
 running = True
 while running:
