@@ -8,4 +8,5 @@ https://www.python.org/downloads/
 ```
 sudo apt-get install python3-tk
 sudo apt-get install python3-pygame
+pip3 install pyperclip
 ```
