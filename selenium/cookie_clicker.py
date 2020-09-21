@@ -1,9 +1,11 @@
+import os.path
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 
-PATH = "/home/jan/code/python/selenium/chromedriver"
-driver = webdriver.Chrome(PATH)
+project_directory = os.path.dirname(__file__)
+PATH = (os.path.join(project_directory, "./chromedriver"))
 
+driver = webdriver.Chrome(PATH)
 driver.get("http://orteil.dashnet.org/cookieclicker/")
 
 driver.implicitly_wait(5)
