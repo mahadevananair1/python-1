@@ -1,11 +1,15 @@
 import unittest
 from selenium import webdriver
 import page
+import os.path
 
 
 class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome("/home/jan/code/python/selenium/chromedriver")
+        project_directory = os.path.dirname(__file__)
+        PATH = (os.path.join(project_directory, ".././chromedriver"))
+        print(PATH)
+        self.driver = webdriver.Chrome(PATH)
         self.driver.get("http://www.python.org")
 
     def test_search_python(self):
