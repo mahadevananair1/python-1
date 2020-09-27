@@ -15,6 +15,14 @@ def clear_display():
     display.set(show)
 
 
+def equal():
+    global show
+    total = str(eval(show))
+    display.set(total)
+
+    show = ""
+
+
 if __name__ == "__main__":
     screen = Tk()
     screen.geometry("500x400")
@@ -22,10 +30,10 @@ if __name__ == "__main__":
 
     display = StringVar()
 
-    display_field = Entry(screen, textvariable=show, width="30")
+    display_field = Entry(screen, textvariable=display, width="30")
     display_field.grid(row=0, column=1)
 
-    clear = Button(screen, text="Clear", width="40", command=clear_display())
+    clear = Button(screen, text="Clear", width="40", command=clear_display)
     clear.grid(row=1, column=1)
 
     button1 = Button(screen, text="1", width="4", height="2", command=lambda: press(1))
@@ -70,7 +78,7 @@ if __name__ == "__main__":
     divide = Button(screen, text="/", width="4", height="2", command=lambda: press("/"))
     divide.grid(row=7, column=0)
 
-    equal = Button(screen, text="=", width="4", height="2", command=lambda: press("="))
+    equal = Button(screen, text="=", width="4", height="2", command=equal)
     equal.grid(row=5, column=2)
 
     screen.mainloop()
