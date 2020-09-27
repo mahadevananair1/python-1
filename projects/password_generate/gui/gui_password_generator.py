@@ -1,6 +1,5 @@
 import random
 from tkinter import *
-
 import pyperclip
 
 # Set screen
