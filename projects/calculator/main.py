@@ -5,12 +5,10 @@ if __name__ == "__main__":
     screen.geometry("500x400")
     screen.title("Calculator")
 
-    # Display answer
     display = StringVar()
     display_field = Entry(screen, width="30")
     display_field.grid(row=0, column=1)
 
-    # Clear display
     clear = Button(screen, text="Clear", width="40")
     clear.grid(row=1, column=1)
 
@@ -43,5 +41,20 @@ if __name__ == "__main__":
 
     button0 = Button(screen, text="0", width="4", height="2")
     button0.grid(row=5, column=1)
+
+    plus = Button(screen, text="+", width="4", height="2")
+    plus.grid(row=6, column=0)
+
+    minus = Button(screen, text="-", width="4", height="2")
+    minus.grid(row=6, column=1)
+
+    multiply = Button(screen, text="*", width="4", height="2")
+    multiply.grid(row=6, column=2)
+
+    divide = Button(screen, text="/", width="4", height="2")
+    divide.grid(row=7, column=0)
+
+    equal = Button(screen, text="=", width="4", height="2")
+    equal.grid(row=5, column=2)
 
     screen.mainloop()
