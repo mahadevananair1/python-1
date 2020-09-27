@@ -1,5 +1,5 @@
 import os
-from tkinter import *
+from tkinter import Tk, Label, Button, END, Toplevel, StringVar, Entry
 
 
 def register_user():

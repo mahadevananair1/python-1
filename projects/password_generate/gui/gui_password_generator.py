@@ -1,6 +1,7 @@
 import random
 from tkinter import *
 import pyperclip
+from tkinter import Tk, Label, Button, StringVar, IntVar, Entry
 
 # Set screen
 root = Tk()
