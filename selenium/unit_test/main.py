@@ -7,7 +7,7 @@ import os.path
 class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
         project_directory = os.path.dirname(__file__)
-        PATH = (os.path.join(project_directory, ".././chromedriver"))
+        PATH = (os.path.join(project_directory, "../cookie/./chromedriver"))
         print(PATH)
         self.driver = webdriver.Chrome(PATH)
         self.driver.get("http://www.python.org")
