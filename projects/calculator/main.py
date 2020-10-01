@@ -84,6 +84,9 @@ if __name__ == "__main__":
     # percentage = Button(screen, text="%", width="4", height="2", command=lambda: press("%"))
     # percentage.grid(row=7, column=2)
 
+    dot = Button(screen, text=".", width="4", height="2", command=lambda: press("."))
+    dot.grid(row=7, column=1)
+
     bracket_open = Button(screen, text="(", width="4", height="2", command=lambda: press("("))
     bracket_open.grid(row=7, column=2)
 
