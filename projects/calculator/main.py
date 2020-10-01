@@ -78,6 +78,18 @@ if __name__ == "__main__":
     divide = Button(screen, text="/", width="4", height="2", command=lambda: press("/"))
     divide.grid(row=7, column=0)
 
+    root = Button(screen, text="**", width="4", height="2", command=lambda: press("**"))
+    root.grid(row=7, column=1)
+
+    # percentage = Button(screen, text="%", width="4", height="2", command=lambda: press("%"))
+    # percentage.grid(row=7, column=2)
+
+    bracket_open = Button(screen, text="(", width="4", height="2", command=lambda: press("("))
+    bracket_open.grid(row=7, column=2)
+
+    bracket_close = Button(screen, text=")", width="4", height="2", command=lambda: press(")"))
+    bracket_close.grid(row=8, column=2)
+
     equal = Button(screen, text="=", width="4", height="2", command=equal)
     equal.grid(row=5, column=2)
 
