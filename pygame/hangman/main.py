@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     guess = input("Guess a letter or a word: ")
 
-    # TODO(jan) Fixed the user input with letters
+    # TODO(jan): Fix the user input with letters
     if guess == split_random_fruit:
         print("Correct")
     else:
