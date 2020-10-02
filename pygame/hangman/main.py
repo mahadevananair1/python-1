@@ -6,7 +6,6 @@ secret_words = ["apple", "banana", "mango", "strawberry",
                 "papaya", "berry", "peach", "lychee", "muskmelon"]
 
 letterguessed = []
-wrong_count = 0
 
 
 def split(word):
