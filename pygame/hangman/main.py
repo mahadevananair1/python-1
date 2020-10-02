@@ -27,11 +27,9 @@ if __name__ == "__main__":
 
     print("\n")
 
-    # Get the length of the word
     word_length = len(random_fruit)
     print(word_length)
 
-    # User guess and chances
     for time in range(word_length + 2):
         guess = input("Guess a letter: ")
         letterguessed += guess
