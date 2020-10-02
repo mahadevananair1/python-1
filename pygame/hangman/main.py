@@ -5,7 +5,7 @@ secret_words = ["apple", "banana", "mango", "strawberry",
                 "lemon", "coconut", "watermelon", "cherry",
                 "papaya", "berry", "peach", "lychee", "muskmelon"]
 
-letterguessed = []
+letter_guessed = []
 
 
 def split(word):
@@ -31,12 +31,12 @@ if __name__ == "__main__":
 
     for time in range(word_length + 2):
         guess = input("Guess a letter: ")
-        letterguessed += guess
+        letter_guessed += guess
 
         for char in random_fruit:
-            if char in letterguessed:
+            if char in letter_guessed:
                 print(char)
             else:
                 print("_")
 
-        print("Total:", letterguessed)
+        print("Total:", letter_guessed)
