@@ -1,4 +1,5 @@
 import random
+import sys
 
 secret_words = ["apple", "banana", "mango", "strawberry",
                 "orange", "grape", "pineapple", "apricot",
@@ -29,6 +30,7 @@ if __name__ == "__main__":
     while turn > 0:
         guess = input("Guess a letter: ")
         letter_guessed += guess
+        failed = 0
 
         if guess == "":
             print("ENTER A LETTER")
@@ -38,6 +40,7 @@ if __name__ == "__main__":
                     print(char)
                 else:
                     print("_")
+                    failed += 1
 
             if guess in random_fruit:
                 print("Correct")
@@ -45,5 +48,9 @@ if __name__ == "__main__":
                 print("Wrong")
                 turn -= 1
 
+            if failed == 0:
+                sys.exit("You won")
+
         print(f"All guesses: {letter_guessed}")
+        print(f"You have {turn} more chance to guess")
     print(f"The word was: {random_fruit}")
