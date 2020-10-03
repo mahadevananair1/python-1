@@ -5,14 +5,8 @@ secret_words = ["apple", "banana", "mango", "strawberry",
                 "orange", "grape", "pineapple", "apricot",
                 "lemon", "coconut", "watermelon", "cherry",
                 "papaya", "berry", "peach", "lychee", "muskmelon"]
-
 letter_guessed = ""
 turn = 14
-
-
-def split(word):
-    return [char for char in word]
-
 
 if __name__ == "__main__":
     random_fruit = random.choice(secret_words)
