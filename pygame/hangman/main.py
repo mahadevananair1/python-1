@@ -40,4 +40,5 @@ if __name__ == "__main__":
         else:
             print("Wrong")
 
-        print("Total:", letter_guessed)
+        print("All guesses", letter_guessed)
+    print(f"The word was: {random_fruit}")
