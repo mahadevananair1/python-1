@@ -83,7 +83,6 @@ def display_hangman(turn):
 
 if __name__ == "__main__":
     random_fruit = random.choice(word_list)
-    print("Guess the word! HINT: word is a name of a fruit")
 
     for letter in random_fruit:
         print("_", end=" ")
