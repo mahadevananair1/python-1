@@ -6,6 +6,7 @@ secret_words = ["apple", "banana", "mango", "strawberry",
                 "papaya", "berry", "peach", "lychee", "muskmelon"]
 
 letter_guessed = ""
+turn = 14
 
 
 def split(word):
@@ -25,20 +26,24 @@ if __name__ == "__main__":
 
     word_length = len(random_fruit)
 
-    for time in range(word_length + 2):
+    while turn > 0:
         guess = input("Guess a letter: ")
         letter_guessed += guess
 
-        for char in random_fruit:
-            if char in letter_guessed:
-                print(char)
+        if guess == "":
+            print("ENTER A LETTER")
+        if guess != "":
+            for char in random_fruit:
+                if char in letter_guessed:
+                    print(char)
+                else:
+                    print("_")
+
+            if guess in random_fruit:
+                print("Correct")
             else:
-                print("_")
+                print("Wrong")
+                turn -= 1
 
-        if guess in random_fruit:
-            print("Correct")
-        else:
-            print("Wrong")
-
-        print("All guesses", letter_guessed)
+        print(f"All guesses: {letter_guessed}")
     print(f"The word was: {random_fruit}")
