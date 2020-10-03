@@ -95,7 +95,7 @@ if __name__ == "__main__":
         failed = 0
 
         if guess == "":
-            print("ENTER A LETTER")
+            print("ENTER A LETTER!")
         elif guess != "":
             for char in random_fruit:
                 if char in letter_guessed:
