@@ -1,15 +1,88 @@
 import random
 import sys
+from words import word_list
 
-secret_words = ["apple", "banana", "mango", "strawberry",
-                "orange", "grape", "pineapple", "apricot",
-                "lemon", "coconut", "watermelon", "cherry",
-                "papaya", "berry", "peach", "lychee", "muskmelon"]
 letter_guessed = ""
-turn = 14
+turn = 6
+
+
+def display_hangman(turn):
+    stages = [  # final state: head, torso, both arms, and both legs
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                """,
+                # head, torso, both arms, and one leg
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     /
+                   -
+                """,
+                # head, torso, and both arms
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |
+                   -
+                """,
+                # head, torso, and one arm
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |
+                   -
+                """,
+                # head and torso
+                """
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |
+                   -
+                """,
+                # head
+                """
+                   --------
+                   |      |
+                   |      O
+                   |
+                   |
+                   |
+                   -
+                """,
+                # initial empty state
+                """
+                   --------
+                   |      |
+                   |
+                   |
+                   |
+                   |
+                   -
+                """
+    ]
+    return stages[turn]
+
 
 if __name__ == "__main__":
-    random_fruit = random.choice(secret_words)
+    random_fruit = random.choice(word_list)
     print("Guess the word! HINT: word is a name of a fruit")
 
     for letter in random_fruit:
@@ -37,6 +110,7 @@ if __name__ == "__main__":
             else:
                 print("\nWrong")
                 turn -= 1
+                print(display_hangman(turn))
 
             if failed == 0:
                 sys.exit("You won")
