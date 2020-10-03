@@ -16,16 +16,12 @@ def split(word):
 
 if __name__ == "__main__":
     random_fruit = random.choice(secret_words)
-    split_random_fruit = split(random_fruit)
-
     print("Guess the word! HINT: word is a name of a fruit")
 
     for letter in random_fruit:
         print("_", end=" ")
 
     print("\n")
-
-    word_length = len(random_fruit)
 
     while turn > 0:
         guess = input("Guess a letter: ")
@@ -34,18 +30,18 @@ if __name__ == "__main__":
 
         if guess == "":
             print("ENTER A LETTER")
-        if guess != "":
+        elif guess != "":
             for char in random_fruit:
                 if char in letter_guessed:
-                    print(char)
+                    print(char, end=" ")
                 else:
-                    print("_")
+                    print("_", end=" ")
                     failed += 1
 
             if guess in random_fruit:
-                print("Correct")
+                print("\nCorrect")
             else:
-                print("Wrong")
+                print("\nWrong")
                 turn -= 1
 
             if failed == 0:
