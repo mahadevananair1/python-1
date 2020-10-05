@@ -19,11 +19,13 @@ clock = pygame.time.Clock()
 # Font
 TITLE_FONT = pygame.font.Font("font/comic-shanns.otf", 70)
 LETTER_FONT = pygame.font.Font("font/comic-shanns.otf", 30)
+WORD_FONT = pygame.font.Font("font/comic-shanns.otf", 40)
 
 # Game variables
 hangman_status = 0
 words = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM"]
 word = random.choice(words)
+guessed = ["D", "Y", "I"]
 
 # Images
 images = []
@@ -68,6 +70,24 @@ def draw():
             # TODO(Jan): Understand the maths
             screen.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
+    # Draw word
+    display_word = ""
+    for letter in word:
+        if letter in guessed:
+            display_word += letter + " "
+        else:
+            display_word += "_ "
+    text = WORD_FONT.render(display_word, True, BLACK)
+    screen.blit(text, (400, 200))
+
+
+def display_message(message):
+    screen.fill(WHITE)
+    text = WORD_FONT.render(message, True, BLACK)
+    screen.blit(text, (WIDTH / 2 - text.get_width() / 2, HEIGHT / 2 - text.get_height() / 2))
+    pygame.display.update()
+    pygame.time.delay(3000)
+
 
 run = True
 while run:
@@ -82,9 +102,26 @@ while run:
             for letter in letters:
                 x, y, ltr, visible = letter
                 if visible:
+                    # TODO(Jan): Understand the maths
                     dis = math.sqrt((x - m_x) ** 2 + (y - m_y) ** 2)
                     if dis < RADIUS:
                         letter[3] = False
+                        guessed.append(ltr)
+                        if ltr not in word:
+                            hangman_status += 1
+    won = True
+    for letter in word:
+        if letter not in guessed:
+            won = False
+            break
+
+    if won:
+        display_message("You won")
+        break
+
+    if hangman_status == 6:
+        display_message("You lose")
+        break
 
     draw()
 
