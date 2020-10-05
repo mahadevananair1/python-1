@@ -17,6 +17,7 @@ clock = pygame.time.Clock()
 
 # Font
 TITLE_FONT = pygame.font.Font("font/comic-shanns.otf", 70)
+LETTER_FONT = pygame.font.Font("font/comic-shanns.otf", 30)
 
 # Game variables
 hangman_status = 0
@@ -30,15 +31,17 @@ for i in range(7):
     images.append(image)
 
 # Buttons
+# TODO(Jan): Understand the maths
 RADIUS = 20
 GAP = 10
 letters = []
 startx = round((WIDTH - (GAP + RADIUS * 2) * 13) / 2)
 starty = 400
+A = 65
 for i in range(26):
     x = startx + GAP * 2 + ((GAP + RADIUS * 2) * (i % 13))
     y = starty + ((i // 13) * (GAP + RADIUS * 2))
-    letters.append([x, y])
+    letters.append([x, y, chr(A + i)])
 
 # Colors
 BLACK = (0, 0, 0)
@@ -46,7 +49,7 @@ WHITE = (255, 255, 255)
 
 
 def draw():
-    screen.fill((WHITE))
+    screen.fill(WHITE)
 
     # Text
     text = TITLE_FONT.render("DEVELOPER HANGMAN", True, BLACK)
@@ -57,8 +60,11 @@ def draw():
 
     # Draw buttons
     for letter in letters:
-        x, y = letter
+        x, y, ltr = letter
         pygame.draw.circle(screen, BLACK, (x, y), RADIUS, 3)
+        text = LETTER_FONT.render(ltr, True, BLACK)
+        # TODO(Jan): Understand the maths
+        screen.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
 
 run = True
