@@ -100,15 +100,15 @@ clock = pygame.time.Clock()
 fps = 60
 
 # Game loop
-running = True
-while running:
+run = True
+while run:
     clock.tick(fps)
     screen.fill((153, 209, 255))
     screen.blit(back_image, (0, 0))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            run = False
         # If keystroke is pressed check whether it's right or left
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
