@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 pygame.init()
 
@@ -41,7 +42,7 @@ A = 65
 for i in range(26):
     x = startx + GAP * 2 + ((GAP + RADIUS * 2) * (i % 13))
     y = starty + ((i // 13) * (GAP + RADIUS * 2))
-    letters.append([x, y, chr(A + i)])
+    letters.append([x, y, chr(A + i), True])
 
 # Colors
 BLACK = (0, 0, 0)
@@ -60,11 +61,12 @@ def draw():
 
     # Draw buttons
     for letter in letters:
-        x, y, ltr = letter
-        pygame.draw.circle(screen, BLACK, (x, y), RADIUS, 3)
-        text = LETTER_FONT.render(ltr, True, BLACK)
-        # TODO(Jan): Understand the maths
-        screen.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
+        x, y, ltr, visible = letter
+        if visible:
+            pygame.draw.circle(screen, BLACK, (x, y), RADIUS, 3)
+            text = LETTER_FONT.render(ltr, True, BLACK)
+            # TODO(Jan): Understand the maths
+            screen.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
 
 run = True
@@ -76,8 +78,13 @@ while run:
         if event.type == pygame.QUIT:
             run = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            position = pygame.mouse.get_pos()
-            print(position)
+            m_x, m_y = pygame.mouse.get_pos()
+            for letter in letters:
+                x, y, ltr, visible = letter
+                if visible:
+                    dis = math.sqrt((x - m_x) ** 2 + (y - m_y) ** 2)
+                    if dis < RADIUS:
+                        letter[3] = False
 
     draw()
 
