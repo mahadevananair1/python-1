@@ -31,7 +31,6 @@ for i in range(7):
     images.append(image)
 
 # Buttons
-# TODO(Jan): Understand the maths
 RADIUS = 20
 GAP = 15
 letters = []
@@ -47,6 +46,8 @@ for i in range(26):
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BRIGHT_GREY = (60, 60, 90)
+GREEN = (66, 244, 66)
+RED = (255, 0, 0)
 
 
 def draw():
@@ -88,54 +89,59 @@ def display_message(message):
 
 
 def menu():
-    global click
+    global click, hangman_status, guessed, words, word
 
     # FPS
-    FPS = 60
+    fps = 60
     clock = pygame.time.Clock()
 
     while True:
         # FPS
-        clock.tick(FPS)
+        clock.tick(fps)
 
         # Mouse positions
         pos_x, pos_y = pygame.mouse.get_pos()
 
         # Position of buttons
-        POS_PLAY_BUTTON = (50, 400, 200, 50)
-        POS_QUIT_BUTTON = (550, 400, 200, 50)
+        pos_play_button = (50, 400, 120, 50)
+        pos_quit_button = (550, 400, 120, 50)
 
         # Create the buttons
-        button_play = pygame.Rect(POS_PLAY_BUTTON)
-        button_quit = pygame.Rect(POS_QUIT_BUTTON)
+        button_play = pygame.Rect(pos_play_button)
+        button_quit = pygame.Rect(pos_quit_button)
 
         # Create text inside the buttons
-        text_play = WORD_FONT.render("Play", True, BRIGHT_GREY)
-        text_quit = WORD_FONT.render("Quit", True, BRIGHT_GREY)
+        text_play = WORD_FONT.render("Play", True, BLACK)
+        text_quit = WORD_FONT.render("Quit", True, BLACK)
 
         # Check collision
         if button_play.collidepoint(pos_x, pos_y):
-            pygame.draw.rect(screen, BRIGHT_GREY, POS_PLAY_BUTTON)
+            pygame.draw.rect(screen, BRIGHT_GREY, pos_play_button)
             if click:
                 hangman_status = 0
                 words = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM"]
                 word = random.choice(words)
                 guessed = ["D", "Y", "I"]
                 click = False
-                won = True
                 main()
         if button_quit.collidepoint(pos_x, pos_y):
-            pygame.draw.rect(screen, BRIGHT_GREY, POS_QUIT_BUTTON)
+            pygame.draw.rect(screen, BRIGHT_GREY, pos_quit_button)
             if click:
                 pygame.quit()
 
         # Draw the buttons
-        pygame.draw.rect(screen, (BLACK), button_play)
-        pygame.draw.rect(screen, (BLACK), button_quit)
+        pygame.draw.rect(screen, GREEN, button_play)
+        pygame.draw.rect(screen, RED, button_quit)
 
         # Draw the text
-        screen.blit(text_play, (50 - text_play.get_width() / 2, 400 - text_play.get_height() / 2))
-        screen.blit(text_quit, (550 - text_play.get_width() / 2, 400 - text_play.get_height() / 2))
+        # screen.blit(text_play, ((50 + 120) / 2, (400 + 450) / 2))
+        # screen.blit(text_quit, ((550 + 120) / 2, (400 + 450) / 2))
+
+        # screen.blit(text_play, ((50 + (120 / 2)), (400 + (50 / 2))))
+        # screen.blit(text_quit, ((550 + 120) / 2, (400 + 450) / 2))
+
+        screen.blit(text_play, (70, 405))
+        screen.blit(text_quit, (570, 405))
 
         click = False
 
@@ -153,17 +159,17 @@ def main():
     global hangman_status
 
     # FPS
-    FPS = 60
+    fps = 60
     clock = pygame.time.Clock()
     run = True
 
     while run:
         # FPS
-        clock.tick(FPS)
+        clock.tick(fps)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                pygame.quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 m_x, m_y = pygame.mouse.get_pos()
                 for letter in letters:
