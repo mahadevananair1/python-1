@@ -16,8 +16,11 @@
     [732, 455, 'Z', True]]
 
 >for i in range(26):  
->>print(42+15*2+((20*2+15)*(i % 13)))
-    
+>>print(42+15*2+((20*2+15)*(i % 13)))  
+or  
+>startx = round((WIDTH - (RADIUS * 2 + GAP) * 13) / 2)  # answer = 42  
+x = startx + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 13))
+
     72
     127
     182
