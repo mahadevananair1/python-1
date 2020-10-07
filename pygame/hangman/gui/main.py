@@ -123,6 +123,8 @@ def menu():
                 word = random.choice(words)
                 guessed = ["D", "Y", "I"]
                 click = False
+                for letter in letters:
+                    letter[3] = True
                 main()
         if button_quit.collidepoint(pos_x, pos_y):
             pygame.draw.rect(screen, BRIGHT_GREY, pos_quit_button)
