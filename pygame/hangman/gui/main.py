@@ -87,7 +87,6 @@ def display_message(message):
     screen.blit(text, (WIDTH / 2 - text.get_width() / 2, HEIGHT / 2
                        - text.get_height() / 2))
     pygame.display.update()
-    # pygame.time.delay(3000)
 
 
 def menu():
