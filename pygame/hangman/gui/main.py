@@ -19,7 +19,7 @@ WORD_FONT = pygame.font.Font("font/comic-shanns.otf", 40)
 
 # Game variables
 HANGMAN_STATUS = 0
-WORDS = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM", "STRAGER", "RUBY", \
+WORDS = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM", "STRAGER", "RUBY",
          "CPLUSPLUS", "TWITCH", "JAVASCRIPT", "HTML", "CSS", "NODEJS"]
 WORD = random.choice(WORDS)
 GUESSED = ["D", "Y", "I"]
@@ -67,7 +67,8 @@ def draw():
         if visible:
             pygame.draw.circle(screen, BLACK, (x, y), RADIUS, 3)
             text = LETTER_FONT.render(ltr, True, BLACK)
-            screen.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
+            screen.blit(text, (x - text.get_width() / 2, y
+                               - text.get_height() / 2))
 
     # Draw word
     display_word = ""
@@ -83,7 +84,8 @@ def draw():
 def display_message(message):
     screen.fill(WHITE)
     text = WORD_FONT.render(message, True, BLACK)
-    screen.blit(text, (WIDTH / 2 - text.get_width() / 2, HEIGHT / 2 - text.get_height() / 2))
+    screen.blit(text, (WIDTH / 2 - text.get_width() / 2, HEIGHT / 2
+                       - text.get_height() / 2))
     pygame.display.update()
     # pygame.time.delay(3000)
 
