@@ -1,6 +1,6 @@
-import pygame
 import random
 import math
+import pygame
 
 pygame.init()
 
@@ -18,11 +18,12 @@ LETTER_FONT = pygame.font.Font("font/comic-shanns.otf", 30)
 WORD_FONT = pygame.font.Font("font/comic-shanns.otf", 40)
 
 # Game variables
-hangman_status = 0
-words = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM"]
-word = random.choice(words)
-guessed = ["D", "Y", "I"]
-click = False
+HANGMAN_STATUS = 0
+WORDS = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM", "STRAGER", "RUBY", \
+         "CPLUSPLUS", "TWITCH", "JAVASCRIPT", "HTML", "CSS", "NODEJS"]
+WORD = random.choice(WORDS)
+GUESSED = ["D", "Y", "I"]
+CLICK = False
 
 # Images
 images = []
@@ -34,12 +35,12 @@ for i in range(7):
 RADIUS = 20
 GAP = 15
 letters = []
-startx = round((WIDTH - (RADIUS * 2 + GAP) * 13) / 2)  # answer = 42
-starty = 400
+STARTX = round((WIDTH - (RADIUS * 2 + GAP) * 13) / 2)  # answer = 42
+STARTY = 400
 A = 65
 for i in range(26):
-    x = startx + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 13))
-    y = starty + ((i // 13) * (GAP + RADIUS * 2))
+    x = STARTX + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 13))
+    y = STARTY + ((i // 13) * (GAP + RADIUS * 2))
     letters.append([x, y, chr(A + i), True])
 
 # Colors
@@ -58,7 +59,7 @@ def draw():
     screen.blit(text, (WIDTH / 2 - text.get_width() / 2, 20))
 
     # Hangman image
-    screen.blit(images[hangman_status], (150, 100))
+    screen.blit(images[HANGMAN_STATUS], (150, 100))
 
     # Draw buttons
     for letter in letters:
@@ -66,13 +67,12 @@ def draw():
         if visible:
             pygame.draw.circle(screen, BLACK, (x, y), RADIUS, 3)
             text = LETTER_FONT.render(ltr, True, BLACK)
-            # TODO(Jan): Understand the maths
             screen.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
     # Draw word
     display_word = ""
-    for letter in word:
-        if letter in guessed:
+    for letter in WORD:
+        if letter in GUESSED:
             display_word += letter + " "
         else:
             display_word += "_ "
@@ -89,7 +89,7 @@ def display_message(message):
 
 
 def menu():
-    global click, hangman_status, guessed, words, word
+    global CLICK, HANGMAN_STATUS, GUESSED, WORDS, WORD
 
     # FPS
     fps = 60
@@ -117,18 +117,18 @@ def menu():
         # Check collision
         if button_play.collidepoint(pos_x, pos_y):
             pygame.draw.rect(screen, BRIGHT_GREY, pos_play_button)
-            if click:
-                hangman_status = 0
-                words = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM"]
-                word = random.choice(words)
-                guessed = ["D", "Y", "I"]
-                click = False
+            if CLICK:
+                HANGMAN_STATUS = 0
+                WORDS = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM"]
+                WORD = random.choice(WORDS)
+                GUESSED = ["D", "Y", "I"]
+                CLICK = False
                 for letter in letters:
                     letter[3] = True
                 main()
         if button_quit.collidepoint(pos_x, pos_y):
             pygame.draw.rect(screen, BRIGHT_GREY, pos_quit_button)
-            if click:
+            if CLICK:
                 pygame.quit()
 
         # Draw the buttons
@@ -145,20 +145,20 @@ def menu():
         screen.blit(text_play, (70, 405))
         screen.blit(text_quit, (570, 405))
 
-        click = False
+        CLICK = False
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    click = True
+                    CLICK = True
 
         pygame.display.update()
 
 
 def main():
-    global hangman_status
+    global HANGMAN_STATUS
 
     # FPS
     fps = 60
@@ -177,18 +177,17 @@ def main():
                 for letter in letters:
                     x, y, ltr, visible = letter
                     if visible:
-                        # TODO(Jan): Understand the maths
                         dis = math.sqrt((x - m_x) ** 2 + (y - m_y) ** 2)
                         if dis < RADIUS:
                             letter[3] = False
-                            guessed.append(ltr)
-                            if ltr not in word:
-                                hangman_status += 1
+                            GUESSED.append(ltr)
+                            if ltr not in WORD:
+                                HANGMAN_STATUS += 1
         draw()
 
         won = True
-        for letter in word:
-            if letter not in guessed:
+        for letter in WORD:
+            if letter not in GUESSED:
                 won = False
                 break
 
@@ -197,7 +196,7 @@ def main():
             menu()
             break
 
-        if hangman_status == 6:
+        if HANGMAN_STATUS == 6:
             display_message("You lose")
             menu()
             break
