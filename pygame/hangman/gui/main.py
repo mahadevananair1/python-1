@@ -1,5 +1,6 @@
 import random
 import math
+import os.path
 import pygame
 
 pygame.init()
@@ -12,10 +13,17 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 # Caption
 pygame.display.set_caption("Hangman Game")
 
+# Loading images
+project_directory = os.path.dirname(__file__)
+
 # Font
-TITLE_FONT = pygame.font.Font("font/comic-shanns.otf", 70)
-LETTER_FONT = pygame.font.Font("font/comic-shanns.otf", 30)
-WORD_FONT = pygame.font.Font("font/comic-shanns.otf", 40)
+TITLE_FONT = os.path.join(project_directory, "font/comic-shanns.otf")
+LETTER_FONT = os.path.join(project_directory, "font/comic-shanns.otf")
+WORD_FONT = os.path.join(project_directory, "font/comic-shanns.otf")
+
+TITLE_FONT = pygame.font.Font(TITLE_FONT, 70)
+LETTER_FONT = pygame.font.Font(LETTER_FONT, 30)
+WORD_FONT = pygame.font.Font(WORD_FONT, 40)
 
 # Game variables
 HANGMAN_STATUS = 0
@@ -28,7 +36,8 @@ CLICK = False
 # Images
 images = []
 for i in range(7):
-    image = pygame.image.load("images/hangman" + str(i) + ".png")
+    image = os.path.join(project_directory, "images/hangman")
+    image = pygame.image.load(image + str(i) + ".png")
     images.append(image)
 
 # Buttons
