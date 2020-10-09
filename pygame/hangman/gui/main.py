@@ -17,13 +17,11 @@ pygame.display.set_caption("Hangman Game")
 project_directory = os.path.dirname(__file__)
 
 # Font
-TITLE_FONT = os.path.join(project_directory, "font/comic-shanns.otf")
-LETTER_FONT = os.path.join(project_directory, "font/comic-shanns.otf")
-WORD_FONT = os.path.join(project_directory, "font/comic-shanns.otf")
+COMICSHANNS = os.path.join(project_directory, "font/comic-shanns.otf")
 
-TITLE_FONT = pygame.font.Font(TITLE_FONT, 70)
-LETTER_FONT = pygame.font.Font(LETTER_FONT, 30)
-WORD_FONT = pygame.font.Font(WORD_FONT, 40)
+TITLE_FONT = pygame.font.Font(COMICSHANNS, 70)
+LETTER_FONT = pygame.font.Font(COMICSHANNS, 30)
+WORD_FONT = pygame.font.Font(COMICSHANNS, 40)
 
 # Game variables
 HANGMAN_STATUS = 0
