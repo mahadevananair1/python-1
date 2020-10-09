@@ -22,7 +22,7 @@ paddle_a.shape("square")
 paddle_a.color("white")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 
-# Does't draw a line (Because turtle normally draw a line)
+# Doesn't draw a line (Because turtle normally draw a line)
 paddle_a.penup()
 paddle_a.goto(-350, 0)
 
@@ -33,7 +33,7 @@ paddle_b.shape("square")
 paddle_b.color("white")
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
 
-# Does't draw a line (Because turtle normally draw a line)
+# Doesn't draw a line (Because turtle normally draw a line)
 paddle_b.penup()
 paddle_b.goto(350, 0)
 
@@ -43,7 +43,7 @@ ball.speed(0)
 ball.shape("square")
 ball.color("white")
 
-# Does't draw a line (Because turtle normally draw a line)
+# Doesn't draw a line (Because turtle normally draw a line)
 ball.penup()
 ball.goto(0, 0)
 
@@ -101,7 +101,8 @@ def tick():
     global score_b
     wn.ontimer(tick, 10)
 
-    # Move the ball, setting the ball coordinate and getting current coordinate and plus with ball.dx, so the ball will move right and up (X, Y)
+    # Move the ball, setting the ball coordinate and getting current coordinate and plus with ball.dx, so the ball
+    # will move right and up (X, Y)
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
