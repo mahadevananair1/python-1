@@ -28,7 +28,7 @@ HANGMAN_STATUS = 0
 WORDS = ["IDE", "PYTHON", "DEVELOPER", "PYGAME", "VIM", "STRAGER", "RUBY",
          "CPLUSPLUS", "TWITCH", "JAVASCRIPT", "HTML", "CSS", "NODEJS"]
 WORD = random.choice(WORDS)
-GUESSED = ["D", "Y", "I"]
+GUESSED = ["D", "Y", "I", "J", "A", "H"]
 CLICK = False
 
 # Images
