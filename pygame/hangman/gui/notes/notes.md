@@ -137,3 +137,5 @@ x = startx + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 13))
     23 455
     24 455
     25 455
+
+you make a module so you can reuse the game logic code
