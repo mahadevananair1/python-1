@@ -1,6 +1,10 @@
 import random
 import sys
 from words import word_list
+sys.path.append("../gui")
+import main
+
+print(main.letter())
 
 letter_guessed = ""
 turn = 6
