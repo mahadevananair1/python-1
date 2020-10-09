@@ -38,8 +38,9 @@ o_score = 0
 is_click = "not click"
 
 # Fonts
-FONT = pygame.font.Font("font/arcadeclassic.regular.ttf", 32)
-OVER_FONT = pygame.font.Font('font/arcadeclassic.regular.ttf', 50)
+ARCADECLASSIC = os.path.join(project_directory, "font/arcadeclassic.regular.ttf")
+FONT = pygame.font.Font(ARCADECLASSIC, 32)
+OVER_FONT = pygame.font.Font(ARCADECLASSIC, 50)
 
 # Global variables(Computer AI)
 current_player_turn = "X"
